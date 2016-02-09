@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link href="bootstrap.custom.css" rel="stylesheet" />    
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../fontawesome/css/font-awesome.css" rel="stylesheet" />
+    
+    <link href="container.css" rel="stylesheet" />
+    <link href="site.main.css" rel="stylesheet" />    
+    <link href="smart.hys.rating.css" rel="stylesheet" />
+    
+    
+    <script src="../jquery/jquery-1.11.3.min.js"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.19/dist/jquery.flip.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script>
+    
+
+
+</head>
+<body>
+
+    <div class="smart-rating-wrapper">
+        <div class="inner-container inner-container-default inner-container-box-shadow noPadding">
+            <div class="panel-group">
+                <div class="customerSelection panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingCustomerSelection">
+                        <a class="collapse-open" role="button" data-toggle="collapse" data-parent="#accordion" href="#" aria-expanded="false" aria-controls="collapseCustomerSelection">
+                            <span class="containerIndex">1</span>
+                            <span class="title"><b>Kişisel Yetkinlik </b> için aşağıdaki bilgileri doldurun.</span>                          
+                        </a>
+                    </div>
+                    <div id="collapseCustomerSelection"  aria-labelledby="headingCustomerSelection" aria-expanded="true">
+                        <span class="subtitle"><b>İletişim</b> yetkinliklerini doldurun *</span>
+                        <span class="summary "><i class="fa fa-pencil"></i></span>
+                         <div class="rate-line-container">
+                            <div class="rate-line-outer">
+                                <div class="row">
+                                    <div class="col-md-3 rate-line">
+                                        <div class="rate-line-circle" data-rate-type="1">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 rate-line">
+                                        <div class="rate-line-circle" data-rate-type="2"></div>
+                                    </div>
+                                    <div class="col-md-3 rate-line">
+                                        <div class="rate-line-circle" data-rate-type="3"></div>
+                                    </div>
+                                    <div class="col-md-3 rate-line ">
+                                        <div class="rate-line-circle rate-line-rectangle"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 rate-line-exp">
+                                        <span>Gelişime İhtiyacı Var</span>
+                                         <div data-rate-type="1" class="inner-container inner-container-default inner-container-box-shadow rate-box">
+                                             <div class="rate-action-circle"><span>1</span></div>
+                                             <div class="rate-action-circle"><span>2</span></div>
+                                             <div class="rate-action-circle"><span>3</span></div>
+                                        </div>
+                                    </div>
+                                <div class="col-md-3 rate-line-exp">
+                                    <span>Tatmin Edici Seviyede</span>
+                                      <div data-rate-type="2" class="inner-container inner-container-default inner-container-box-shadow rate-box">
+                                             <div class="rate-action-circle"><span>1</span></div>
+                                             <div class="rate-action-circle"><span>2</span></div>
+                                             <div class="rate-action-circle"><span>3</span></div>
+                                        </div>
+                                </div>
+                                <div class="col-md-3 rate-line-exp">
+                                    <span>Üstün/Örnek Olabilecek</span>
+                                      <div data-rate-type="3" class="inner-container inner-container-default inner-container-box-shadow rate-box">
+                                             <div class="rate-action-circle"><span>1</span></div>
+                                             <div class="rate-action-circle"><span>2</span></div>
+                                             <div class="rate-action-circle"><span>3</span></div>
+                                        </div>
+                                </div>
+                                </div>                                                                                                         
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="customerSelection panel panel-default">                 
+                    <div id="Div2" aria-labelledby="headingCustomerSelection" aria-expanded="true">
+                         <span class="subtitle"><b>İkna Etme</b> yetkinliklerini doldurun *</span>
+                         <span class="summary "><i class="fa fa-pencil"></i></span>
+                          <div class="rate-line-container">
+                            <div class="rate-line-outer">
+                                <div class="row">
+                                    <div class="col-md-3 rate-line">
+                                        <div class="rate-line-circle">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 rate-line">
+                                        <div class="rate-line-circle"></div>
+                                    </div>
+                                    <div class="col-md-3 rate-line">
+                                        <div class="rate-line-circle"></div>
+                                    </div>
+                                    <div class="col-md-3 rate-line ">
+                                        <div class="rate-line-circle rate-line-rectangle"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 rate-line-exp">
+                                        <span>Gelişime İhtiyacı Var</span>
+                                    </div>
+                                <div class="col-md-3 rate-line-exp">
+                                    <span>Tatmin Edici Seviyede</span>
+                                </div>
+                                <div class="col-md-3 rate-line-exp">
+                                    <span>Üstün/Örnek Olabilecek</span>
+                                </div>
+                                </div>                                          
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="customerSelection panel panel-default">                  
+                    <div id="Div4"  aria-labelledby="headingCustomerSelection" aria-expanded="true">
+                        <span class="subtitle"><b>Çatışma Yönetimi</b> yetkinliklerini doldurun *</span>
+                        <span class="summary "><i class="fa fa-pencil"></i></span>
+                         <div class="rate-line-container">
+                            <div class="rate-line-outer">
+                                <div class="row">
+                                    <div class="col-md-3 rate-line">
+                                        <div class="rate-line-circle">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 rate-line">
+                                        <div class="rate-line-circle"></div>
+                                    </div>
+                                    <div class="col-md-3 rate-line">
+                                        <div class="rate-line-circle"></div>
+                                    </div>
+                                    <div class="col-md-3 rate-line ">
+                                        <div class="rate-line-circle rate-line-rectangle"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 rate-line-exp">
+                                        <span>Gelişime İhtiyacı Var</span>
+                                    </div>
+                                <div class="col-md-3 rate-line-exp">
+                                    <span>Tatmin Edici Seviyede</span>
+                                </div>
+                                <div class="col-md-3 rate-line-exp">
+                                    <span>Üstün/Örnek Olabilecek</span>
+                                </div>
+                                </div>                                          
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+         <div class="inner-container inner-container-default inner-container-box-shadow noPadding">          
+            <div class="panel-group">
+                <div class="customerSelection panel panel-default">
+                    <div class="panel-heading" role="tab" id="Div1">
+                        <a class="collapse-open" role="button" data-toggle="collapse" data-parent="#accordion" href="#" aria-expanded="false" aria-controls="collapseCustomerSelection">
+                            <span class="containerIndex">2</span>
+                            <span class="title"><b>Analiz Etme</b> yetkinlik bilgilerini doldurun.</span>                           
+                        </a>
+                    </div>
+                    <div id="Div3"  aria-labelledby="headingCustomerSelection" aria-expanded="true">
+                         <span class="subtitle"><b>Baskılarla Başa Çıkma</b> yetkinliklerini doldurun *</span>
+                         <span class="summary "><i class="fa fa-pencil"></i></span>
+                          <div class="rate-line-container">
+                            <div class="rate-line-outer">
+                                <div class="row">
+                                    <div class="col-md-3 rate-line">
+                                        <div class="rate-line-circle">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 rate-line">
+                                        <div class="rate-line-circle"></div>
+                                    </div>
+                                    <div class="col-md-3 rate-line">
+                                        <div class="rate-line-circle"></div>
+                                    </div>
+                                    <div class="col-md-3 rate-line ">
+                                        <div class="rate-line-circle rate-line-rectangle"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 rate-line-exp">
+                                        <span>Gelişime İhtiyacı Var</span>
+                                    </div>
+                                <div class="col-md-3 rate-line-exp">
+                                    <span>Tatmin Edici Seviyede</span>
+                                </div>
+                                <div class="col-md-3 rate-line-exp">
+                                    <span>Üstün/Örnek Olabilecek</span>
+                                </div>
+                                </div>                                          
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="customerSelection panel panel-default">                  
+                    <div id="Div5" aria-labelledby="headingCustomerSelection" aria-expanded="true">
+                         <span class="subtitle"><b>Analiz Etme</b> yetkinliklerini doldurun *</span>
+                        <span class="summary "><i class="fa fa-pencil"></i></span>
+                         <div class="rate-line-container">
+                            <div class="rate-line-outer">
+                                <div class="row">
+                                    <div class="col-md-3 rate-line">
+                                        <div class="rate-line-circle">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 rate-line">
+                                        <div class="rate-line-circle"></div>
+                                    </div>
+                                    <div class="col-md-3 rate-line">
+                                        <div class="rate-line-circle"></div>
+                                    </div>
+                                    <div class="col-md-3 rate-line ">
+                                        <div class="rate-line-circle rate-line-rectangle"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 rate-line-exp">
+                                        <span>Gelişime İhtiyacı Var</span>
+                                    </div>
+                                <div class="col-md-3 rate-line-exp">
+                                    <span>Tatmin Edici Seviyede</span>
+                                </div>
+                                <div class="col-md-3 rate-line-exp">
+                                    <span>Üstün/Örnek Olabilecek</span>
+                                </div>
+                                </div>                                          
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="customerSelection panel panel-default">                   
+                    <div id="Div6"  aria-labelledby="headingCustomerSelection" aria-expanded="true">
+                        <span class="subtitle"><b>Kalite ve Hareket Odaklılık</b> yetkinliklerini doldurun *</span>
+                        <span class="summary "><i class="fa fa-pencil"></i></span>
+                         <div class="rate-line-container">
+                            <div class="rate-line-outer">
+                                <div class="row">
+                                    <div class="col-md-3 rate-line">
+                                        <div class="rate-line-circle">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 rate-line">
+                                        <div class="rate-line-circle"></div>
+                                    </div>
+                                    <div class="col-md-3 rate-line">
+                                        <div class="rate-line-circle"></div>
+                                    </div>
+                                    <div class="col-md-3 rate-line ">
+                                        <div class="rate-line-circle rate-line-rectangle"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 rate-line-exp">
+                                        <span>Gelişime İhtiyacı Var</span>
+                                    </div>
+                                <div class="col-md-3 rate-line-exp">
+                                    <span>Tatmin Edici Seviyede</span>
+                                </div>
+                                <div class="col-md-3 rate-line-exp">
+                                    <span>Üstün/Örnek Olabilecek</span>
+                                </div>
+                                </div>                                          
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </div>
+
+
+
+
+    <script>
+        $(function () {
+
+            function attchHoverEvents() {
+                $('.smart-rating-wrapper').find('.rate-line-circle').each(function (t, item) {
+
+                    $(item).hover(function () {
+                        var selectedValue = $(this).attr('data-rate-type');                       
+                        var row = $(this).parents('.row').next();
+                        var rateBox = row.find('.rate-box[data-rate-type=' + selectedValue + ']');
+                        rateBox.css('display', 'flex');
+
+                    }, function () {                      
+                        var selectedValue = $(this).attr('data-rate-type');
+                        var row = $(this).parents('.row').next();
+                        var rateBox = row.find('.rate-box[data-rate-type=' + selectedValue + ']');
+                        rateBox.css('display', 'none');
+                    });
+
+
+                    //var rateItems = $(this).find('.competency-rate-items');
+                    //$.each(rateItems, function (i, item) {
+                    //    $(item).find('.selectionIcon').each(function (j, subItem) {
+                    //        $(subItem).hover(function () {
+                    //            var selectedValue = $(this).attr('data-value');
+                    //            selectRateItems(item, selectedValue, true);
+                    //        }, function () {
+                    //            var selectedValue = $(this).attr('data-value');
+                    //            selectRateItems(item, selectedValue, false);
+                    //        });
+
+                    //        $(subItem).on('click', function () {
+                    //            var selectedValue = $(this).attr('data-value');
+                    //            clearSelectedRateItem(rateItems);
+                    //            $(item).css('display', 'block');
+                    //            setActiveSelectedRateItems(item, selectedValue);
+                    //        });
+
+                    //    });
+                    //});
+                });
+            }
+
+            function selectRateItems(container, selectedValue, addClass) {
+                for (var i = 1; i <= 3; i++) {
+                    var el = $(container).find('.selectionIcon[data-value=' + i + ']');
+                    if (addClass) {
+                        if (i <= selectedValue) {
+                            el.addClass("hover")
+                            el.removeClass("fake-non-selected");
+                        }
+                        else {
+                            el.addClass("fake-non-selected");
+                        }
+                    }
+                    else {
+                        el.removeClass("hover");
+                        el.removeClass("fake-non-selected");
+                    }
+                }
+            }
+
+            function clearSelectedRateItem(rateItems) {
+                $.each(rateItems, function (i, item) {
+                    $(item).css('display', '');
+                    $(item).find('.selectionIcon').each(function (j, subItem) {
+                        $(this).removeClass("selected");
+                    });
+                });
+            }
+
+            function setActiveSelectedRateItems(container, selectedValue) {
+                for (var i = 1; i <= 3; i++) {
+                    var el = $(container).find('.selectionIcon[data-value=' + i + ']');
+                    if (i <= selectedValue) {
+                        el.addClass("selected");
+                    }
+                    else {
+                        el.removeClass("selected");
+                    }
+                }
+            }
+
+            attchHoverEvents();
+
+
+            $(".competency-rate-items-container").flip({
+                trigger: 'manual'
+            });
+
+            $(".rate-items-opener").click(function () {
+                $(this).parents('.competency-rate-items-container').flip('toggle');
+            });
+
+
+        });
+    </script>
+</body>
+</html>
