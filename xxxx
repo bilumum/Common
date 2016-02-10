@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8" />
+<head>    
     <title></title>
-    <link href="bootstrap.custom.css" rel="stylesheet" />    
-    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet" />
-    <link href="../fontawesome/css/font-awesome.css" rel="stylesheet" />
-    
-    <link href="container.css" rel="stylesheet" />
-    <link href="site.main.css" rel="stylesheet" />    
+    <link href="bootstra.custom.css" rel="stylesheet" />
+    <link href="../Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="../Content/css/font-awesome.min.css" rel="stylesheet" />    
+    <link href="container.css" rel="stylesheet" />    
+    <link href="site.main.css" rel="stylesheet" />   
+     <link href="smart.hys.rating.css" rel="stylesheet" />
    
-    
-    <script src="../jquery/jquery-1.11.3.min.js"></script>
+    <script src="../Content/js/jquery-2.1.1.min.js"></script>   
     <script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.19/dist/jquery.flip.min.js"></script>
-    <script src="../bootstrap/js/bootstrap.js"></script>
-    
-    <style>
-        
-        .smart-rating-wrapper {
+    <script src="../Content/js/bootstrap.js"></script>    
+      <style>
+          .smart-rating-wrapper {
    position: absolute;
    
     width: 100%;
@@ -29,14 +25,15 @@
 }
 
 
-.smart-rating-wrapper .row {
-    text-align: center;
-    margin-left: 10px;
-    margin-right: 10px;
-    display: -webkit-flex;
-    /*margin-bottom: 10px;*/
-    /*padding: 26px;*/
-}
+    .smart-rating-wrapper .row {
+        text-align: center;
+        margin-left: 10px;
+        margin-right: 10px;
+        display: -webkit-flex;
+        /* margin-bottom: 10px; */
+        /* padding: 26px; */
+        margin-top: 12px;
+    }
 
 .inner-container-box-shadow {
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
@@ -57,7 +54,7 @@
 }
 
 
-.competency-rate-box-row {
+/*.competency-rate-box-row {
     margin: 0px;
     cursor: pointer;
 }
@@ -66,7 +63,7 @@
     height: 110px;
     margin: 5px;
     width: 210px;
-}
+}*/
 
 
 
@@ -251,11 +248,17 @@
         margin-bottom: 35px;
     }
 
-  .rate-box {
-        width: 170px;
-        display:-webkit-flex;
-        display:none;
-    }
+.rate-box {
+    width: 170px;
+    /*display: -webkit-flex;*/
+     display: none; 
+    top: -12px;
+    z-index: 1;
+}
+
+.rate-box.active {
+   display:-webkit-flex;    
+}
 
 
    .rate-box .rate-action-circle {
@@ -268,27 +271,46 @@
             align-items: center;
             flex-direction: column;
             justify-content: center;
+            cursor: pointer;
         }
 
-     /*.rate-line-circle:hover  {
-        display:block;
-        background-color:aliceblue;
-    }*/
+    .rate-line-circle.hover  {        
+        background-color:rgba(249, 208, 69, 0.5) !important;
+        border-color: rgba(249, 208, 69, 0.5) !important;
+    }
 
-        .rate-box:after {
-            bottom: 100%;
-            left: 38%;
-            border: solid transparent;
-            content: " ";
-            height: 0;
-            width: 0;
-            position: absolute;
-            pointer-events: none;
-            border-color: rgba(28, 89, 255, 0);
-            border-bottom-color: bisque;
-            border-width: 8px;
-            margin-left: -5px;
-        }
+   .rate-line-circle[data-rate-type="1"].active:after  {        
+        background-color:rgba(249, 208, 69, 0.5) !important;
+        border-color: rgba(249, 208, 69, 0.5) !important;
+    }
+
+   .rate-line-circle[data-rate-type="2"].active:after  {        
+        background-color:rgba(249, 208, 69, 0.5) !important;
+        border-color: rgba(249, 208, 69, 0.5) !important;
+    }
+
+   .rate-line-circle[data-rate-type="3"].active:after  {        
+        background-color:rgba(249, 208, 69, 0.5) !important;
+        border-color: rgba(249, 208, 69, 0.5) !important;
+    }
+
+    .rate-box:after {
+        bottom: 100%;
+        left: 38%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: rgba(28, 89, 255, 0);
+        border-bottom-color: #409998;
+        border-width: 8px;
+        margin-left: -5px;
+        /* box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12); */
+    }
+
+
 
             .rate-box .rate-action-circle > span {
                 font-weight: bold;
@@ -296,22 +318,28 @@
 
 
 
-    .rate-line-circle {
-        /*background-color: gray;*/
-        width: 40px;
-        height: 40px;
-        border-radius: 20px;
-        border: 1px solid gray;
-        /*border: 1px solid #409998;*/
+    .rate-box:hover {        
     }
 
-    .rate-line-rectangle {
-        border-radius: 5px;
-        width: 120px;
-        height: 40px;
-         background-color: gray;
-        /*background-color: #409998;*/
-    }
+.rate-line-circle {
+    /* background-color: gray; */
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    border: 1px solid #E8E8E8;
+    /* border: 1px solid #409998; */
+    cursor: pointer;
+}
+
+
+
+.rate-line-rectangle {
+    border-radius: 5px;
+    width: 120px;
+    height: 20px;
+    background-color: #E8E8E8;
+    /* background-color: #409998; */
+}
 
     .rate-line-outer {
         text-align: center;
@@ -329,23 +357,20 @@
     }
 
 
-    .row > .rate-line:not(:last-child) .rate-line-circle::after {
-        content: '';
-        display: block;
-        position: relative;
-        left: 85%;
-        top: 50%;
-        margin-left: 15%;
-        width: 328%;
-        height: 1px;
-         background-color: gray;
-        /*background-color: #409998;*/
-    }
+.row > .rate-line:not(:last-child) .rate-line-circle::after {
+    content: '';
+    display: block;
+    position: relative;
+    left: 85%;
+    top: 50%;
+    margin-left: 15%;
+    width: 800%;
+    height: 1px;
+    background-color: #E8E8E8;
+    /* background-color: #409998; */
+}
 
-
-
-    </style>
-
+      </style> 
 </head>
 <body>
 
@@ -391,17 +416,17 @@
                                 <div class="col-md-3 rate-line-exp">
                                     <span>Tatmin Edici Seviyede</span>
                                       <div data-rate-type="2" class="inner-container inner-container-default inner-container-box-shadow rate-box">
-                                             <div class="rate-action-circle"><span>1</span></div>
-                                             <div class="rate-action-circle"><span>2</span></div>
-                                             <div class="rate-action-circle"><span>3</span></div>
+                                             <div class="rate-action-circle"><span>4</span></div>
+                                             <div class="rate-action-circle"><span>5</span></div>
+                                             <div class="rate-action-circle"><span>6</span></div>
                                         </div>
                                 </div>
                                 <div class="col-md-3 rate-line-exp">
                                     <span>Üstün/Örnek Olabilecek</span>
                                       <div data-rate-type="3" class="inner-container inner-container-default inner-container-box-shadow rate-box">
-                                             <div class="rate-action-circle"><span>1</span></div>
-                                             <div class="rate-action-circle"><span>2</span></div>
-                                             <div class="rate-action-circle"><span>3</span></div>
+                                             <div class="rate-action-circle"><span>7</span></div>
+                                             <div class="rate-action-circle"><span>8</span></div>
+                                             <div class="rate-action-circle"><span>9</span></div>
                                         </div>
                                 </div>
                                 </div>                                                                                                         
@@ -612,40 +637,39 @@
             function attchHoverEvents() {
                 $('.smart-rating-wrapper').find('.rate-line-circle').each(function (t, item) {
 
-                    $(item).hover(function () {
-                        var selectedValue = $(this).attr('data-rate-type');                       
-                        var row = $(this).parents('.row').next();
-                        var rateBox = row.find('.rate-box[data-rate-type=' + selectedValue + ']');
-                        rateBox.css('display', 'flex');
-
-                    }, function () {                      
+                    $(item).on('click', function () {
                         var selectedValue = $(this).attr('data-rate-type');
                         var row = $(this).parents('.row').next();
+
+                        row.find('.rate-box').each(function (i, item) {
+                            if ($(item).attr('data-rate-type') !== selectedValue) {
+                                $(item).removeClass('active');
+                            }
+                        });
+
                         var rateBox = row.find('.rate-box[data-rate-type=' + selectedValue + ']');
-                        rateBox.css('display', 'none');
+                        rateBox.toggleClass('active');
+
                     });
 
-
-                    //var rateItems = $(this).find('.competency-rate-items');
-                    //$.each(rateItems, function (i, item) {
-                    //    $(item).find('.selectionIcon').each(function (j, subItem) {
-                    //        $(subItem).hover(function () {
-                    //            var selectedValue = $(this).attr('data-value');
-                    //            selectRateItems(item, selectedValue, true);
-                    //        }, function () {
-                    //            var selectedValue = $(this).attr('data-value');
-                    //            selectRateItems(item, selectedValue, false);
-                    //        });
-
-                    //        $(subItem).on('click', function () {
-                    //            var selectedValue = $(this).attr('data-value');
-                    //            clearSelectedRateItem(rateItems);
-                    //            $(item).css('display', 'block');
-                    //            setActiveSelectedRateItems(item, selectedValue);
-                    //        });
-
-                    //    });
-                    //});
+                    $(item).hover(function () {                                              
+                        var selectedValue = $(this).attr('data-rate-type');
+                        var row = $(this).parents('.row');                     
+                        for (var i = 1; i <= selectedValue; i++) {
+                            var el = row.find('.rate-line-circle[data-rate-type=' + i + ']');
+                            el.addClass('hover');
+                            row.find('.rate-line-circle[data-rate-type=' + (i - 1) + ']').addClass('active');
+                        }
+                        
+                    }, function () {
+                        var selectedValue = $(this).attr('data-rate-type');
+                        var row = $(this).parents('.row');
+                        for (var i = 1; i <= selectedValue; i++) {
+                            var el = row.find('.rate-line-circle[data-rate-type=' + i + ']');
+                            el.removeClass('hover active');
+                        }                        
+                    });
+                  
                 });
             }
 
