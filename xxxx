@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>    
+<head>
+    <meta charset="UTF-8" />
     <title></title>
-    <link href="bootstra.custom.css" rel="stylesheet" />
-    <link href="../Content/css/bootstrap.css" rel="stylesheet" />
-    <link href="../Content/css/font-awesome.min.css" rel="stylesheet" />    
-    <link href="container.css" rel="stylesheet" />    
-    <link href="site.main.css" rel="stylesheet" />   
-     <link href="smart.hys.rating.css" rel="stylesheet" />
+    <link href="bootstrap.custom.css" rel="stylesheet" />    
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../fontawesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="container.css" rel="stylesheet" />
+    <link href="site.main.css" rel="stylesheet" />    
    
-    <script src="../Content/js/jquery-2.1.1.min.js"></script>   
+    
+    <script src="../jquery/jquery-1.11.3.min.js"></script>
     <script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.19/dist/jquery.flip.min.js"></script>
-    <script src="../Content/js/bootstrap.js"></script>    
-      <style>
+    <script src="../bootstrap/js/bootstrap.js"></script>
+        
+    <style>
           .smart-rating-wrapper {
    position: absolute;
    
@@ -150,43 +152,6 @@
 }
 
 
-    .competency-rate-items > span {
-        color:rgba(64, 153, 152, 0.3);
-    }
-
-     .competency-rate-items .hover {
-        color:rgba(64, 153, 152, 1);
-    }
-
-      .competency-rate-items .active {
-        color:rgba(64, 153, 152, 1);
-    }
-
-       .competency-rate-items .selected {
-        color:rgba(64, 153, 152, 1);
-    }
-
-        .competency-rate-items .fake-non-selected {
-        color:rgba(64, 153, 152, 0.3);
-    }
-
-
-    /*.competency-rate-box-row  .competency-rate-type[data-type="3"]  {
-       margin-top: -5px;
-    }*/
-
-    /*.competency-rate-items > span[data-value="2"]:hover span[data-value="1"] {
-        color:rgba(64, 153, 152, 1);
-    }*/
-
-
-    /*.collapsing {
-    transition: height 0.3s;
-}*/
-
-
-
-
 .panel-group .panel .panel-heading a {
     padding: 4px 20px;
 }
@@ -249,32 +214,85 @@
     }
 
 .rate-box {
-    width: 170px;
-    /*display: -webkit-flex;*/
-     display: none; 
-    top: -12px;
+        width: 180px;
+    /* display: -webkit-flex; */
+    display: none;
+    top: -22px;
     z-index: 1;
+    background-color: rgba(232, 232, 232, 1) !important;
 }
 
 .rate-box.active {
-   display:-webkit-flex;    
+   display:block;    
+}
+
+.rate-box.selected {
+   display:block;    
+}
+
+.rate-box-inner {
+    display:-webkit-flex;
 }
 
 
-   .rate-box .rate-action-circle {
-            width: 40px;
-            height: 40px;
-            border-radius: 20px;
-            border: 1px solid #409998;
-            margin: 5px;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            justify-content: center;
-            cursor: pointer;
-        }
+.rate-box .rate-action-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    /*border: 1px solid #409998;*/
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    background-color: rgba(249, 208, 69, 0.5);
+    color: white;
+    font-weight: normal;
+
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow;
+    transition-property: box-shadow;
+}
+
+.rate-action-circle:hover, .rate-action-circle:focus, .rate-action-circle:active {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
 
     .rate-line-circle.hover  {        
+        background-color:rgba(249, 208, 69, 0.5) !important;
+        border-color: rgba(249, 208, 69, 0.5) !important;
+    }
+
+    .rate-line-circle[data-selected="1"]  {        
+        background-color:rgba(249, 208, 69, 0.5) !important;
+        border-color: rgba(249, 208, 69, 0.5) !important;
+    }
+
+     .rate-line-circle[data-selected="2"]  {        
+        background-color:rgba(249, 208, 69, 0.5) !important;
+        border-color: rgba(249, 208, 69, 0.5) !important;
+    }
+
+     .rate-line-circle[data-selected="2"][data-rate-type="1"]:after  {        
+        background-color:rgba(249, 208, 69, 0.5) !important;
+        border-color: rgba(249, 208, 69, 0.5) !important;
+    }
+
+      .rate-line-circle[data-selected="3"]  {        
+        background-color:rgba(249, 208, 69, 0.5) !important;
+        border-color: rgba(249, 208, 69, 0.5) !important;
+    }
+
+      .rate-line-circle[data-selected="3"]:after  {        
         background-color:rgba(249, 208, 69, 0.5) !important;
         border-color: rgba(249, 208, 69, 0.5) !important;
     }
@@ -296,15 +314,15 @@
 
     .rate-box:after {
         bottom: 100%;
-        left: 38%;
+        left: 36%;
         border: solid transparent;
         content: " ";
         height: 0;
         width: 0;
         position: absolute;
         pointer-events: none;
-        border-color: rgba(28, 89, 255, 0);
-        border-bottom-color: #409998;
+        /*border-color: rgba(28, 89, 255, 0);*/
+        border-bottom-color: #E8E8E8;
         border-width: 8px;
         margin-left: -5px;
         /* box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12); */
@@ -329,9 +347,38 @@
     border: 1px solid #E8E8E8;
     /* border: 1px solid #409998; */
     cursor: pointer;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    /*box-shadow: 0 0 1px rgba(0, 0, 0, 0);*/
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    /*-moz-osx-font-smoothing: grayscale;*/
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
 }
 
+    .rate-line-circle[data-final-selected="true"] {
+        /*box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);*/
+        -webkit-transform: scale(2);
+        transform: scale(2);
+    }
 
+    .rate-line-circle[data-final-selected="true"]:after {
+       -webkit-transform: scale(1);
+        transform: scale(1);
+        width: 68px !important;
+        height: 1px !important;
+        padding: 0px !important;
+
+    }
+
+
+    .rate-line-circle span {
+            position: absolute;
+    left: 5px;
+    }
 
 .rate-line-rectangle {
     border-radius: 5px;
@@ -364,13 +411,34 @@
     left: 85%;
     top: 50%;
     margin-left: 15%;
-    width: 800%;
+    width: 145px;
     height: 1px;
     background-color: #E8E8E8;
     /* background-color: #409998; */
 }
 
-      </style> 
+
+/* SHADOW/GLOW TRANSITIONS */
+/* Glow */
+.hvr-glow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow;
+  transition-property: box-shadow;
+}
+.hvr-glow:hover, .hvr-glow:focus, .hvr-glow:active {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+    </style>
+
 </head>
 <body>
 
@@ -392,13 +460,18 @@
                                 <div class="row">
                                     <div class="col-md-3 rate-line">
                                         <div class="rate-line-circle" data-rate-type="1">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="col-md-3 rate-line">
-                                        <div class="rate-line-circle" data-rate-type="2"></div>
+                                        <div class="rate-line-circle" data-rate-type="2">
+                                             <span></span>
+                                        </div>
                                     </div>
                                     <div class="col-md-3 rate-line">
-                                        <div class="rate-line-circle" data-rate-type="3"></div>
+                                        <div class="rate-line-circle" data-rate-type="3">
+                                             <span></span>
+                                        </div>
                                     </div>
                                     <div class="col-md-3 rate-line ">
                                         <div class="rate-line-circle rate-line-rectangle"></div>
@@ -408,25 +481,31 @@
                                     <div class="col-md-3 rate-line-exp">
                                         <span>Gelişime İhtiyacı Var</span>
                                          <div data-rate-type="1" class="inner-container inner-container-default inner-container-box-shadow rate-box">
-                                             <div class="rate-action-circle"><span>1</span></div>
-                                             <div class="rate-action-circle"><span>2</span></div>
-                                             <div class="rate-action-circle"><span>3</span></div>
+                                             <div class="rate-box-inner">
+                                                  <div class="rate-action-circle"><span>1</span></div>
+                                                 <div class="rate-action-circle"><span>2</span></div>
+                                                 <div class="rate-action-circle"><span>3</span></div>
+                                             </div>                                           
                                         </div>
                                     </div>
                                 <div class="col-md-3 rate-line-exp">
                                     <span>Tatmin Edici Seviyede</span>
                                       <div data-rate-type="2" class="inner-container inner-container-default inner-container-box-shadow rate-box">
-                                             <div class="rate-action-circle"><span>4</span></div>
-                                             <div class="rate-action-circle"><span>5</span></div>
-                                             <div class="rate-action-circle"><span>6</span></div>
+                                             <div class="rate-box-inner"> 
+                                                <div class="rate-action-circle"><span>4</span></div>
+                                                <div class="rate-action-circle"><span>5</span></div>
+                                                <div class="rate-action-circle"><span>6</span></div>
+                                            </div>
                                         </div>
                                 </div>
                                 <div class="col-md-3 rate-line-exp">
                                     <span>Üstün/Örnek Olabilecek</span>
                                       <div data-rate-type="3" class="inner-container inner-container-default inner-container-box-shadow rate-box">
-                                             <div class="rate-action-circle"><span>7</span></div>
-                                             <div class="rate-action-circle"><span>8</span></div>
-                                             <div class="rate-action-circle"><span>9</span></div>
+                                             <div class="rate-box-inner"> 
+                                                <div class="rate-action-circle"><span>7</span></div>
+                                                 <div class="rate-action-circle"><span>8</span></div>
+                                                 <div class="rate-action-circle"><span>9</span></div>
+                                            </div>
                                         </div>
                                 </div>
                                 </div>                                                                                                         
@@ -440,16 +519,21 @@
                          <span class="summary "><i class="fa fa-pencil"></i></span>
                           <div class="rate-line-container">
                             <div class="rate-line-outer">
-                                <div class="row">
+                               <div class="row">
                                     <div class="col-md-3 rate-line">
-                                        <div class="rate-line-circle">
+                                        <div class="rate-line-circle" data-rate-type="1">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="col-md-3 rate-line">
-                                        <div class="rate-line-circle"></div>
+                                        <div class="rate-line-circle" data-rate-type="2">
+                                             <span></span>
+                                        </div>
                                     </div>
                                     <div class="col-md-3 rate-line">
-                                        <div class="rate-line-circle"></div>
+                                        <div class="rate-line-circle" data-rate-type="3">
+                                             <span></span>
+                                        </div>
                                     </div>
                                     <div class="col-md-3 rate-line ">
                                         <div class="rate-line-circle rate-line-rectangle"></div>
@@ -458,14 +542,35 @@
                                 <div class="row">
                                     <div class="col-md-3 rate-line-exp">
                                         <span>Gelişime İhtiyacı Var</span>
+                                         <div data-rate-type="1" class="inner-container inner-container-default inner-container-box-shadow rate-box">
+                                             <div class="rate-box-inner">
+                                                  <div class="rate-action-circle"><span>1</span></div>
+                                                 <div class="rate-action-circle"><span>2</span></div>
+                                                 <div class="rate-action-circle"><span>3</span></div>
+                                             </div>                                           
+                                        </div>
                                     </div>
                                 <div class="col-md-3 rate-line-exp">
                                     <span>Tatmin Edici Seviyede</span>
+                                      <div data-rate-type="2" class="inner-container inner-container-default inner-container-box-shadow rate-box">
+                                             <div class="rate-box-inner"> 
+                                                <div class="rate-action-circle"><span>4</span></div>
+                                                <div class="rate-action-circle"><span>5</span></div>
+                                                <div class="rate-action-circle"><span>6</span></div>
+                                            </div>
+                                        </div>
                                 </div>
                                 <div class="col-md-3 rate-line-exp">
                                     <span>Üstün/Örnek Olabilecek</span>
+                                      <div data-rate-type="3" class="inner-container inner-container-default inner-container-box-shadow rate-box">
+                                             <div class="rate-box-inner"> 
+                                                <div class="rate-action-circle"><span>7</span></div>
+                                                 <div class="rate-action-circle"><span>8</span></div>
+                                                 <div class="rate-action-circle"><span>9</span></div>
+                                            </div>
+                                        </div>
                                 </div>
-                                </div>                                          
+                                </div>                                       
                             </div>
                         </div>
                     </div>
@@ -478,14 +583,19 @@
                             <div class="rate-line-outer">
                                 <div class="row">
                                     <div class="col-md-3 rate-line">
-                                        <div class="rate-line-circle">
+                                        <div class="rate-line-circle" data-rate-type="1">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="col-md-3 rate-line">
-                                        <div class="rate-line-circle"></div>
+                                        <div class="rate-line-circle" data-rate-type="2">
+                                             <span></span>
+                                        </div>
                                     </div>
                                     <div class="col-md-3 rate-line">
-                                        <div class="rate-line-circle"></div>
+                                        <div class="rate-line-circle" data-rate-type="3">
+                                             <span></span>
+                                        </div>
                                     </div>
                                     <div class="col-md-3 rate-line ">
                                         <div class="rate-line-circle rate-line-rectangle"></div>
@@ -494,14 +604,35 @@
                                 <div class="row">
                                     <div class="col-md-3 rate-line-exp">
                                         <span>Gelişime İhtiyacı Var</span>
+                                         <div data-rate-type="1" class="inner-container inner-container-default inner-container-box-shadow rate-box">
+                                             <div class="rate-box-inner">
+                                                  <div class="rate-action-circle"><span>1</span></div>
+                                                 <div class="rate-action-circle"><span>2</span></div>
+                                                 <div class="rate-action-circle"><span>3</span></div>
+                                             </div>                                           
+                                        </div>
                                     </div>
                                 <div class="col-md-3 rate-line-exp">
                                     <span>Tatmin Edici Seviyede</span>
+                                      <div data-rate-type="2" class="inner-container inner-container-default inner-container-box-shadow rate-box">
+                                             <div class="rate-box-inner"> 
+                                                <div class="rate-action-circle"><span>4</span></div>
+                                                <div class="rate-action-circle"><span>5</span></div>
+                                                <div class="rate-action-circle"><span>6</span></div>
+                                            </div>
+                                        </div>
                                 </div>
                                 <div class="col-md-3 rate-line-exp">
                                     <span>Üstün/Örnek Olabilecek</span>
+                                      <div data-rate-type="3" class="inner-container inner-container-default inner-container-box-shadow rate-box">
+                                             <div class="rate-box-inner"> 
+                                                <div class="rate-action-circle"><span>7</span></div>
+                                                 <div class="rate-action-circle"><span>8</span></div>
+                                                 <div class="rate-action-circle"><span>9</span></div>
+                                            </div>
+                                        </div>
                                 </div>
-                                </div>                                          
+                                </div>                                           
                             </div>
                         </div>
                     </div>
@@ -634,97 +765,94 @@
     <script>
         $(function () {
 
+            jQuery.fn.toggleAttr = function (attr, value) {
+                return this.each(function () {
+                    var $this = $(this);
+                    $this.attr(attr) ? $this.removeAttr(attr) : $this.attr(attr, value);
+                });
+            };
+
             function attchHoverEvents() {
                 $('.smart-rating-wrapper').find('.rate-line-circle').each(function (t, item) {
 
                     $(item).on('click', function () {
                         var selectedValue = $(this).attr('data-rate-type');
-                        var row = $(this).parents('.row').next();
+                        var row = $(this).parents('.row');
+                        var actionRow = $(this).parents('.row').next();
 
-                        row.find('.rate-box').each(function (i, item) {
+                        row.find('.rate-line-circle').each(function (i, item) {                            
+                            $(item).removeAttr('data-active-rate');
+                            $(item).removeAttr('data-selected');
+                        });
+                       
+                        actionRow.find('.rate-box').each(function (i, item) {
                             if ($(item).attr('data-rate-type') !== selectedValue) {
-                                $(item).removeClass('active');
-                            }
+                                $(item).css('display', 'none ');                               
+                            }                           
                         });
 
-                        var rateBox = row.find('.rate-box[data-rate-type=' + selectedValue + ']');
-                        rateBox.toggleClass('active');
+                        var rateBox = actionRow.find('.rate-box[data-rate-type=' + selectedValue + ']');
+                        rateBox.toggle(250);
 
+                        $(item).toggleAttr('data-active-rate', true);
+
+                        if ($(item).attr('data-active-rate')) {
+                            for (var i = 1; i <= selectedValue; i++) {
+                                var el = row.find('.rate-line-circle[data-rate-type=' + i + ']');
+                                el.attr('data-selected', selectedValue);
+                            }
+                        }
+                                             
                     });
 
-                    $(item).hover(function () {                                              
+                    $(item).hover(function () {
                         var selectedValue = $(this).attr('data-rate-type');
-                        var row = $(this).parents('.row');                     
+                        var row = $(this).parents('.row');
                         for (var i = 1; i <= selectedValue; i++) {
                             var el = row.find('.rate-line-circle[data-rate-type=' + i + ']');
                             el.addClass('hover');
                             row.find('.rate-line-circle[data-rate-type=' + (i - 1) + ']').addClass('active');
                         }
-                        
+
                     }, function () {
                         var selectedValue = $(this).attr('data-rate-type');
-                        var row = $(this).parents('.row');
+                        var row = $(this).parents('.row');                         
                         for (var i = 1; i <= selectedValue; i++) {
-                            var el = row.find('.rate-line-circle[data-rate-type=' + i + ']');
-                            el.removeClass('hover active');
-                        }                        
-                    });
-                  
-                });
-            }
-
-            function selectRateItems(container, selectedValue, addClass) {
-                for (var i = 1; i <= 3; i++) {
-                    var el = $(container).find('.selectionIcon[data-value=' + i + ']');
-                    if (addClass) {
-                        if (i <= selectedValue) {
-                            el.addClass("hover")
-                            el.removeClass("fake-non-selected");
+                            var el = row.find('.rate-line-circle[data-rate-type=' + i + ']');                           
+                            el.removeClass('hover active');                            
                         }
-                        else {
-                            el.addClass("fake-non-selected");
-                        }
-                    }
-                    else {
-                        el.removeClass("hover");
-                        el.removeClass("fake-non-selected");
-                    }
-                }
-            }
-
-            function clearSelectedRateItem(rateItems) {
-                $.each(rateItems, function (i, item) {
-                    $(item).css('display', '');
-                    $(item).find('.selectionIcon').each(function (j, subItem) {
-                        $(this).removeClass("selected");
                     });
+
                 });
+
+                $('.smart-rating-wrapper').find('.rate-action-circle').each(function (t, item) {
+                    $(item).on('click', function () {
+                        var selectedValue = $(this).parents('.rate-box').attr('data-rate-type');
+                        var row = $(this).parents('.row').prev();
+
+                        row.find('.rate-line-circle').each(function (i, item) {
+                            $(item).removeAttr('data-final-selected');
+                            $(item).find('span').text('');
+                        });
+
+                        $(this).parents('.rate-box').toggle(250);
+                        var el = row.find('.rate-line-circle[data-rate-type=' + selectedValue + ']');
+                        el.find('span').text($(this).find('span').text());
+                        el.attr('data-final-selected', true);
+                    })
+                });
+
             }
 
-            function setActiveSelectedRateItems(container, selectedValue) {
-                for (var i = 1; i <= 3; i++) {
-                    var el = $(container).find('.selectionIcon[data-value=' + i + ']');
-                    if (i <= selectedValue) {
-                        el.addClass("selected");
-                    }
-                    else {
-                        el.removeClass("selected");
-                    }
-                }
-            }
+            //function toggleSelectedRateLine(selectedEl, selectedValue) {
+            //    var row = selectedEl.parents('.row');
+            //    for (var i = 1; i <= selectedValue; i++) {
+            //        var el = row.find('.rate-line-circle[data-rate-type=' + i + ']');
+            //        el.toggle('selected');
+            //    }
+            //}           
 
             attchHoverEvents();
-
-
-            $(".competency-rate-items-container").flip({
-                trigger: 'manual'
-            });
-
-            $(".rate-items-opener").click(function () {
-                $(this).parents('.competency-rate-items-container').flip('toggle');
-            });
-
-
         });
     </script>
 </body>
