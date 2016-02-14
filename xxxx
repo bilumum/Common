@@ -1,1 +1,1150 @@
-xxx
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <link href="bootstrap.custom.css" rel="stylesheet" />
+    <link href="../../bootstrap/css/bootstrap.css" rel="stylesheet" />    
+    <link href="../../fontawesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="container.css" rel="stylesheet" />
+    <link href="site.main.css" rel="stylesheet" />    
+    
+    <script src="../../jquery/jquery-1.11.3.min.js"></script>    
+    <script src="../../bootstrap/js/bootstrap.js"></script>
+    <script src="data.js"></script>
+  
+    <style>
+            .smart-rating-wrapper {
+    position: absolute;
+    width: 100%;
+    top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel-group .panel .panel-heading a {
+    padding: 0px 20px;
+}
+
+
+.panel-group .panel .panel-heading .summary .fa {
+    margin: 0 0px;
+    color: #333;
+}
+
+.panel-group .panel .panel-heading .title {
+   white-space: nowrap;
+    flex-basis: auto;
+    display: flex;
+    align-items: center;
+}
+
+.panel-group .panel .panel-heading .title-status {
+    background-color: aliceblue;
+    /* margin-right: -20px; */
+    width: 75px;
+    font-size: 20px;
+    /* margin-top: -74px; */
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(64, 153, 152, 1);
+    color: white;
+    font-weight: bold;
+    margin-right:-20px;
+}
+
+   
+
+.panel-group {
+}
+
+.smart-rate-table {
+    /*max-width: 750px;*/
+    text-align: center;
+}
+
+.smart-rate-table > tbody > tr[data-is-parent="true"]  {
+       /*height: 50px;*/
+    }
+
+.smart-rate-table > tbody > tr[data-is-parent="true"] > td {
+        text-align: center;        
+       color: white;
+       /*background-color: rgba(64, 153, 152, 1);*/
+       border-left: none;
+       border-right: none;
+       /*border-color:rgba(64, 153, 152, 1);*/
+    }
+
+    .smart-rate-table > tbody > tr[data-is-parent="true"] > td::after {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 32px 0 0 32px;
+        border-color: transparent transparent transparent #da424c;
+        line-height: 0px;
+        _border-color: #000000 #000000 #000000 #da424c;        
+    }
+
+.smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="1"] {
+      opacity: 0.3;
+    }
+.smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="2"] {
+      opacity: 0.3;
+    }
+.smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="3"] {
+      opacity: 0.3;
+    }
+.smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="4"] {
+      opacity: 0.6;
+    }
+.smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="5"] {
+      opacity: 0.6;
+    }
+.smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="6"] {
+      opacity: 0.6;
+    }
+.smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="7"] {
+      opacity: 0.9;
+    }
+.smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="8"] {
+      opacity: 0.9;
+    }
+.smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="9"] {
+      opacity: 0.9;
+    }
+
+    .smart-rate-table > thead > tr > th {
+        text-align: center;
+        font-size: 12px;
+        /*width: 25%;*/
+    }
+
+    .smart-rate-table > tbody > tr > th {
+        font-size: 12px;
+        font-weight: normal;
+        color: #409998;
+    }
+
+    .smart-rate-table > tbody > tr > td {
+        color: gray;
+        cursor: pointer;
+        transition: background-color 0.5s ease;
+        color: white;
+        /*font-weight: bold;*/      
+    }
+
+    .smart-rate-table > tbody > .rate-main-tr td:hover {
+          -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-transition-duration: 0.2s;
+        transition-duration: 0.2s;
+        -webkit-transition-property: box-shadow;
+        transition-property: box-shadow;
+    }
+
+    .smart-rate-table > tbody > .rate-main-tr td:hover {
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+        background-color:rgba(64, 153, 152, 0.6);
+        color: white;
+    }
+
+    .smart-rate-table > tbody > tr > .nested-rate-row {
+        padding: 0px;
+    }
+
+    .smart-rate-table > tbody > tr > td.selected-main-calculated {
+        background-color: rgba(249, 208, 69, 0.2);
+        color:gray;
+    }
+
+     .smart-rate-table > tbody > tr > td.selected-main {
+        background-color: rgba(64, 153, 152, 1);
+        color: white;        
+    }
+
+    .smart-rate-table > tbody > tr > td.selected-main[data-value="1"], .smart-rate-table > tbody > tr > td.selected-main[data-value="2"], .smart-rate-table > tbody > tr > td.selected-main[data-value="3"] {
+       opacity: 0.3;
+    }
+
+    .smart-rate-table > tbody > tr > td.selected-main[data-value="4"], .smart-rate-table > tbody > tr > td.selected-main[data-value="5"], .smart-rate-table > tbody > tr > td.selected-main[data-value="6"] {
+       opacity: 0.6;
+    }
+
+    .smart-rate-table > tbody > tr > td.selected-main[data-value="7"], .smart-rate-table > tbody > tr > td.selected-main[data-value="8"], .smart-rate-table > tbody > tr > td.selected-main[data-value="9"] {
+       opacity: 0.9;
+    }
+    
+    .smart-rate-table > tbody > tr > td.selected-sub {
+        background-color: rgba(249, 208, 69, 0.4);
+    }
+
+    .smart-rate-table .subitem-title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        line-height: 16px; /* fallback */
+        max-height: 32px; /* fallback */
+        -webkit-line-clamp: 2; /* number of lines to show */
+        -webkit-box-orient: vertical;
+        text-align:left;
+    }
+
+    .smart-rate-table .item-title {
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .smart-rate-table .nested-opener {
+        cursor: pointer;
+    }
+
+.smart-rate-table-container {
+    padding: 20px;
+    width: 770px;
+}
+
+
+.nested-rate-row .table {
+    border: none;
+    margin-bottom: 0px;
+}
+
+
+.nested-rate-row table tr th {
+    border-left: none !important;
+    width: 28%;
+}
+
+.nested-rate-row table tr td {
+    width: 8%;
+}
+
+.nested-rate-row table tr:first-child th {
+    border-top: none !important;
+}
+
+.nested-rate-row table tr:first-child td {
+    border-top: none !important;
+}
+
+.smart-rate-table .nested-rate-tr {
+    height: 2px;
+}
+
+
+.smart-rate-table .main-item-value {
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(64, 153, 152, 1);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* display: block; */
+    /* margin: auto 0px; */
+    /* text-align: center; */
+    margin-top: 0px;
+    margin-left: 10px;
+    /* -webkit-transform: translateZ(0); */
+    /* transform: translateZ(0); */
+    /* -webkit-backface-visibility: hidden; */
+    /* backface-visibility: hidden; */
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+}
+
+.smart-rate-table .main-item-value-star {
+     border-radius: 0px;
+     color:yellow;
+     background-color:transparent; 
+     font-size: 21px;
+}
+
+.smart-rate-table .selected-main-group span {
+       -webkit-transform: scale(1.7);
+        transform: scale(1.7);
+}
+
+
+.smart-rate-table-nested > tbody > .nested-rate-selectable  {    
+   height: 37px; 
+}
+
+.smart-rate-table-nested > tbody > .nested-rate-selectable th {    
+   text-align:center;
+}
+
+.smart-rate-table-nested > tbody > tr > td  {    
+    vertical-align: middle; 
+}
+
+ .smart-rate-table-nested > tbody > tr > td:hover {
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+        background-color:rgba(249, 208, 69, 0.4);
+        color: white;
+    }
+
+     .smart-rate-table-nested > tbody > tr > td:hover {
+          -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-transition-duration: 0.2s;
+        transition-duration: 0.2s;
+        -webkit-transition-property: box-shadow;
+        transition-property: box-shadow;
+        content:'1';
+    }
+
+.smart-rate-table-nested > tbody > tr > td > span {
+    color: gray !important;    
+    font-weight:normal;
+    display:none;
+}
+
+
+
+
+
+.table-no-border > tbody > tr > th,
+.table-no-border > tbody > tr > td,
+.table-no-border > tbody{
+    /*border-top: none !important;*/
+    border-bottom: none !important;
+    /*border-left: none !important;*/
+    border-right: none !important;
+    /*border-bottom: none !important;*/
+}
+
+.table-no-border > tbody > tr:last-child > th,
+.table-no-border > tbody > tr:last-child > td {
+    /*border-top: none !important;*/
+    /*border-bottom: none !important;*/
+    /*border-left: none !important;*/
+    border-right: none !important;
+    border-bottom:1px solid rgba(64, 153, 152, 0.7) !important;
+    /*border-bottom: none !important;*/
+}
+    </style>
+</head>
+<body>
+
+    <div id="divRateBox"></div>
+
+    <!--<div class="smart-rating-wrapper">
+        <div class="inner-container inner-container-default inner-container-box-shadow noPadding">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a>
+                            <span class="title"><b>Ümit</b>'in yetkinliğini aşağıdaki 7 kritere göre değerlendirin</span>
+                            <span class="title-status">0/7</span>
+                        </a>
+                    </div>
+                    <div class="smart-rate-table-container">
+                        <table class="table table-bordered smart-rate-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 28%;"></th>
+                                    <th colspan="3" style="width: 24%;">Gelişime İhtiyacı Var</th>
+                                    <th colspan="3" style="width: 24%;">Tatmin Edici Seviyede</th>
+                                    <th colspan="3" style="width: 24%;">Üstün/Başkalarına Örnek </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-is-parent="true" data-group-id="1">
+                                    <th scope="row"><span class="item-title">KİŞİSEL YETKİNLİKLER</span></th>
+                                    <td data-value="1"><span class="fa fa-star main-item-value main-item-value-star"></span></td>
+                                    <td data-value="2"><span class="fa fa-star main-item-value main-item-value-star"></span><</td>
+                                    <td data-value="3"><span class="fa fa-star main-item-value main-item-value-star"></span><</td>
+                                    <td data-value="4"><span class="fa fa-star main-item-value main-item-value-star"></span><</td>
+                                    <td data-value="5"><span class="fa fa-star main-item-value main-item-value-star"></span><</td>
+                                    <td data-value="6"><span class="fa fa-star main-item-value main-item-value-star"></span><</td>
+                                    <td data-value="7"><span class="fa fa-star main-item-value main-item-value-star"></span><</td>
+                                    <td data-value="8"><span class="fa fa-star main-item-value main-item-value-star"></span><</td>
+                                    <td data-value="9"><span class="fa fa-star main-item-value main-item-value-star"></span><</td>
+                                </tr>
+                                <tr class="nested-rate-tr">
+                                </tr>
+                                <tr class="rate-main-tr" data-id="1" data-group-id="1">
+                                    <th scope="row" class="accordion-toggle nested-opener">
+                                        <span class="fa fa-plus-square fa-minus-square nested-opener-icon" ></span>&nbsp&nbsp
+                                        <span >İletişim</span>
+                                    </th>
+                                    <td data-value="1">1</td>
+                                    <td data-value="2">2</td>
+                                    <td data-value="3">3</td>
+                                    <td data-value="4">4</td>
+                                    <td data-value="5">5</td>
+                                    <td data-value="6">6</td>
+                                    <td data-value="7">7</td>
+                                    <td data-value="8">8</td>
+                                    <td data-value="9">9</td>
+                                </tr>
+                                <tr data-parent-id="1" class="nested-rate-tr">
+                                    <td colspan="10" class="nested-rate-row">
+                                        <div class="accordian-body collapse in" id="demo1">
+                                            <table data-parent-id="1" class="table table-bordered table-no-border smart-rate-table smart-rate-table-nested">                                             
+                                                <tbody>
+                                                    <tr data-parent-id="1">
+                                                        <th colspan="10" scope="row">
+                                                             <span class="subitem-title">
+                                                                    Bir konu ile ilgili düşünce ve bilgilerini net, düzgün, anlaşılır ve yalın bir şekilde ifade eder.
+                                                                </span>
+                                                        </th>
+                                                    </tr>
+                                                    <tr data-parent-id="1" class="nested-rate-selectable">
+                                                        <th scope="row">
+                                                           
+                                                        </th>                                                        
+                                                        <td data-value="1"><span></span></td>
+                                                        <td data-value="2"><span></span></td>
+                                                        <td data-value="3"><span></span></td>
+                                                        <td data-value="4"><span></span></td>
+                                                        <td data-value="5"><span></span></td>
+                                                        <td data-value="6"><span></span></td>
+                                                        <td data-value="7"><span></span></td>
+                                                        <td data-value="8"><span></span></td>
+                                                        <td data-value="9"><span></span></td>
+                                                    </tr>
+                                                    <tr data-parent-id="1">
+                                                        <th colspan="10" scope="row">
+                                                             <span class="subitem-title">
+                                                                   Karşısındaki kişiyi sözünü kesmeden, saygıyla dinler.
+                                                             </span>
+                                                        </th>
+                                                    </tr>
+                                                    <tr data-parent-id="1" class="nested-rate-selectable">
+                                                        <th scope="row">
+                                                            
+                                                        </th>
+                                                        <td data-value="1"><span></span></td>
+                                                        <td data-value="2"><span></span></td>
+                                                        <td data-value="3"><span></span></td>
+                                                        <td data-value="4"><span></span></td>
+                                                        <td data-value="5"><span></span></td>
+                                                        <td data-value="6"><span></span></td>
+                                                        <td data-value="7"><span></span></td>
+                                                        <td data-value="8"><span></span></td>
+                                                        <td data-value="9"><span></span></td>
+                                                    </tr>
+                                                    <tr data-parent-id="1">
+                                                        <th colspan="10" scope="row">
+                                                             <span class="subitem-title">
+                                                                  Fikir ve görüşlerini sunarken kendine güvenini tavır ve davranışlarıyla karşı tarafa yansıtır.
+                                                             </span>
+                                                        </th>
+                                                    </tr>
+                                                    <tr data-parent-id="1" class="nested-rate-selectable">
+                                                        <th scope="row">
+                                                            <span class="subitem-title">
+                                                                
+                                                            </span>
+                                                        </th>
+                                                        <td data-value="1"><span></span></td>
+                                                        <td data-value="2"><span></span></td>
+                                                        <td data-value="3"><span></span></td>
+                                                        <td data-value="4"><span></span></td>
+                                                        <td data-value="5"><span></span></td>
+                                                        <td data-value="6"><span></span></td>
+                                                        <td data-value="7"><span></span></td>
+                                                        <td data-value="8"><span></span></td>
+                                                        <td data-value="9"><span></span></td>
+                                                    </tr>
+                                                    <tr data-parent-id="1">
+                                                        <th colspan="10" scope="row">
+                                                             <span class="subitem-title">
+                                                                 İletişimde aktarılan mesajların doğru anlaşıldığından emin olmaya çalışır.
+                                                             </span>
+                                                        </th>
+                                                    </tr>
+                                                    <tr data-parent-id="1" class="nested-rate-selectable">
+                                                        <th scope="row">
+                                                            <span class="subitem-title">
+                                                               
+                                                            </span>
+                                                        </th>
+                                                        <td data-value="1"><span></span></td>
+                                                        <td data-value="2"><span></span></td>
+                                                        <td data-value="3"><span></span></td>
+                                                        <td data-value="4"><span></span></td>
+                                                        <td data-value="5"><span></span></td>
+                                                        <td data-value="6"><span></span></td>
+                                                        <td data-value="7"><span></span></td>
+                                                        <td data-value="8"><span></span></td>
+                                                        <td data-value="9"><span></span></td>
+                                                    </tr>
+                                                    <tr data-parent-id="1">
+                                                        <th colspan="10" scope="row">
+                                                             <span class="subitem-title">
+                                                                 Görüşlerini aktarırken göz teması kurar ve uygun beden dili kullanır.
+                                                             </span>
+                                                        </th>
+                                                    </tr>
+                                                    <tr data-parent-id="1" class="nested-rate-selectable">
+                                                        <th scope="row">
+                                                            <span class="subitem-title">
+                                                                
+                                                            </span>
+                                                        </th>
+                                                        <td data-value="1"><span></span></td>
+                                                        <td data-value="2"><span></span></td>
+                                                        <td data-value="3"><span></span></td>
+                                                        <td data-value="4"><span></span></td>
+                                                        <td data-value="5"><span></span></td>
+                                                        <td data-value="6"><span></span></td>
+                                                        <td data-value="7"><span></span></td>
+                                                        <td data-value="8"><span></span></td>
+                                                        <td data-value="9"><span></span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr class="rate-main-tr" data-id="2" data-group-id="1">
+                                     <th scope="row" class="accordion-toggle nested-opener">
+                                        <span class="fa fa-plus-square nested-opener-icon" ></span>&nbsp&nbsp
+                                        <span >İkna Etme</span>
+                                    </th>
+                                   <td data-value="1">1</td>
+                                    <td data-value="2">2</td>
+                                    <td data-value="3">3</td>
+                                    <td data-value="4">4</td>
+                                    <td data-value="5">5</td>
+                                    <td data-value="6">6</td>
+                                    <td data-value="7">7</td>
+                                    <td data-value="8">8</td>
+                                    <td data-value="9">9</td>
+
+                                </tr>
+                                <tr data-parent-id="2" class="nested-rate-tr">
+                                    <td colspan="10" class="nested-rate-row">
+                                        <div class="accordian-body collapse" id="Div1">
+                                            <table data-parent-id="2" class="table table-bordered table-no-border smart-rate-table smart-rate-table-nested">                                             
+                                                <tbody>
+                                                   <tr data-parent-id="2">
+                                                        <th scope="row">
+                                                            <span class="subitem-title">Soru 1</span>
+                                                        </th>                                                        
+                                                         <td data-value="1"><span></span></td>
+                                                        <td data-value="2"><span></span></td>
+                                                        <td data-value="3"><span></span></td>
+                                                        <td data-value="4"><span></span></td>
+                                                        <td data-value="5"><span></span></td>
+                                                        <td data-value="6"><span></span></td>
+                                                        <td data-value="7"><span></span></td>
+                                                        <td data-value="8"><span></span></td>
+                                                        <td data-value="9"><span></span></td>
+                                                    </tr>
+                                                    <tr data-parent-id="2">
+                                                        <th scope="row">
+                                                            <span class="subitem-title">Soru 2</span>
+                                                        </th>
+                                                        <td data-value="1"><span></span></td>
+                                                        <td data-value="2"><span></span></td>
+                                                        <td data-value="3"><span></span></td>
+                                                        <td data-value="4"><span></span></td>
+                                                        <td data-value="5"><span></span></td>
+                                                        <td data-value="6"><span></span></td>
+                                                        <td data-value="7"><span></span></td>
+                                                        <td data-value="8"><span></span></td>
+                                                        <td data-value="9"><span></span></td>
+                                                    </tr>
+                                                    <tr data-parent-id="2">
+                                                        <th scope="row">
+                                                            <span class="subitem-title">Soru 3</span>
+                                                        </th>
+                                                        <td data-value="1"><span></span></td>
+                                                        <td data-value="2"><span></span></td>
+                                                        <td data-value="3"><span></span></td>
+                                                        <td data-value="4"><span></span></td>
+                                                        <td data-value="5"><span></span></td>
+                                                        <td data-value="6"><span></span></td>
+                                                        <td data-value="7"><span></span></td>
+                                                        <td data-value="8"><span></span></td>
+                                                        <td data-value="9"><span></span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr class="rate-main-tr" data-id="3" data-group-id="1">
+                                     <th scope="row" class="accordion-toggle nested-opener">
+                                        <span class="fa fa-plus-square nested-opener-icon" ></span>&nbsp&nbsp
+                                        <span>Çatışma Yönetimi</span>
+                                    </th>
+                                   <td data-value="1">1</td>
+                                    <td data-value="2">2</td>
+                                    <td data-value="3">3</td>
+                                    <td data-value="4">4</td>
+                                    <td data-value="5">5</td>
+                                    <td data-value="6">6</td>
+                                    <td data-value="7">7</td>
+                                    <td data-value="8">8</td>
+                                    <td data-value="9">9</td>
+                                </tr>
+                                <tr data-parent-id="3" class="nested-rate-tr">
+                                    <td colspan="10" class="nested-rate-row">
+                                        <div class="accordian-body collapse" id="Div2">
+                                            <table data-parent-id="3" class="table table-bordered table-no-border smart-rate-table smart-rate-table-nested">                                             
+                                                <tbody>
+                                                    <tr data-parent-id="3">
+                                                        <th scope="row">
+                                                            <span class="subitem-title">Soru 1</span>
+                                                        </th>                                                        
+                                                        <td data-value="1"><span></span></td>
+                                                        <td data-value="2"><span></span></td>
+                                                        <td data-value="3"><span></span></td>
+                                                        <td data-value="4"><span></span></td>
+                                                        <td data-value="5"><span></span></td>
+                                                        <td data-value="6"><span></span></td>
+                                                        <td data-value="7"><span></span></td>
+                                                        <td data-value="8"><span></span></td>
+                                                        <td data-value="9"><span></span></td>
+                                                    </tr>
+                                                    <tr data-parent-id="3">
+                                                        <th scope="row">
+                                                            <span class="subitem-title">Soru 2</span>
+                                                        </th>
+                                                        <td data-value="1"><span></span></td>
+                                                        <td data-value="2"><span></span></td>
+                                                        <td data-value="3"><span></span></td>
+                                                        <td data-value="4"><span></span></td>
+                                                        <td data-value="5"><span></span></td>
+                                                        <td data-value="6"><span></span></td>
+                                                        <td data-value="7"><span></span></td>
+                                                        <td data-value="8"><span></span></td>
+                                                        <td data-value="9"><span></span></td>
+                                                    </tr>
+                                                    <tr data-parent-id="3">
+                                                        <th scope="row">
+                                                            <span class="subitem-title">Soru 3</span>
+                                                        </th>
+                                                        <td data-value="1"><span></span></td>
+                                                        <td data-value="2"><span></span></td>
+                                                        <td data-value="3"><span></span></td>
+                                                        <td data-value="4"><span></span></td>
+                                                        <td data-value="5"><span></span></td>
+                                                        <td data-value="6"><span></span></td>
+                                                        <td data-value="7"><span></span></td>
+                                                        <td data-value="8"><span></span></td>
+                                                        <td data-value="9"><span></span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"><span class="item-title">İŞ YETKİNLİKLERİ</span></th>
+                                    <td colspan="9" data-is-parent="true"></td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"><span class="fa fa-plus-square subitem-opener"></span>&nbsp&nbsp <span>Baskılarla Başa Çıkma</span></th>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td>9</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><span class="fa fa-plus-square subitem-opener"></span>&nbsp&nbsp <span>Analiz Etme</span></th>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td>9</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><span class="fa fa-plus-square subitem-opener"></span>&nbsp&nbsp <span>Kalite ve Hareket Odaklılık</span></th>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td>9</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><span class="fa fa-plus-square subitem-opener"></span>&nbsp&nbsp <span>Müşteri Odaklılık</span></th>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>6</td>
+                                    <td>7</td>
+                                    <td>8</td>
+                                    <td>9</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>-->
+
+    <script>
+        $(function () {
+            var rateBox = $("#divRateBox").rateBox({showStar:true});
+
+            //$('.smart-rate-table .nested-opener').on('click', function () {
+            //    var currentTr = $(this).parent('tr').next();
+            //    var collapse = currentTr.find('.collapse');
+            //    collapse.collapse('toggle');
+            //    $(this).find('.nested-opener-icon').toggleClass('fa-minus-square');
+            //});
+
+            //$('.smart-rate-table tbody tr:not(.nested-rate-tr) td').on('click', function (i, row) {
+
+            //    //prevent main header cell click
+            //    if ($(this).parent('tr').attr('data-is-parent')) {
+            //        return;
+            //    }
+
+            //    var alreadySelected = $(this).hasClass('selected-sub') || $(this).hasClass('selected-main');
+
+            //    //clear current selection
+            //    $(this).parent('tr').find('td').each(function (j, cell) {
+            //        $(cell).removeClass('selected-sub');
+            //        $(cell).removeClass('selected-main');
+            //        $(cell).find('span').text('');
+            //    });
+
+            //    $(this).parent('tr').removeAttr('data-selected-value');
+
+            //    if (!alreadySelected) {
+            //        $(this).parent('tr').attr('data-selected-value', $(this).attr('data-value'));
+            //        $(this).find('span').text($(this).attr('data-value'));
+            //    }
+
+            //    var selectedCss = '';
+            //    var parentId = $(this).parent('tr').attr('data-parent-id');
+            //    if (parentId) { //it is subitem    
+            //        var value = !alreadySelected ? $(this).attr('data-value') : '';
+            //        $(this).parent('tr').find('th').text(value);
+            //        selectedCss = 'selected-sub';
+            //        calculateAndSelectItem(parentId);
+            //    }
+            //    else {
+            //        var groupId = $(this).parent('tr').attr('data-group-id');
+            //        selectedCss = 'selected-main';
+            //        calculateMainRateAndShow(groupId);
+            //    }
+
+            //    if (!alreadySelected) {
+            //        $(this).addClass(selectedCss);
+            //    }
+
+            //});
+
+            //$(".smart-rate-table-nested > tbody > tr > td").hover(function () {
+            //    $(this).html($(this).attr('data-value') + '<span></span>');
+            //    $(this).css('color', 'gray');
+            //}, function () {
+            //    $(this).html("<span></span>");
+            //}
+            //);
+
+
+            //function calculateAndSelectItem(itemId) {
+            //    var totalRate = 0;
+            //    var ratedItemCount = 0;
+            //    $('.smart-rate-table tbody tr[data-parent-id=' + itemId + ']').each(function (i, row) {
+            //        var currentValue = parseInt($(this).attr('data-selected-value'));
+            //        if (!isNaN(currentValue)) {
+            //            totalRate += currentValue;
+            //            ratedItemCount++;
+            //        }
+            //    });
+
+            //    var avarageRate = Math.round(totalRate / ratedItemCount);
+
+            //    $('.smart-rate-table tbody tr[data-id=' + itemId + '] td').each(function (i, cell) {
+            //        $(cell).removeClass('selected-main-calculated');
+            //    });
+
+            //    var calculatedCell = $('.smart-rate-table tbody tr[data-id=' + itemId + '] td[data-value=' + avarageRate + ']');
+            //    if (!calculatedCell.hasClass('selected-main')) {
+            //        calculatedCell.addClass('selected-main-calculated');
+            //        setTimeout(function () {
+            //            calculatedCell.removeClass("selected-main-calculated");
+            //        }, 1000);
+            //    }
+
+            //}
+
+            // function calculateMainRateAndShow (groupId) {
+            //    var totalRate = 0;
+            //    var ratedItemCount = 0;
+            //    $('.smart-rate-table tbody tr[data-group-id=' + groupId + ']').each(function (i, row) {
+            //        var currentValue = parseInt($(this).attr('data-selected-value'));
+            //        if (!isNaN(currentValue)) {
+            //            totalRate += currentValue;
+            //            ratedItemCount++;
+            //        }
+            //    });
+
+            //    var avarageRate = Math.round(totalRate / ratedItemCount);
+            //    $('.smart-rate-table tbody tr[data-is-parent="true"][data-group-id="' + groupId + '"] td').removeClass('selected-main-group');
+            //    var calculatedRow = $('.smart-rate-table tbody tr[data-is-parent="true"][data-group-id=' + groupId + ']');
+            //    var calculatedCell = calculatedRow.find('td[data-value=' + avarageRate + ']');
+            //    calculatedRow.attr('data-rated-item-count', ratedItemCount);
+            //    calculatedCell.addClass('selected-main-group');
+            //    showRemainingItemCount();
+            //}
+
+            //function showRemainingItemCount() {
+            //    var ratedItemCount = 0;
+            //    $('.smart-rate-table tbody tr[data-is-parent="true"]').each(function () {
+            //        if ($(this).attr('data-rated-item-count')) {
+            //            ratedItemCount += parseInt($(this).attr('data-rated-item-count'));
+            //        }
+            //    });
+            //    $('.smart-rating-wrapper').find('.title-status').text(ratedItemCount + ' / 7');
+            //}
+        });
+
+
+        (function ($) {
+            $.rateBox = function (el, options) {
+                var base = this;
+
+                // Access to jQuery and DOM versions of element
+                base.$el = $(el);
+                base.el = el;
+                base.$el.data("rateBox", base);
+
+                base.init = function () {
+
+                    base.options = $.extend({}, $.rateBox.defaultOptions, options);
+
+                    // Put your initialization code here
+                    createRateBox();
+
+                };
+
+                base.functionName = function (paramaters) {
+
+                };
+
+                var toTitleCase = function (str) {
+                    return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
+                }
+
+                var createRateBox = function () {
+                    var rateBxData = getRateBoxData();
+                    var panel = addWrapperElements();
+                    var rateBoxTableContiner = addPanelItems(panel);
+
+                    rateBoxTableContiner.append(createRateMatrix(rateBxData));
+
+                    attachEvents();
+                }
+
+                var getRateBoxData = function () {
+                    //TODO: Get Data From Server
+                    return rateData;
+                }
+
+                var addWrapperElements = function () {
+                    var wrapper = $('<div></div>').addClass('smart-rating-wrapper');
+                    var innerContainer = $('<div></div>').addClass('inner-container inner-container-default inner-container-box-shadow noPadding').appendTo(wrapper);
+                    var panelGroup = $('<div></div>').addClass('panel-group').appendTo(innerContainer);
+                    var panel = $('<div></div>').addClass('panel panel-default').appendTo(panelGroup);
+
+                    base.$el.html(wrapper);
+
+                    return panel;
+                }
+
+                var addPanelItems = function (panel) {
+                    //TODO: Text and data must be dynamic
+                    var panelHeading = $('<div></div>').addClass('panel-heading');
+                    var panelTitle = $('<span></span>').addClass('title').html("<b>Ümit</b>'in yetkinliğini aşağıdaki 7 kritere göre değerlendirin");
+                    var panelStatus = $('<span></span>').addClass('title-status').html("0 / 7");
+                    var panelItem = $('<a></a>').append(panelTitle)
+                                                .append(panelStatus)
+                                               .appendTo(panelHeading);
+
+                    var rateBoxContainer = $('<div></div>').addClass('smart-rate-table-container');
+
+                    panel.append(panelHeading);
+                    panel.append(rateBoxContainer);
+
+                    return rateBoxContainer;
+                }
+
+                var createRateMatrix = function (rateBoxData) {
+                    var table = $('<table></table>').addClass('table table-bordered smart-rate-table');
+
+                    //add table heading
+
+                    table.append('  <thead>' +
+                                       '<tr>' +
+                                           '<th style="width: 28%;"></th>' +
+                                           '<th colspan="3" style="width: 24%;">Gelişime İhtiyacı Var</th>' +
+                                           '<th colspan="3" style="width: 24%;">Tatmin Edici Seviyede</th>' +
+                                           '<th colspan="3" style="width: 24%;">Üstün/Başkalarına Örnek </th>' +
+                                       '</tr>' +
+                                   '</thead>');
+
+                    //add table body
+
+                    var tableBody = $('<tbody></tbody>').appendTo(table);
+
+                    $.each(rateBoxData.GetAssesmentItemResult, function (i, competencyAssesmentItem) {
+
+                        var tr = $('<tr></tr>').attr('data-is-parent', true)
+                                               .attr('data-group-id', competencyAssesmentItem.ID);
+
+                        tr.append('<th scope="row"><span class="item-title">' + competencyAssesmentItem.Name + '</span></th>');
+
+                        for (var i = 1; i <= 9; i++) {
+                            if (options.showStar) {
+                                tr.append('<td style="opacity:0.5;" data-value="' + i + '"><span class="fa fa-star main-item-value main-item-value-star"></span></td>');
+                            }
+                            else {
+                                tr.append('<td data-value="' + i + '"><span class="main-item-value">' + i + '</span></td>');
+                            }
+                        }
+
+                        tableBody.append(tr);
+                        tableBody.append('<tr class="nested-rate-tr"></tr>');
+
+                        $.each(competencyAssesmentItem.CompetencyAssesmentItem, function (j, subItem) {
+                            var tr = $('<tr></tr>').addClass('rate-main-tr')
+                                                   .attr('data-id', subItem.ID)
+                                                   .attr('data-group-id', subItem.GroupId);
+                            tr.append(' <th scope="row" class="accordion-toggle nested-opener">' +
+                                               '<span class="fa fa-plus-square nested-opener-icon" ></span>&nbsp&nbsp' +
+                                               '<span >' + subItem.Name + '</span>' +
+                                           '</th>');
+
+                            for (var i = 1; i <= 9; i++) {
+                                tr.append('<td data-value="' + i + '">' + i + '</td>');
+                            }
+                            tableBody.append(tr);
+
+                            var nestedTr = $('<tr></tr>').addClass('nested-rate-tr').attr('data-parent-id', subItem.ID).appendTo(tableBody);
+                            if (subItem.CompetencyAssesmentChildItem && subItem.CompetencyAssesmentChildItem.length > 0) {
+
+                                var nestedTd = $('<td></td>').addClass('nested-rate-row').attr('colspan', 10).appendTo(nestedTr);
+                                var nestedContainer = $('<div></div>').addClass('accordian-body collapse').appendTo(nestedTd);
+                                var nestedTable = $('<table></table>').addClass('table table-bordered table-no-border smart-rate-table smart-rate-table-nested')
+                                                                      .attr('data-parent-id', subItem.ID)
+                                                                      .appendTo(nestedContainer);
+
+                                var nestedBody = $('<tbody></tbody>').appendTo(nestedTable);
+
+                                $.each(subItem.CompetencyAssesmentChildItem, function (k, nestedItem) {
+
+                                    nestedBody.append(' <tr data-parent-id="' + nestedItem.ParentItemID + '">' +
+                                                              '<th colspan="10" scope="row">' +
+                                                                   '<span class="subitem-title">' + nestedItem.Name + '</span>' +
+                                                              '</th>' +
+                                                          '</tr>');
+
+                                    var nestedItem = $('<tr></tr>').addClass('nested-rate-selectable').attr('data-parent-id', nestedItem.ParentItemID);
+                                    nestedItem.append('<th scope="row"></th>');
+                                    for (var i = 1; i <= 9; i++) {
+                                        nestedItem.append('<td data-value="' + i + '"><span></span></td>');
+                                    }
+
+                                    nestedBody.append(nestedItem);
+
+                                });
+                            }
+                            else {
+                                tr.find('span').removeClass('fa fa-plus-square nested-opener-icon');
+                            }
+
+                        });
+
+                    });
+
+                    return table;
+                }
+
+                var calculateAndSelectItem = function (itemId) {
+                    var totalRate = 0;
+                    var ratedItemCount = 0;
+                    $('.smart-rate-table tbody tr[data-parent-id=' + itemId + ']').each(function (i, row) {
+                        var currentValue = parseInt($(this).attr('data-selected-value'));
+                        if (!isNaN(currentValue)) {
+                            totalRate += currentValue;
+                            ratedItemCount++;
+                        }
+                    });
+
+                    var avarageRate = Math.round(totalRate / ratedItemCount);
+
+                    $('.smart-rate-table tbody tr[data-id=' + itemId + '] td').each(function (i, cell) {
+                        $(cell).removeClass('selected-main-calculated');
+                    });
+
+                    var calculatedCell = $('.smart-rate-table tbody tr[data-id=' + itemId + '] td[data-value=' + avarageRate + ']');
+                    if (!calculatedCell.hasClass('selected-main')) {
+                        calculatedCell.addClass('selected-main-calculated');
+                        setTimeout(function () {
+                            calculatedCell.removeClass("selected-main-calculated");
+                        }, 1000);
+                    }
+
+                }
+
+                var calculateMainRateAndShow = function (groupId) {
+                    var totalRate = 0;
+                    var ratedItemCount = 0;
+                    $('.smart-rate-table tbody tr[data-group-id=' + groupId + ']').each(function (i, row) {
+                        var currentValue = parseInt($(this).attr('data-selected-value'));
+                        if (!isNaN(currentValue)) {
+                            totalRate += currentValue;
+                            ratedItemCount++;
+                        }
+                    });
+
+                    var avarageRate = Math.round(totalRate / ratedItemCount);
+                    $('.smart-rate-table tbody tr[data-is-parent="true"][data-group-id="' + groupId + '"] td').removeClass('selected-main-group');
+                    var calculatedRow = $('.smart-rate-table tbody tr[data-is-parent="true"][data-group-id=' + groupId + ']');
+                    var calculatedCell = calculatedRow.find('td[data-value=' + avarageRate + ']');
+                    calculatedRow.attr('data-rated-item-count', ratedItemCount);
+                    calculatedCell.addClass('selected-main-group');
+                    showRemainingItemCount();
+                }
+
+                var showRemainingItemCount = function () {
+                    var ratedItemCount = 0;
+                    $('.smart-rate-table tbody tr[data-is-parent="true"]').each(function () {
+                        if ($(this).attr('data-rated-item-count')) {
+                            ratedItemCount += parseInt($(this).attr('data-rated-item-count'));
+                        }
+                    });
+                    $('.smart-rating-wrapper').find('.title-status').text(ratedItemCount + ' / 7');
+                }
+
+                var attachEvents = function () {
+                    base.$el.find('.smart-rate-table .nested-opener').on('click', function () {
+                        var currentTr = $(this).parent('tr').next();
+                        var collapse = currentTr.find('.collapse');
+                        collapse.collapse('toggle');
+                        $(this).find('.nested-opener-icon').toggleClass('fa-minus-square');
+                    });
+
+                    base.$el.find('.smart-rate-table tbody tr:not(.nested-rate-tr) td').on('click', function (i, row) {
+
+                        //prevent main header cell click
+                        if ($(this).parent('tr').attr('data-is-parent')) {
+                            return;
+                        }
+
+                        var alreadySelected = $(this).hasClass('selected-sub') || $(this).hasClass('selected-main');
+
+                        //clear current selection
+                        $(this).parent('tr').find('td').each(function (j, cell) {
+                            $(cell).removeClass('selected-sub');
+                            $(cell).removeClass('selected-main');
+                            $(cell).find('span').text('');
+                        });
+
+                        $(this).parent('tr').removeAttr('data-selected-value');
+
+                        if (!alreadySelected) {
+                            $(this).parent('tr').attr('data-selected-value', $(this).attr('data-value'));
+                            $(this).find('span').text($(this).attr('data-value'));
+                        }
+
+                        var selectedCss = '';
+                        var parentId = $(this).parent('tr').attr('data-parent-id');
+                        if (parentId) { //it is subitem    
+                            var value = !alreadySelected ? $(this).attr('data-value') : '';
+                            $(this).parent('tr').find('th').text(value);
+                            selectedCss = 'selected-sub';
+                            calculateAndSelectItem(parentId);
+                        }
+                        else {
+                            var groupId = $(this).parent('tr').attr('data-group-id');
+                            selectedCss = 'selected-main';
+                            calculateMainRateAndShow(groupId);
+                        }
+
+                        if (!alreadySelected) {
+                            $(this).addClass(selectedCss);
+                        }
+
+                    });
+
+                    base.$el.find(".smart-rate-table-nested > tbody > tr > td").hover(function () {
+                        $(this).html($(this).attr('data-value') + '<span></span>');
+                        $(this).css('color', 'gray');
+                    }, function () {
+                        $(this).html("<span></span>");
+                    }
+                    );
+                }
+
+                // Run initializer
+                base.init();
+            };
+
+            $.rateBox.defaultOptions = {
+                rateData: rateData,
+                showStar: false
+            };
+
+            $.fn.rateBox = function (options) {
+                return this.each(function () {
+                    (new $.rateBox(this, options));
+
+                    // HAVE YOUR PLUGIN DO STUFF HERE
+
+
+                    // END DOING STUFF
+
+                    //if (undefined == $(this).data('pluginName')) {
+                    //    var plugin = new $.rateBox(this, options);
+                    //    $(this).data('pluginName', plugin);
+                    //}
+                });
+            };
+
+        })(jQuery);
+    </script>
+
+</body>
+</html>
