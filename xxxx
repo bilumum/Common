@@ -1148,3 +1148,274 @@
 
 </body>
 </html>
+
+var rateData = {
+    "GetAssesmentItemResult": [
+        {
+        "CompetencyAssesmentItem": [{
+
+            "CompetencyAssesmentChildItem": [],
+            "CreationDate": "",
+            "CreationUser": 1,
+            "Description": "BASKILARLA BAŞA ÇIKMA",
+            "GroupId": 2,
+            "ID": 5,
+            "IsActive": true,
+            "ModificationDate": "",
+            "ModificationUser": 1,
+            "Name": "BASKILARLA BAŞA ÇIKMA",
+            "NoteValue": null
+        },
+
+            {
+                "CompetencyAssesmentChildItem": [{
+                    "CreationDate": null,
+                    "CreationUser": null,
+                    "Description": null,
+                    "ID": 16,
+                    "IsActive": true,
+                    "ModificationDate": null,
+                    "ModificationUser": null,
+                    "Name": "Sayısal ve sözel verileri irdeler, çıkarımlar yapar.",
+                    "NoteValue": null,
+                    "ParentItemID": 6
+                }, {
+                    "CreationDate": null,
+                    "CreationUser": null,
+                    "Description": null,
+                    "ID": 17,
+                    "IsActive": true,
+                    "ModificationDate": null,
+                    "ModificationUser": null,
+                    "Name": "Argümanlarını sözel ve sayısal verilerle destekler.",
+                    "NoteValue": null,
+                    "ParentItemID": 6
+                }, {
+                    "CreationDate": null,
+                    "CreationUser": null,
+                    "Description": null,
+                    "ID": 18,
+                    "IsActive": true,
+                    "ModificationDate": null,
+                    "ModificationUser": null,
+                    "Name": "Dağınık bilgileri sistematik bir şekilde düzenler.",
+                    "NoteValue": null,
+                    "ParentItemID": 6
+                }, {
+                    "CreationDate": null,
+                    "CreationUser": null,
+                    "Description": null,
+                    "ID": 19,
+                    "IsActive": true,
+                    "ModificationDate": null,
+                    "ModificationUser": null,
+                    "Name": "Topladığı bilgiler arasındaki mantıksal bağlantıları, sebep sonuç ilişkilerini sorgular.",
+                    "NoteValue": null,
+                    "ParentItemID": 6
+                }],
+                "CreationDate": "",
+                "CreationUser": 1,
+                "Description": "ANALİZ ETME",
+                "GroupId": 2,
+                "ID": 6,
+                "IsActive": true,
+                "ModificationDate": "",
+                "ModificationUser": 1,
+                "Name": "ANALİZ ETME",
+                "NoteValue": null
+            }, {
+                "CompetencyAssesmentChildItem": [],
+                "CreationDate": "",
+                "CreationUser": 1,
+                "Description": "KALİTE VE HAREKT ODAKLILIK",
+                "GroupId": 2,
+                "ID": 7,
+                "IsActive": true,
+                "ModificationDate": "",
+                "ModificationUser": 1,
+                "Name": "KALİTE VE HAREKT ODAKLILIK",
+                "NoteValue": null
+            }, {
+                "CompetencyAssesmentChildItem": [{
+                    "CreationDate": null,
+                    "CreationUser": null,
+                    "Description": null,
+                    "ID": 20,
+                    "IsActive": true,
+                    "ModificationDate": null,
+                    "ModificationUser": null,
+                    "Name": "İç ve dış  müşterilerin beklenti ve ihtiyaçlarını karşılamaya önem verir.",
+                    "NoteValue": null,
+                    "ParentItemID": 8
+                }, {
+                    "CreationDate": null,
+                    "CreationUser": null,
+                    "Description": null,
+                    "ID": 21,
+                    "IsActive": true,
+                    "ModificationDate": null,
+                    "ModificationUser": null,
+                    "Name": "Müşterilerin memnuniyetini önemser.",
+                    "NoteValue": null,
+                    "ParentItemID": 8
+                }, {
+                    "CreationDate": null,
+                    "CreationUser": null,
+                    "Description": null,
+                    "ID": 22,
+                    "IsActive": true,
+                    "ModificationDate": null,
+                    "ModificationUser": null,
+                    "Name": "Müşterilerin güvenini kazanmaya yönelik öneriler getirir.",
+                    "NoteValue": null,
+                    "ParentItemID": 8
+                }, {
+                    "CreationDate": null,
+                    "CreationUser": null,
+                    "Description": null,
+                    "ID": 23,
+                    "IsActive": true,
+                    "ModificationDate": null,
+                    "ModificationUser": null,
+                    "Name": "Müşteriye sunulan hizmetin doğru ve kaliteli olması için çalışır.",
+                    "NoteValue": null,
+                    "ParentItemID": 8
+                }],
+                "CreationDate": "",
+                "CreationUser": 1,
+                "Description": "MÜŞTERİ ODAKLILIK",
+                "GroupId": 2,
+                "ID": 8,
+                "IsActive": true,
+                "ModificationDate": "",
+                "ModificationUser": 1,
+                "Name": "MÜŞTERİ ODAKLILIK",
+                "NoteValue": null
+            }
+        ],
+        "CreationDate": "",
+        "CreationUser": 1,
+        "Description": "İş Yetkinlikleri",      
+        "ID": 2,
+        "IsActive": true,
+        "ModificationDate": "",
+        "ModificationUser": 1,
+        "Name": "İş Yetkinlikleri",
+        "NoteValue": null
+
+        },
+        {
+            "CompetencyAssesmentItem": [                
+                {
+                    "CompetencyAssesmentChildItem": [{
+                        "CreationDate": null,
+                        "CreationUser": null,
+                        "Description": null,
+                        "ID": 100,
+                        "IsActive": true,
+                        "ModificationDate": null,
+                        "ModificationUser": null,
+                        "Name": "Bir konu ile ilgili düşünce ve bilgilerini net, düzgün, anlaşılır ve yalın bir şekilde ifade eder.",
+                        "NoteValue": null,
+                        "ParentItemID": 9
+                    }, {
+                        "CreationDate": null,
+                        "CreationUser": null,
+                        "Description": null,
+                        "ID": 101,
+                        "IsActive": true,
+                        "ModificationDate": null,
+                        "ModificationUser": null,
+                        "Name": "Karşısındaki kişiyi sözünü kesmeden, saygıyla dinler.",
+                        "NoteValue": null,
+                        "ParentItemID": 9
+                    }, {
+                        "CreationDate": null,
+                        "CreationUser": null,
+                        "Description": null,
+                        "ID": 102,
+                        "IsActive": true,
+                        "ModificationDate": null,
+                        "ModificationUser": null,
+                        "Name": "Fikir ve görüşlerini sunarken kendine güvenini tavır ve davranışlarıyla karşı tarafa yansıtır.",
+                        "NoteValue": null,
+                        "ParentItemID": 9
+                    },
+                    {
+                        "CreationDate": null,
+                        "CreationUser": null,
+                        "Description": null,
+                        "ID": 103,
+                        "IsActive": true,
+                        "ModificationDate": null,
+                        "ModificationUser": null,
+                        "Name": "İletişimde aktarılan mesajların doğru anlaşıldığından emin olmaya çalışır.",
+                        "NoteValue": null,
+                        "ParentItemID": 9
+                    },
+                    {
+                        "CreationDate": null,
+                        "CreationUser": null,
+                        "Description": null,
+                        "ID": 104,
+                        "IsActive": true,
+                        "ModificationDate": null,
+                        "ModificationUser": null,
+                        "Name": "Görüşlerini aktarırken göz teması kurar ve uygun beden dili kullanır.",
+                        "NoteValue": null,
+                        "ParentItemID": 9
+                    }],
+                    "CreationDate": "",
+                    "CreationUser": 1,
+                    "Description": "İLETİŞİM",
+                    "GroupId": 1,
+                    "ID": 9,
+                    "IsActive": true,
+                    "ModificationDate": "",
+                    "ModificationUser": 1,
+                    "Name": "ANALİZ ETME",
+                    "NoteValue": null
+                }, {
+                    "CompetencyAssesmentChildItem": [],
+                    "CreationDate": "",
+                    "CreationUser": 1,
+                    "Description": "İKNA ETME",
+                    "GroupId": 1,
+                    "ID": 10,
+                    "IsActive": true,
+                    "ModificationDate": "",
+                    "ModificationUser": 1,
+                    "Name": "İKNA ETME",
+                    "NoteValue": null
+                },
+                {
+                    "CompetencyAssesmentChildItem": [],
+                    "CreationDate": "",
+                    "CreationUser": 1,
+                    "Description": "ÇATIŞMA YÖNETİMİ",
+                    "GroupId": 1,
+                    "ID": 11,
+                    "IsActive": true,
+                    "ModificationDate": "",
+                    "ModificationUser": 1,
+                    "Name": "ÇATIŞMA YÖNETİMİ",
+                    "NoteValue": null
+                }
+            ],
+            "CreationDate": "",
+            "CreationUser": 1,
+            "Description": "Kişisel Yetkinlikler",
+            "ID": 1,
+            "IsActive": true,
+            "ModificationDate": "",
+            "ModificationUser": 1,
+            "Name": "Kişisel Yetkinlikleri",
+            "NoteValue": null
+
+        }
+
+    ]
+
+
+
+}
