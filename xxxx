@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
     <meta charset="UTF-8" />
-    <link href="bootstrap.custom.css" rel="stylesheet" />
-    <link href="../../bootstrap/css/bootstrap.css" rel="stylesheet" />    
-    <link href="../../fontawesome/css/font-awesome.css" rel="stylesheet" />
+    <title></title>
+    <link href="bootstrap.custom.css" rel="stylesheet" />    
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../fontawesome/css/font-awesome.css" rel="stylesheet" />
     <link href="container.css" rel="stylesheet" />
     <link href="site.main.css" rel="stylesheet" />    
-    
-    <script src="../../jquery/jquery-1.11.3.min.js"></script>    
-    <script src="../../bootstrap/js/bootstrap.js"></script>
-    <script src="data.js"></script>
-  
-    <style>
-            .smart-rating-wrapper {
+   
+       
+    <script src="../jquery/jquery-1.11.3.min.js"></script>  
+    <script src="../bootstrap/js/bootstrap.js"></script>
+    <script src="matris/data.js"></script>
+   <style>
+       .smart-rating-wrapper {
     position: absolute;
     width: 100%;
     top: 50px;
@@ -24,10 +24,63 @@
     align-items: center;
 }
 
-.panel-group .panel .panel-heading a {
-    padding: 0px 20px;
+
+    .smart-rating-wrapper .row {
+        text-align: center;
+        margin-left: 10px;
+        margin-right: 10px;
+        display: -webkit-flex;
+        /* margin-bottom: 10px; */
+        /* padding: 26px; */
+        margin-top: 12px;
+    }
+
+.inner-container-box-shadow {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
 }
 
+.inner-container {
+    padding: 10px;
+    background: #fff;
+    position: relative;
+    width: 770px;
+}
+
+.rating-title {
+    line-height: 100px;
+    color: #2d3334;
+    font-family: Roboto, Trebuchet, sans-serif;
+    font-size: 14px;
+    /* margin-right: -27px; */
+    margin-left: -24px;
+}
+
+.competency-rate-detail {
+    margin-top: 15px;
+}
+
+
+.rate-box .rate-items-opener {
+    position: relative;
+    top: 20px;
+    background-color: #e5e9ed;
+    color: white;
+    padding: 10px;
+    padding-right: 12px;
+    padding-left: 12px;
+    color: #333;
+    display: none;
+}
+
+    .rate-box .rate-items-opener > i {
+        margin-right: 5px;
+    }
+
+
+
+.panel-group .panel .panel-heading a {
+    padding: 4px 20px;
+}
 
 .panel-group .panel .panel-heading .summary .fa {
     margin: 0 0px;
@@ -35,811 +88,509 @@
 }
 
 .panel-group .panel .panel-heading .title {
-   white-space: nowrap;
+    white-space: nowrap;
     flex-basis: auto;
-    display: flex;
-    align-items: center;
+    position: absolute;
 }
 
-.panel-group .panel .panel-heading .title-status {
-    background-color: aliceblue;
-    /* margin-right: -20px; */
-    width: 75px;
-    font-size: 20px;
-    /* margin-top: -74px; */
-    height: 50px;
+
+
+.smart-rating-wrapper .alert .label {
+    font-size: 74%;
+    font-weight: normal;
+    background-color: #e5e9ed;
+    color: #409998;
+    width: 98%;
+    display: block;
+    text-align: left;
+    padding-left: 3px;
+    height: 30px;
     display: flex;
+    align-items: center;
+    padding: 0px;
+}
+
+    .smart-rating-wrapper .alert .label .fa {
+        margin-right: 4px;
+        margin-left: 4px;
+    }
+
+.smart-rating-wrapper .alert {
+    padding: 0px;
+    margin-bottom: 0px;
+    border: 1px solid transparent;
+    border-radius: 0px;
+    width: 100%;
+    cursor:pointer;
+}
+
+.smart-rating-wrapper .subtitle {
+    color: #409998;
+    padding: 3px;
+    font-size: 13px;
+    /*line-height: 40px;*/
+}
+
+.summary {
+    position: relative;
+    float: right;
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+
+.rate-line-container {
+    /*width: 670px;*/
+    margin-bottom: 35px;
+}
+
+.rate-box {
+    width: 180px;
+    /* display: -webkit-flex; */
+    display: none;
+    top: -22px;
+    z-index: 1;
+    background-color: rgba(232, 232, 232, 1) !important;
+}
+
+    .rate-box.active {
+        display: block;
+    }
+
+    .rate-box.selected {
+        display: block;
+    }
+
+.rate-box-inner {
+    display: -webkit-flex;
+}
+
+
+.rate-box .rate-action-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background-color: rgba(64, 153, 152, 1);
+    cursor: pointer;
+    background-color: rgba(249, 208, 69, 0.5);
     color: white;
-    font-weight: bold;
-    margin-right:-20px;
+    font-weight: normal;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow;
+    transition-property: box-shadow;
 }
 
-   
 
-.panel-group {
-}
-
-.smart-rate-table {
-    /*max-width: 750px;*/
-    text-align: center;
-}
-
-.smart-rate-table > tbody > tr[data-is-parent="true"]  {
-       /*height: 50px;*/
-    }
-
-.smart-rate-table > tbody > tr[data-is-parent="true"] > td {
-        text-align: center;        
-       color: white;
-       /*background-color: rgba(64, 153, 152, 1);*/
-       border-left: none;
-       border-right: none;
-       /*border-color:rgba(64, 153, 152, 1);*/
-    }
-
-    .smart-rate-table > tbody > tr[data-is-parent="true"] > td::after {
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 32px 0 0 32px;
-        border-color: transparent transparent transparent #da424c;
-        line-height: 0px;
-        _border-color: #000000 #000000 #000000 #da424c;        
-    }
-
-.smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="1"] {
-      opacity: 0.3;
-    }
-.smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="2"] {
-      opacity: 0.3;
-    }
-.smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="3"] {
-      opacity: 0.3;
-    }
-.smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="4"] {
-      opacity: 0.6;
-    }
-.smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="5"] {
-      opacity: 0.6;
-    }
-.smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="6"] {
-      opacity: 0.6;
-    }
-.smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="7"] {
-      opacity: 0.9;
-    }
-.smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="8"] {
-      opacity: 0.9;
-    }
-.smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="9"] {
-      opacity: 0.9;
-    }
-
-    .smart-rate-table > thead > tr > th {
-        text-align: center;
-        font-size: 12px;
-        /*width: 25%;*/
-    }
-
-    .smart-rate-table > tbody > tr > th {
-        font-size: 12px;
-        font-weight: normal;
-        color: #409998;
-    }
-
-    .smart-rate-table > tbody > tr > td {
-        color: gray;
-        cursor: pointer;
-        transition: background-color 0.5s ease;
-        color: white;
-        /*font-weight: bold;*/      
-    }
-
-    .smart-rate-table > tbody > .rate-main-tr td:hover {
-          -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-transition-duration: 0.2s;
-        transition-duration: 0.2s;
-        -webkit-transition-property: box-shadow;
-        transition-property: box-shadow;
-    }
-
-    .smart-rate-table > tbody > .rate-main-tr td:hover {
-        box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
-        background-color:rgba(64, 153, 152, 0.6);
-        color: white;
-    }
-
-    .smart-rate-table > tbody > tr > .nested-rate-row {
-        padding: 0px;
-    }
-
-    .smart-rate-table > tbody > tr > td.selected-main-calculated {
-        background-color: rgba(249, 208, 69, 0.2);
-        color:gray;
-    }
-
-     .smart-rate-table > tbody > tr > td.selected-main {
-        background-color: rgba(64, 153, 152, 1);
-        color: white;        
-    }
-
-    .smart-rate-table > tbody > tr > td.selected-main[data-value="1"], .smart-rate-table > tbody > tr > td.selected-main[data-value="2"], .smart-rate-table > tbody > tr > td.selected-main[data-value="3"] {
-       opacity: 0.3;
-    }
-
-    .smart-rate-table > tbody > tr > td.selected-main[data-value="4"], .smart-rate-table > tbody > tr > td.selected-main[data-value="5"], .smart-rate-table > tbody > tr > td.selected-main[data-value="6"] {
-       opacity: 0.6;
-    }
-
-    .smart-rate-table > tbody > tr > td.selected-main[data-value="7"], .smart-rate-table > tbody > tr > td.selected-main[data-value="8"], .smart-rate-table > tbody > tr > td.selected-main[data-value="9"] {
-       opacity: 0.9;
-    }
-    
-    .smart-rate-table > tbody > tr > td.selected-sub {
-        background-color: rgba(249, 208, 69, 0.4);
-    }
-
-    .smart-rate-table .subitem-title {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        line-height: 16px; /* fallback */
-        max-height: 32px; /* fallback */
-        -webkit-line-clamp: 2; /* number of lines to show */
-        -webkit-box-orient: vertical;
-        text-align:left;
-    }
-
-    .smart-rate-table .item-title {
-        font-size: 14px;
+    .rate-box .rate-action-circle > span {
         font-weight: bold;
     }
 
-    .smart-rate-table .nested-opener {
-        cursor: pointer;
-    }
 
-.smart-rate-table-container {
-    padding: 20px;
-    width: 770px;
-}
-
-
-.nested-rate-row .table {
-    border: none;
-    margin-bottom: 0px;
-}
-
-
-.nested-rate-row table tr th {
-    border-left: none !important;
-    width: 28%;
-}
-
-.nested-rate-row table tr td {
-    width: 8%;
-}
-
-.nested-rate-row table tr:first-child th {
-    border-top: none !important;
-}
-
-.nested-rate-row table tr:first-child td {
-    border-top: none !important;
-}
-
-.smart-rate-table .nested-rate-tr {
-    height: 2px;
-}
-
-
-.smart-rate-table .main-item-value {
-    position: absolute;
-    color: white;
-    font-weight: bold;
+.rate-line-circle {
     width: 20px;
     height: 20px;
-    background-color: rgba(64, 153, 152, 1);
     border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* display: block; */
-    /* margin: auto 0px; */
-    /* text-align: center; */
-    margin-top: 0px;
-    margin-left: 10px;
-    /* -webkit-transform: translateZ(0); */
-    /* transform: translateZ(0); */
-    /* -webkit-backface-visibility: hidden; */
-    /* backface-visibility: hidden; */
+    border: 1px solid #E8E8E8;
+    cursor: pointer;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     -webkit-transition-duration: 0.3s;
     transition-duration: 0.3s;
     -webkit-transition-property: box-shadow, transform;
     transition-property: box-shadow, transform;
+    /*background-color: #E8E8E8;*/
 }
 
-.smart-rate-table .main-item-value-star {
-     border-radius: 0px;
-     color:yellow;
-     background-color:transparent; 
-     font-size: 21px;
-}
-
-.smart-rate-table .selected-main-group span {
-       -webkit-transform: scale(1.7);
-        transform: scale(1.7);
-}
-
-
-.smart-rate-table-nested > tbody > .nested-rate-selectable  {    
-   height: 37px; 
-}
-
-.smart-rate-table-nested > tbody > .nested-rate-selectable th {    
-   text-align:center;
-}
-
-.smart-rate-table-nested > tbody > tr > td  {    
-    vertical-align: middle; 
-}
-
- .smart-rate-table-nested > tbody > tr > td:hover {
-        box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
-        background-color:rgba(249, 208, 69, 0.4);
+    .rate-line-circle[data-final-selected="true"] {
+        -webkit-transform: scale(2);
+        transform: scale(2);
+        background-color: #409998 !important;
         color: white;
+        border: none;
     }
 
-     .smart-rate-table-nested > tbody > tr > td:hover {
-          -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-transition-duration: 0.2s;
-        transition-duration: 0.2s;
-        -webkit-transition-property: box-shadow;
-        transition-property: box-shadow;
-        content:'1';
+        .rate-line-circle[data-final-selected="true"]:after {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            width: 68px !important;
+            height: 1px !important;
+            padding: 0px !important;
+        }
+
+
+    .rate-line-circle span {
+        position: absolute;
+        left: 6px;
     }
 
-.smart-rate-table-nested > tbody > tr > td > span {
-    color: gray !important;    
-    font-weight:normal;
-    display:none;
+.rate-line-rectangle {
+    border-radius: 5px;
+    width: 120px;
+    height: 36px;
+    background-color: #e5e9ed;
+    /* background-color: #409998; */
+    margin-top: -5px;
+    padding: 4px;
+    /*display: -webkit-flex;
+    align-items: center;
+    justify-content: center;*/
+    line-height: 30px;
+}
+
+    .rate-line-rectangle span {
+        float: left;
+        color: #409998;
+        font-weight: bold;
+    }
+
+.rate-line-outer {
+    text-align: center;
+}
+
+    .rate-line-outer .rate-line {
+        display: -webkit-flex;
+        /*justify-content: center;*/
+        align-items: center;
+    }
+
+    .rate-line-outer .sub-item-title {
+       color:gray;
+    }
+
+
+
+.rate-line-exp > span {
+    font-size: 12px;
+    /*top: 12px;
+        position: relative;*/
 }
 
 
 
 
 
-.table-no-border > tbody > tr > th,
-.table-no-border > tbody > tr > td,
-.table-no-border > tbody{
-    /*border-top: none !important;*/
-    border-bottom: none !important;
-    /*border-left: none !important;*/
-    border-right: none !important;
-    /*border-bottom: none !important;*/
+
+
+
+.competency-explanation {
+    padding: 15px;
+    font-size: 15px !important;
 }
 
-.table-no-border > tbody > tr:last-child > th,
-.table-no-border > tbody > tr:last-child > td {
-    /*border-top: none !important;*/
-    /*border-bottom: none !important;*/
-    /*border-left: none !important;*/
-    border-right: none !important;
-    border-bottom:1px solid rgba(64, 153, 152, 0.7) !important;
-    /*border-bottom: none !important;*/
+.row > .rate-line:not(:last-child) .rate-line-circle::after {
+    content: '';
+    display: block;
+    position: relative;
+    left: 16px;
+    top: 9px;
+    margin-left: 15%;
+    width: 115%;
+    height: 1px;
+    background-color: #E8E8E8;
 }
-    </style>
+
+.row > .rate-line .rate-line-circle::before {
+    content: '';
+    display: block;
+    right: 10px;
+    top: 10px;
+    height: 1px;
+    background-color: #E8E8E8;
+    position: relative;
+    left: -19px;
+}
+
+.form-group .knowdledgeBaseContainer > div {
+    margin: 10px;
+}
+
+.rate-line-outer .row .col-md-4, .col-md-5, .col-md-2 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.rate-line-circle[data-group="1"].hover {
+    background-color: rgba(64, 153, 152, 0.3);
+    border-color: rgba(64, 153, 152, 0.3);
+}
+
+.rate-line-circle[data-group="2"].hover {
+    background-color: rgba(64, 153, 152, 0.6);
+    border-color: rgba(64, 153, 152, 0.6);
+}
+
+.rate-line-circle[data-group="3"].hover {
+    background-color: rgba(64, 153, 152, 0.9);
+    border-color: rgba(64, 153, 152, 0.9);
+}
+
+
+.rate-line-circle[data-group="1"].active:after {
+    background-color: rgba(64, 153, 152, 1) !important;
+    border-color: rgba(64, 153, 152, 1) !important;
+}
+
+.rate-line-circle[data-group="1"].active:before {
+    background-color: rgba(64, 153, 152, 1) !important;
+    border-color: rgba(64, 153, 152, 1) !important;
+}
+
+.rate-line-circle[data-group="2"].active:after {
+    background-color: rgba(64, 153, 152, 1) !important;
+    border-color: rgba(64, 153, 152, 1) !important;
+}
+
+.rate-line-circle[data-group="2"].active:before {
+    background-color: rgba(64, 153, 152, 1) !important;
+    border-color: rgba(64, 153, 152, 1) !important;
+}
+
+.rate-line-circle[data-group="3"].active:after {
+    background-color: rgba(64, 153, 152, 1) !important;
+    border-color: rgba(64, 153, 152, 1) !important;
+}
+
+.rate-line-circle[data-group="3"].active:before {
+    background-color: rgba(64, 153, 152, 1) !important;
+    border-color: rgba(64, 153, 152, 1) !important;
+}
+
+.rate-line-circle[data-group="1"].active:after {
+    background-color: rgba(64, 153, 152, 1) !important;
+    border-color: rgba(64, 153, 152, 1) !important;
+}
+
+
+.rate-line-circle[data-group="1"][data-any="true"] {
+    background-color: rgba(64, 153, 152, 0.3) !important;
+    border-color: rgba(64, 153, 152, 0.3) !important;
+}
+
+    .rate-line-circle[data-group="1"][data-any="true"]:after {
+        background-color: rgba(64, 153, 152, 1) !important;
+        border-color: rgba(64, 153, 152, 1) !important;
+    }
+
+    .rate-line-circle[data-group="1"][data-any="true"]:before {
+        background-color: rgba(64, 153, 152, 1) !important;
+        border-color: rgba(64, 153, 152, 1) !important;
+    }
+
+.rate-line-circle[data-group="2"][data-any="true"] {
+    background-color: rgba(64, 153, 152, 0.6) !important;
+    border-color: rgba(64, 153, 152, 0.6) !important;
+}
+
+    .rate-line-circle[data-group="2"][data-any="true"]:after {
+        background-color: rgba(64, 153, 152, 1) !important;
+        border-color: rgba(64, 153, 152, 1) !important;
+    }
+
+    .rate-line-circle[data-group="2"][data-any="true"]:before {
+        background-color: rgba(64, 153, 152, 1) !important;
+        border-color: rgba(64, 153, 152, 1) !important;
+    }
+
+.rate-line-circle[data-group="3"][data-any="true"] {
+    background-color: rgba(64, 153, 152, 0.9) !important;
+    border-color: rgba(64, 153, 152, 0.9) !important;
+}
+
+    .rate-line-circle[data-group="3"][data-any="true"]:after {
+        background-color: rgba(64, 153, 152, 1) !important;
+        border-color: rgba(64, 153, 152, 1) !important;
+    }
+
+    .rate-line-circle[data-group="3"][data-any="true"]:before {
+        background-color: rgba(64, 153, 152, 1) !important;
+        border-color: rgba(64, 153, 152, 1) !important;
+    }
+
+
+.rate-line-rectangle .rate-show {
+    width: 24px;
+    height: 24px;
+    float: right;
+    margin-top: 2px;
+}
+
+
+/*.rate-line-rectangle .clear {
+    background:;
+}*/
+
+.rate-line-rectangle .no-rate-selected {
+    background-image: url(images/no_rate-24.png);
+}
+
+
+.rate-line-rectangle .low-rate, .rate-line-rectangle .low-rate-selected {
+    background-image: url(images/low-24.png);
+}
+
+.rate-line-rectangle .medium-rate, .rate-line-rectangle .medium-rate-selected {
+    background-image: url(images/medium-24.png);
+}
+
+.rate-line-rectangle .high-rate, .rate-line-rectangle .high-rate-selected {
+    background-image: url(images/high-24.png);
+}
+
+
+.rate-line-rectangle .no-rate {
+    background-image: url(images/no_rate-24.png);
+}
+
+
+.rate-line-rectangle .low-rate, .rate-line-rectangle .low-rate.active {
+    background-image: url(images/low-24.png);
+}
+
+.rate-line-rectangle .medium-rate, .rate-line-rectangle .medium-rate.active {
+    background-image: url(images/medium-24.png);
+}
+
+.rate-line-rectangle .high-rate, .rate-line-rectangle .high-rate.active {
+    background-image: url(images/high-24.png);
+}
+
+   </style>   
 </head>
 <body>
 
     <div id="divRateBox"></div>
 
-    <!--<div class="smart-rating-wrapper">
-        <div class="inner-container inner-container-default inner-container-box-shadow noPadding">
-            <div class="panel-group">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <a>
-                            <span class="title"><b>Ümit</b>'in yetkinliğini aşağıdaki 7 kritere göre değerlendirin</span>
-                            <span class="title-status">0/7</span>
-                        </a>
-                    </div>
-                    <div class="smart-rate-table-container">
-                        <table class="table table-bordered smart-rate-table">
-                            <thead>
-                                <tr>
-                                    <th style="width: 28%;"></th>
-                                    <th colspan="3" style="width: 24%;">Gelişime İhtiyacı Var</th>
-                                    <th colspan="3" style="width: 24%;">Tatmin Edici Seviyede</th>
-                                    <th colspan="3" style="width: 24%;">Üstün/Başkalarına Örnek </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr data-is-parent="true" data-group-id="1">
-                                    <th scope="row"><span class="item-title">KİŞİSEL YETKİNLİKLER</span></th>
-                                    <td data-value="1"><span class="fa fa-star main-item-value main-item-value-star"></span></td>
-                                    <td data-value="2"><span class="fa fa-star main-item-value main-item-value-star"></span><</td>
-                                    <td data-value="3"><span class="fa fa-star main-item-value main-item-value-star"></span><</td>
-                                    <td data-value="4"><span class="fa fa-star main-item-value main-item-value-star"></span><</td>
-                                    <td data-value="5"><span class="fa fa-star main-item-value main-item-value-star"></span><</td>
-                                    <td data-value="6"><span class="fa fa-star main-item-value main-item-value-star"></span><</td>
-                                    <td data-value="7"><span class="fa fa-star main-item-value main-item-value-star"></span><</td>
-                                    <td data-value="8"><span class="fa fa-star main-item-value main-item-value-star"></span><</td>
-                                    <td data-value="9"><span class="fa fa-star main-item-value main-item-value-star"></span><</td>
-                                </tr>
-                                <tr class="nested-rate-tr">
-                                </tr>
-                                <tr class="rate-main-tr" data-id="1" data-group-id="1">
-                                    <th scope="row" class="accordion-toggle nested-opener">
-                                        <span class="fa fa-plus-square fa-minus-square nested-opener-icon" ></span>&nbsp&nbsp
-                                        <span >İletişim</span>
-                                    </th>
-                                    <td data-value="1">1</td>
-                                    <td data-value="2">2</td>
-                                    <td data-value="3">3</td>
-                                    <td data-value="4">4</td>
-                                    <td data-value="5">5</td>
-                                    <td data-value="6">6</td>
-                                    <td data-value="7">7</td>
-                                    <td data-value="8">8</td>
-                                    <td data-value="9">9</td>
-                                </tr>
-                                <tr data-parent-id="1" class="nested-rate-tr">
-                                    <td colspan="10" class="nested-rate-row">
-                                        <div class="accordian-body collapse in" id="demo1">
-                                            <table data-parent-id="1" class="table table-bordered table-no-border smart-rate-table smart-rate-table-nested">                                             
-                                                <tbody>
-                                                    <tr data-parent-id="1">
-                                                        <th colspan="10" scope="row">
-                                                             <span class="subitem-title">
-                                                                    Bir konu ile ilgili düşünce ve bilgilerini net, düzgün, anlaşılır ve yalın bir şekilde ifade eder.
-                                                                </span>
-                                                        </th>
-                                                    </tr>
-                                                    <tr data-parent-id="1" class="nested-rate-selectable">
-                                                        <th scope="row">
-                                                           
-                                                        </th>                                                        
-                                                        <td data-value="1"><span></span></td>
-                                                        <td data-value="2"><span></span></td>
-                                                        <td data-value="3"><span></span></td>
-                                                        <td data-value="4"><span></span></td>
-                                                        <td data-value="5"><span></span></td>
-                                                        <td data-value="6"><span></span></td>
-                                                        <td data-value="7"><span></span></td>
-                                                        <td data-value="8"><span></span></td>
-                                                        <td data-value="9"><span></span></td>
-                                                    </tr>
-                                                    <tr data-parent-id="1">
-                                                        <th colspan="10" scope="row">
-                                                             <span class="subitem-title">
-                                                                   Karşısındaki kişiyi sözünü kesmeden, saygıyla dinler.
-                                                             </span>
-                                                        </th>
-                                                    </tr>
-                                                    <tr data-parent-id="1" class="nested-rate-selectable">
-                                                        <th scope="row">
-                                                            
-                                                        </th>
-                                                        <td data-value="1"><span></span></td>
-                                                        <td data-value="2"><span></span></td>
-                                                        <td data-value="3"><span></span></td>
-                                                        <td data-value="4"><span></span></td>
-                                                        <td data-value="5"><span></span></td>
-                                                        <td data-value="6"><span></span></td>
-                                                        <td data-value="7"><span></span></td>
-                                                        <td data-value="8"><span></span></td>
-                                                        <td data-value="9"><span></span></td>
-                                                    </tr>
-                                                    <tr data-parent-id="1">
-                                                        <th colspan="10" scope="row">
-                                                             <span class="subitem-title">
-                                                                  Fikir ve görüşlerini sunarken kendine güvenini tavır ve davranışlarıyla karşı tarafa yansıtır.
-                                                             </span>
-                                                        </th>
-                                                    </tr>
-                                                    <tr data-parent-id="1" class="nested-rate-selectable">
-                                                        <th scope="row">
-                                                            <span class="subitem-title">
-                                                                
-                                                            </span>
-                                                        </th>
-                                                        <td data-value="1"><span></span></td>
-                                                        <td data-value="2"><span></span></td>
-                                                        <td data-value="3"><span></span></td>
-                                                        <td data-value="4"><span></span></td>
-                                                        <td data-value="5"><span></span></td>
-                                                        <td data-value="6"><span></span></td>
-                                                        <td data-value="7"><span></span></td>
-                                                        <td data-value="8"><span></span></td>
-                                                        <td data-value="9"><span></span></td>
-                                                    </tr>
-                                                    <tr data-parent-id="1">
-                                                        <th colspan="10" scope="row">
-                                                             <span class="subitem-title">
-                                                                 İletişimde aktarılan mesajların doğru anlaşıldığından emin olmaya çalışır.
-                                                             </span>
-                                                        </th>
-                                                    </tr>
-                                                    <tr data-parent-id="1" class="nested-rate-selectable">
-                                                        <th scope="row">
-                                                            <span class="subitem-title">
-                                                               
-                                                            </span>
-                                                        </th>
-                                                        <td data-value="1"><span></span></td>
-                                                        <td data-value="2"><span></span></td>
-                                                        <td data-value="3"><span></span></td>
-                                                        <td data-value="4"><span></span></td>
-                                                        <td data-value="5"><span></span></td>
-                                                        <td data-value="6"><span></span></td>
-                                                        <td data-value="7"><span></span></td>
-                                                        <td data-value="8"><span></span></td>
-                                                        <td data-value="9"><span></span></td>
-                                                    </tr>
-                                                    <tr data-parent-id="1">
-                                                        <th colspan="10" scope="row">
-                                                             <span class="subitem-title">
-                                                                 Görüşlerini aktarırken göz teması kurar ve uygun beden dili kullanır.
-                                                             </span>
-                                                        </th>
-                                                    </tr>
-                                                    <tr data-parent-id="1" class="nested-rate-selectable">
-                                                        <th scope="row">
-                                                            <span class="subitem-title">
-                                                                
-                                                            </span>
-                                                        </th>
-                                                        <td data-value="1"><span></span></td>
-                                                        <td data-value="2"><span></span></td>
-                                                        <td data-value="3"><span></span></td>
-                                                        <td data-value="4"><span></span></td>
-                                                        <td data-value="5"><span></span></td>
-                                                        <td data-value="6"><span></span></td>
-                                                        <td data-value="7"><span></span></td>
-                                                        <td data-value="8"><span></span></td>
-                                                        <td data-value="9"><span></span></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr class="rate-main-tr" data-id="2" data-group-id="1">
-                                     <th scope="row" class="accordion-toggle nested-opener">
-                                        <span class="fa fa-plus-square nested-opener-icon" ></span>&nbsp&nbsp
-                                        <span >İkna Etme</span>
-                                    </th>
-                                   <td data-value="1">1</td>
-                                    <td data-value="2">2</td>
-                                    <td data-value="3">3</td>
-                                    <td data-value="4">4</td>
-                                    <td data-value="5">5</td>
-                                    <td data-value="6">6</td>
-                                    <td data-value="7">7</td>
-                                    <td data-value="8">8</td>
-                                    <td data-value="9">9</td>
-
-                                </tr>
-                                <tr data-parent-id="2" class="nested-rate-tr">
-                                    <td colspan="10" class="nested-rate-row">
-                                        <div class="accordian-body collapse" id="Div1">
-                                            <table data-parent-id="2" class="table table-bordered table-no-border smart-rate-table smart-rate-table-nested">                                             
-                                                <tbody>
-                                                   <tr data-parent-id="2">
-                                                        <th scope="row">
-                                                            <span class="subitem-title">Soru 1</span>
-                                                        </th>                                                        
-                                                         <td data-value="1"><span></span></td>
-                                                        <td data-value="2"><span></span></td>
-                                                        <td data-value="3"><span></span></td>
-                                                        <td data-value="4"><span></span></td>
-                                                        <td data-value="5"><span></span></td>
-                                                        <td data-value="6"><span></span></td>
-                                                        <td data-value="7"><span></span></td>
-                                                        <td data-value="8"><span></span></td>
-                                                        <td data-value="9"><span></span></td>
-                                                    </tr>
-                                                    <tr data-parent-id="2">
-                                                        <th scope="row">
-                                                            <span class="subitem-title">Soru 2</span>
-                                                        </th>
-                                                        <td data-value="1"><span></span></td>
-                                                        <td data-value="2"><span></span></td>
-                                                        <td data-value="3"><span></span></td>
-                                                        <td data-value="4"><span></span></td>
-                                                        <td data-value="5"><span></span></td>
-                                                        <td data-value="6"><span></span></td>
-                                                        <td data-value="7"><span></span></td>
-                                                        <td data-value="8"><span></span></td>
-                                                        <td data-value="9"><span></span></td>
-                                                    </tr>
-                                                    <tr data-parent-id="2">
-                                                        <th scope="row">
-                                                            <span class="subitem-title">Soru 3</span>
-                                                        </th>
-                                                        <td data-value="1"><span></span></td>
-                                                        <td data-value="2"><span></span></td>
-                                                        <td data-value="3"><span></span></td>
-                                                        <td data-value="4"><span></span></td>
-                                                        <td data-value="5"><span></span></td>
-                                                        <td data-value="6"><span></span></td>
-                                                        <td data-value="7"><span></span></td>
-                                                        <td data-value="8"><span></span></td>
-                                                        <td data-value="9"><span></span></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr class="rate-main-tr" data-id="3" data-group-id="1">
-                                     <th scope="row" class="accordion-toggle nested-opener">
-                                        <span class="fa fa-plus-square nested-opener-icon" ></span>&nbsp&nbsp
-                                        <span>Çatışma Yönetimi</span>
-                                    </th>
-                                   <td data-value="1">1</td>
-                                    <td data-value="2">2</td>
-                                    <td data-value="3">3</td>
-                                    <td data-value="4">4</td>
-                                    <td data-value="5">5</td>
-                                    <td data-value="6">6</td>
-                                    <td data-value="7">7</td>
-                                    <td data-value="8">8</td>
-                                    <td data-value="9">9</td>
-                                </tr>
-                                <tr data-parent-id="3" class="nested-rate-tr">
-                                    <td colspan="10" class="nested-rate-row">
-                                        <div class="accordian-body collapse" id="Div2">
-                                            <table data-parent-id="3" class="table table-bordered table-no-border smart-rate-table smart-rate-table-nested">                                             
-                                                <tbody>
-                                                    <tr data-parent-id="3">
-                                                        <th scope="row">
-                                                            <span class="subitem-title">Soru 1</span>
-                                                        </th>                                                        
-                                                        <td data-value="1"><span></span></td>
-                                                        <td data-value="2"><span></span></td>
-                                                        <td data-value="3"><span></span></td>
-                                                        <td data-value="4"><span></span></td>
-                                                        <td data-value="5"><span></span></td>
-                                                        <td data-value="6"><span></span></td>
-                                                        <td data-value="7"><span></span></td>
-                                                        <td data-value="8"><span></span></td>
-                                                        <td data-value="9"><span></span></td>
-                                                    </tr>
-                                                    <tr data-parent-id="3">
-                                                        <th scope="row">
-                                                            <span class="subitem-title">Soru 2</span>
-                                                        </th>
-                                                        <td data-value="1"><span></span></td>
-                                                        <td data-value="2"><span></span></td>
-                                                        <td data-value="3"><span></span></td>
-                                                        <td data-value="4"><span></span></td>
-                                                        <td data-value="5"><span></span></td>
-                                                        <td data-value="6"><span></span></td>
-                                                        <td data-value="7"><span></span></td>
-                                                        <td data-value="8"><span></span></td>
-                                                        <td data-value="9"><span></span></td>
-                                                    </tr>
-                                                    <tr data-parent-id="3">
-                                                        <th scope="row">
-                                                            <span class="subitem-title">Soru 3</span>
-                                                        </th>
-                                                        <td data-value="1"><span></span></td>
-                                                        <td data-value="2"><span></span></td>
-                                                        <td data-value="3"><span></span></td>
-                                                        <td data-value="4"><span></span></td>
-                                                        <td data-value="5"><span></span></td>
-                                                        <td data-value="6"><span></span></td>
-                                                        <td data-value="7"><span></span></td>
-                                                        <td data-value="8"><span></span></td>
-                                                        <td data-value="9"><span></span></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row"><span class="item-title">İŞ YETKİNLİKLERİ</span></th>
-                                    <td colspan="9" data-is-parent="true"></td>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row"><span class="fa fa-plus-square subitem-opener"></span>&nbsp&nbsp <span>Baskılarla Başa Çıkma</span></th>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td>7</td>
-                                    <td>8</td>
-                                    <td>9</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><span class="fa fa-plus-square subitem-opener"></span>&nbsp&nbsp <span>Analiz Etme</span></th>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td>7</td>
-                                    <td>8</td>
-                                    <td>9</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><span class="fa fa-plus-square subitem-opener"></span>&nbsp&nbsp <span>Kalite ve Hareket Odaklılık</span></th>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td>7</td>
-                                    <td>8</td>
-                                    <td>9</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"><span class="fa fa-plus-square subitem-opener"></span>&nbsp&nbsp <span>Müşteri Odaklılık</span></th>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td>7</td>
-                                    <td>8</td>
-                                    <td>9</td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>-->
-
     <script>
         $(function () {
-            var rateBox = $("#divRateBox").rateBox({showStar:true});
+          
+            var rateBox = $("#divRateBox").rateBox({ showStar: true });
 
-            //$('.smart-rate-table .nested-opener').on('click', function () {
-            //    var currentTr = $(this).parent('tr').next();
-            //    var collapse = currentTr.find('.collapse');
-            //    collapse.collapse('toggle');
-            //    $(this).find('.nested-opener-icon').toggleClass('fa-minus-square');
-            //});
+            jQuery.fn.toggleAttr = function (attr, value) {
+                return this.each(function () {
+                    var $this = $(this);
+                    $this.attr(attr) ? $this.removeAttr(attr) : $this.attr(attr, value);
+                });
+            };
 
-            //$('.smart-rate-table tbody tr:not(.nested-rate-tr) td').on('click', function (i, row) {
+            function attachEvents() {
 
-            //    //prevent main header cell click
-            //    if ($(this).parent('tr').attr('data-is-parent')) {
-            //        return;
-            //    }
+                $('.smart-rating-wrapper .nested-opener').on('click', function () {
+                   
+                    var currentContainer = $(this).parents('.rate-line-outer');
+                    var collapse = currentContainer.find('.collapse');
+                  
+                    collapse.collapse('toggle');
+                    $(this).find('span i').toggleClass('fa-folder-open-o');
 
-            //    var alreadySelected = $(this).hasClass('selected-sub') || $(this).hasClass('selected-main');
+                });
 
-            //    //clear current selection
-            //    $(this).parent('tr').find('td').each(function (j, cell) {
-            //        $(cell).removeClass('selected-sub');
-            //        $(cell).removeClass('selected-main');
-            //        $(cell).find('span').text('');
-            //    });
+                $('.smart-rating-wrapper').find('.rate-line-circle').each(function (t, item) {
 
-            //    $(this).parent('tr').removeAttr('data-selected-value');
+                    $(item).on('click', function () {
+                        var selectedValue = $(this).attr('data-rate-type');
+                        var row = $(this).parents('.row');
 
-            //    if (!alreadySelected) {
-            //        $(this).parent('tr').attr('data-selected-value', $(this).attr('data-value'));
-            //        $(this).find('span').text($(this).attr('data-value'));
-            //    }
+                        row.find('.rate-line-circle').each(function (i, item) {
+                            $(item).removeAttr('data-any');
+                        });
 
-            //    var selectedCss = '';
-            //    var parentId = $(this).parent('tr').attr('data-parent-id');
-            //    if (parentId) { //it is subitem    
-            //        var value = !alreadySelected ? $(this).attr('data-value') : '';
-            //        $(this).parent('tr').find('th').text(value);
-            //        selectedCss = 'selected-sub';
-            //        calculateAndSelectItem(parentId);
-            //    }
-            //    else {
-            //        var groupId = $(this).parent('tr').attr('data-group-id');
-            //        selectedCss = 'selected-main';
-            //        calculateMainRateAndShow(groupId);
-            //    }
+                        for (var i = 1; i <= selectedValue; i++) {
+                            var el = row.find('.rate-line-circle[data-rate-type=' + i + ']');
+                            el.attr('data-any', true);
+                        }
 
-            //    if (!alreadySelected) {
-            //        $(this).addClass(selectedCss);
-            //    }
+                        addSelectedClassToRateResult(row, selectedValue, true);
 
-            //});
-
-            //$(".smart-rate-table-nested > tbody > tr > td").hover(function () {
-            //    $(this).html($(this).attr('data-value') + '<span></span>');
-            //    $(this).css('color', 'gray');
-            //}, function () {
-            //    $(this).html("<span></span>");
-            //}
-            //);
+                    });
 
 
-            //function calculateAndSelectItem(itemId) {
-            //    var totalRate = 0;
-            //    var ratedItemCount = 0;
-            //    $('.smart-rate-table tbody tr[data-parent-id=' + itemId + ']').each(function (i, row) {
-            //        var currentValue = parseInt($(this).attr('data-selected-value'));
-            //        if (!isNaN(currentValue)) {
-            //            totalRate += currentValue;
-            //            ratedItemCount++;
-            //        }
-            //    });
+                    $(item).hover(function () {
+                        var selectedValue = $(this).attr('data-rate-type');
+                        var row = $(this).parents('.row');
+                        for (var i = 1; i <= selectedValue; i++) {
+                            var el = row.find('.rate-line-circle[data-rate-type=' + i + ']');
+                            el.addClass('hover active');
+                            row.find('.rate-line-circle[data-rate-type=' + (i - 1) + ']').addClass('active');
+                        }
 
-            //    var avarageRate = Math.round(totalRate / ratedItemCount);
+                        addSelectedClassToRateResult(row, selectedValue);
 
-            //    $('.smart-rate-table tbody tr[data-id=' + itemId + '] td').each(function (i, cell) {
-            //        $(cell).removeClass('selected-main-calculated');
-            //    });
 
-            //    var calculatedCell = $('.smart-rate-table tbody tr[data-id=' + itemId + '] td[data-value=' + avarageRate + ']');
-            //    if (!calculatedCell.hasClass('selected-main')) {
-            //        calculatedCell.addClass('selected-main-calculated');
-            //        setTimeout(function () {
-            //            calculatedCell.removeClass("selected-main-calculated");
-            //        }, 1000);
-            //    }
+                    }, function () {
+                        var selectedValue = $(this).attr('data-rate-type');
+                        var row = $(this).parents('.row');
+                        for (var i = 1; i <= selectedValue; i++) {
+                            var el = row.find('.rate-line-circle[data-rate-type=' + i + ']');
+                            el.removeClass('hover active');
+                        }
 
-            //}
+                        var rectResultDiv = row.find('.rate-line-rectangle');
+                        var resultIcon = rectResultDiv.find('.rate-show');
+                        var resultSpan = rectResultDiv.find('span');
+                        var isSelected = resultIcon.attr('data-selected');
+                        resultIcon.removeClass('low-rate medium-rate high-rate');
 
-            // function calculateMainRateAndShow (groupId) {
-            //    var totalRate = 0;
-            //    var ratedItemCount = 0;
-            //    $('.smart-rate-table tbody tr[data-group-id=' + groupId + ']').each(function (i, row) {
-            //        var currentValue = parseInt($(this).attr('data-selected-value'));
-            //        if (!isNaN(currentValue)) {
-            //            totalRate += currentValue;
-            //            ratedItemCount++;
-            //        }
-            //    });
+                        var selectedLevel = resultIcon.attr('data-selected-level');
+                        if (selectedLevel) {
+                            resultSpan.text(selectedLevel);
+                        }
+                        else {
+                            resultSpan.text('--');
+                        }
+                       
+                    });
 
-            //    var avarageRate = Math.round(totalRate / ratedItemCount);
-            //    $('.smart-rate-table tbody tr[data-is-parent="true"][data-group-id="' + groupId + '"] td').removeClass('selected-main-group');
-            //    var calculatedRow = $('.smart-rate-table tbody tr[data-is-parent="true"][data-group-id=' + groupId + ']');
-            //    var calculatedCell = calculatedRow.find('td[data-value=' + avarageRate + ']');
-            //    calculatedRow.attr('data-rated-item-count', ratedItemCount);
-            //    calculatedCell.addClass('selected-main-group');
-            //    showRemainingItemCount();
-            //}
+                });
 
-            //function showRemainingItemCount() {
-            //    var ratedItemCount = 0;
-            //    $('.smart-rate-table tbody tr[data-is-parent="true"]').each(function () {
-            //        if ($(this).attr('data-rated-item-count')) {
-            //            ratedItemCount += parseInt($(this).attr('data-rated-item-count'));
-            //        }
-            //    });
-            //    $('.smart-rating-wrapper').find('.title-status').text(ratedItemCount + ' / 7');
-            //}
+                function addSelectedClassToRateResult(row, selectedValue, addSelectedAttr) {
+                    var rectResultDiv = row.find('.rate-line-rectangle');
+                    var resultIcon = rectResultDiv.find('.rate-show');
+                    var resultSpan = rectResultDiv.find('span');
+                    var cssClassSufix = '';
+                    if (addSelectedAttr) {
+                        resultIcon.attr('data-selected', true);
+                        resultIcon.attr('data-selected-level', 'L' + Math.ceil(selectedValue / 3));
+                        resultIcon.attr('data-selected-value', selectedValue);
+                        cssClassSufix = '-selected';
+                        resultIcon.removeClass('no-rate no-rate-selected low-rate-selected medium-rate-selected high-rate-selected');
+                    }
+                    resultSpan.text('');
+                    resultIcon.removeClass('low-rate medium-rate high-rate');
+                   
+
+                    if (selectedValue <= 3) {
+                        resultIcon.addClass('low-rate' + cssClassSufix);
+                        resultSpan.text('L1');
+                    }
+                    else if (selectedValue > 3 && selectedValue <= 6) {
+                        resultIcon.addClass('medium-rate' + cssClassSufix);
+                        resultSpan.text('L2');
+                    }
+                    else {
+                        resultIcon.addClass('high-rate' + cssClassSufix);
+                        resultSpan.text('L3');
+                    }
+                }
+
+            }
+
+            attachEvents();
         });
-
 
         (function ($) {
             $.rateBox = function (el, options) {
@@ -869,10 +620,9 @@
 
                 var createRateBox = function () {
                     var rateBxData = getRateBoxData();
-                    var panel = addWrapperElements();
-                    var rateBoxTableContiner = addPanelItems(panel);
+                    var panelGroup = addWrapperElements();
 
-                    rateBoxTableContiner.append(createRateMatrix(rateBxData));
+                    createRateBoxItems(rateBxData, panelGroup);
 
                     attachEvents();
                 }
@@ -886,28 +636,121 @@
                     var wrapper = $('<div></div>').addClass('smart-rating-wrapper');
                     var innerContainer = $('<div></div>').addClass('inner-container inner-container-default inner-container-box-shadow noPadding').appendTo(wrapper);
                     var panelGroup = $('<div></div>').addClass('panel-group').appendTo(innerContainer);
-                    var panel = $('<div></div>').addClass('panel panel-default').appendTo(panelGroup);
 
                     base.$el.html(wrapper);
 
-                    return panel;
+                    return panelGroup;
                 }
 
-                var addPanelItems = function (panel) {
-                    //TODO: Text and data must be dynamic
-                    var panelHeading = $('<div></div>').addClass('panel-heading');
-                    var panelTitle = $('<span></span>').addClass('title').html("<b>Ümit</b>'in yetkinliğini aşağıdaki 7 kritere göre değerlendirin");
-                    var panelStatus = $('<span></span>').addClass('title-status').html("0 / 7");
-                    var panelItem = $('<a></a>').append(panelTitle)
-                                                .append(panelStatus)
-                                               .appendTo(panelHeading);
+                var createRateBoxItems = function (rateBoxData, panelGroup) {
+                    $.each(rateBoxData.GetAssesmentItemResult, function (i, competencyAssesmentItem) {
+                        var panel = $('<div></div>').addClass('panel panel-default');
+                        var formGroup = $('<div></div>').addClass('form-group').appendTo(panel);
 
-                    var rateBoxContainer = $('<div></div>').addClass('smart-rate-table-container');
+                        formGroup.append('<label class="competency-explanation"><b>Muhammet</b>' + "'" + 'in ' + competencyAssesmentItem.Name + "ni " + competencyAssesmentItem.CompetencyAssesmentItem.length + ' açıdan değerlendirin.'
+                                          + '<i class="btnKnowledgeBase fa fa-info-circle collapsed" data-toggle="collapse" data-target="#collapse' + competencyAssesmentItem.ID + '" aria-expanded="false"></i>'
+                                          + '</label>');
 
-                    panel.append(panelHeading);
-                    panel.append(rateBoxContainer);
+                        formGroup.append(' <div class="knowdledgeBaseContainer collapse" id="collapse' + competencyAssesmentItem.ID + '" >'
+                                           + ' <div>'
+                                           + '     Talebinizin içeriğini yansıtacak ve diğer taleplerinizden ayrıştıracak talebe özel isim olmalıdır. Bu isim tercihen çok uzun olmamalı ve hatırlanabilir olmalıdır. Proje ismine referans olacak şekilde isimlendirilebilir.'
+                                           + ' </div>'
+                                        + '</div>');
 
-                    return rateBoxContainer;
+                        formGroup.append(getRateGroupTemplate());
+
+                        $.each(competencyAssesmentItem.CompetencyAssesmentItem, function (j, subItem) {
+                            var container = $('<div></div>').addClass('rate-line-container').appendTo(formGroup);
+                            var rateLineOuter = $('<div></div>').addClass('rate-line-outer').appendTo(container);
+
+                            var mainRow = $('<div></div>').addClass('row');
+                            mainRow.append('<div class="col-md-5 rate-line">'
+                                          + '      <div class="alert nested-opener">'
+                                          + '              <span class="label"><i class="fa fa-folder"></i>' + subItem.Name + '</span>'
+                                          + '        </div>'
+                                          + '  </div>');
+
+                            for (var i = 1; i <= 9; i++) {
+                                var group = Math.ceil(i / 3);
+                                mainRow.append('<div class="col-md-1 rate-line">'
+                                              + ' <div class="rate-line-circle" data-rate-type="' + i + '" data-group="' + group + '">'
+                                              + '      <span></span>'
+                                              + '  </div>'
+                                            + '</div>');
+                            }
+
+                            mainRow.append('<div class="col-md-2 rate-line ">'
+                                           + '       <div class="rate-line-rectangle">'
+                                           + '       <span>--</span>'
+                                           + '         <div class="rate-show no-rate"></div>'
+                                           + '     </div>'
+                                           + ' </div>'
+                                        + '</div>');
+
+                            rateLineOuter.append(mainRow);
+
+                            //if (!subItem.CompetencyAssesmentChildItem || subItem.CompetencyAssesmentChildItem.length < 1)
+                            //{
+                            //    mainRow.find('i').removeClass('fa fa-folder-open');
+                            //}
+
+                            $.each(subItem.CompetencyAssesmentChildItem, function (k, nestedItem) {
+                                var accordion = $('<div></div>').addClass('accordian-body collapse').appendTo(rateLineOuter);
+                                var subContainer = $('<div></div>').addClass('rate-line-container').appendTo(accordion);
+                                var subRateLineOuter = $('<div></div>').addClass('rate-line-outer').appendTo(subContainer);
+
+                                subRateLineOuter.append('<div class="row"><div class="label sub-item-title">' + nestedItem.Name + '</div></div>');
+                                var nestedRow = $('<div></div>').addClass('row').appendTo(subRateLineOuter);
+                                nestedRow.append(' <div class="col-md-5 rate-line">'
+                                                              + '<div class="alert">'
+                                                              + '</div>'
+                                                        + '</div>');
+
+                                for (var i = 1; i <= 9; i++) {
+                                    var group = Math.ceil(i / 3);
+                                    nestedRow.append('<div class="col-md-1 rate-line">'
+                                                  + ' <div class="rate-line-circle" data-rate-type="' + i + '" data-group="' + group + '">'
+                                                  + '      <span></span>'
+                                                  + '  </div>'
+                                                + '</div>');
+                                }
+
+                                nestedRow.append('<div class="col-md-2 rate-line ">'
+                                          + '       <div class="rate-line-rectangle">'
+                                           + '       <span>--</span>'
+                                          + '         <div class="rate-show no-rate"></div>'
+                                          + '     </div>'
+                                          + ' </div>'
+                                       + '</div>');
+
+                            });
+
+                        });
+
+                        panelGroup.append(formGroup);
+                    });
+                }
+
+                var getRateGroupTemplate = function () {
+                    return '<div class="rate-line-container">'
+                                    + '<div class="rate-line-outer">'
+                                    + '        <div class="row">'
+                                    + '            <div class="col-md-3 rate-line">'
+                                    + '           </div>'
+                                    + '           <div class="col-md-3 rate-line-exp">'
+                                    + '            <span>Gelişime İhtiyacı Var (L1)</span>  '
+                                    + '        </div>'
+                                    + '            <div class="col-md-3 rate-line-exp">'
+                                    + '                <span>Tatmin Edici Seviyede (L2)</span>'
+                                    + '           </div>'
+                                    + '           <div class="col-md-3 rate-line-exp">'
+                                    + '              <span>Üstün/Örnek Olabilecek (L3)</span>'
+                                    + '           </div>'
+                                    + '             <div class="col-md-2 rate-line-exp">'
+                                    + '           </div>'
+                                    + '    </div>'
+                                    + '</div>'
+                                 + '</div>';
                 }
 
                 var createRateMatrix = function (rateBoxData) {
@@ -916,13 +759,13 @@
                     //add table heading
 
                     table.append('  <thead>' +
-                                       '<tr>' +
-                                           '<th style="width: 28%;"></th>' +
-                                           '<th colspan="3" style="width: 24%;">Gelişime İhtiyacı Var</th>' +
-                                           '<th colspan="3" style="width: 24%;">Tatmin Edici Seviyede</th>' +
-                                           '<th colspan="3" style="width: 24%;">Üstün/Başkalarına Örnek </th>' +
-                                       '</tr>' +
-                                   '</thead>');
+                                    '<tr>' +
+                                        '<th style="width: 28%;"></th>' +
+                                        '<th colspan="3" style="width: 24%;">Gelişime İhtiyacı Var</th>' +
+                                        '<th colspan="3" style="width: 24%;">Tatmin Edici Seviyede</th>' +
+                                        '<th colspan="3" style="width: 24%;">Üstün/Başkalarına Örnek </th>' +
+                                    '</tr>' +
+                                '</thead>');
 
                     //add table body
 
@@ -931,7 +774,7 @@
                     $.each(rateBoxData.GetAssesmentItemResult, function (i, competencyAssesmentItem) {
 
                         var tr = $('<tr></tr>').attr('data-is-parent', true)
-                                               .attr('data-group-id', competencyAssesmentItem.ID);
+                                            .attr('data-group-id', competencyAssesmentItem.ID);
 
                         tr.append('<th scope="row"><span class="item-title">' + competencyAssesmentItem.Name + '</span></th>');
 
@@ -949,12 +792,12 @@
 
                         $.each(competencyAssesmentItem.CompetencyAssesmentItem, function (j, subItem) {
                             var tr = $('<tr></tr>').addClass('rate-main-tr')
-                                                   .attr('data-id', subItem.ID)
-                                                   .attr('data-group-id', subItem.GroupId);
+                                                .attr('data-id', subItem.ID)
+                                                .attr('data-group-id', subItem.GroupId);
                             tr.append(' <th scope="row" class="accordion-toggle nested-opener">' +
-                                               '<span class="fa fa-plus-square nested-opener-icon" ></span>&nbsp&nbsp' +
-                                               '<span >' + subItem.Name + '</span>' +
-                                           '</th>');
+                                            '<span class="fa fa-plus-square nested-opener-icon" ></span>&nbsp&nbsp' +
+                                            '<span >' + subItem.Name + '</span>' +
+                                        '</th>');
 
                             for (var i = 1; i <= 9; i++) {
                                 tr.append('<td data-value="' + i + '">' + i + '</td>');
@@ -967,18 +810,18 @@
                                 var nestedTd = $('<td></td>').addClass('nested-rate-row').attr('colspan', 10).appendTo(nestedTr);
                                 var nestedContainer = $('<div></div>').addClass('accordian-body collapse').appendTo(nestedTd);
                                 var nestedTable = $('<table></table>').addClass('table table-bordered table-no-border smart-rate-table smart-rate-table-nested')
-                                                                      .attr('data-parent-id', subItem.ID)
-                                                                      .appendTo(nestedContainer);
+                                                                    .attr('data-parent-id', subItem.ID)
+                                                                    .appendTo(nestedContainer);
 
                                 var nestedBody = $('<tbody></tbody>').appendTo(nestedTable);
 
                                 $.each(subItem.CompetencyAssesmentChildItem, function (k, nestedItem) {
 
                                     nestedBody.append(' <tr data-parent-id="' + nestedItem.ParentItemID + '">' +
-                                                              '<th colspan="10" scope="row">' +
-                                                                   '<span class="subitem-title">' + nestedItem.Name + '</span>' +
-                                                              '</th>' +
-                                                          '</tr>');
+                                                            '<th colspan="10" scope="row">' +
+                                                                '<span class="subitem-title">' + nestedItem.Name + '</span>' +
+                                                            '</th>' +
+                                                        '</tr>');
 
                                     var nestedItem = $('<tr></tr>').addClass('nested-rate-selectable').attr('data-parent-id', nestedItem.ParentItemID);
                                     nestedItem.append('<th scope="row"></th>');
@@ -1001,62 +844,62 @@
                     return table;
                 }
 
-                var calculateAndSelectItem = function (itemId) {
-                    var totalRate = 0;
-                    var ratedItemCount = 0;
-                    $('.smart-rate-table tbody tr[data-parent-id=' + itemId + ']').each(function (i, row) {
-                        var currentValue = parseInt($(this).attr('data-selected-value'));
-                        if (!isNaN(currentValue)) {
-                            totalRate += currentValue;
-                            ratedItemCount++;
-                        }
-                    });
+                //var calculateAndSelectItem = function(itemId) {
+                //    var totalRate = 0;
+                //    var ratedItemCount = 0;
+                //    $('.smart-rate-table tbody tr[data-parent-id=' + itemId + ']').each(function (i, row) {
+                //        var currentValue = parseInt($(this).attr('data-selected-value'));
+                //        if (!isNaN(currentValue)) {
+                //            totalRate += currentValue;
+                //            ratedItemCount++;
+                //        }
+                //    });
 
-                    var avarageRate = Math.round(totalRate / ratedItemCount);
+                //    var avarageRate = Math.round(totalRate / ratedItemCount);
 
-                    $('.smart-rate-table tbody tr[data-id=' + itemId + '] td').each(function (i, cell) {
-                        $(cell).removeClass('selected-main-calculated');
-                    });
+                //    $('.smart-rate-table tbody tr[data-id=' + itemId + '] td').each(function (i, cell) {
+                //        $(cell).removeClass('selected-main-calculated');
+                //    });
 
-                    var calculatedCell = $('.smart-rate-table tbody tr[data-id=' + itemId + '] td[data-value=' + avarageRate + ']');
-                    if (!calculatedCell.hasClass('selected-main')) {
-                        calculatedCell.addClass('selected-main-calculated');
-                        setTimeout(function () {
-                            calculatedCell.removeClass("selected-main-calculated");
-                        }, 1000);
-                    }
+                //    var calculatedCell = $('.smart-rate-table tbody tr[data-id=' + itemId + '] td[data-value=' + avarageRate + ']');
+                //    if (!calculatedCell.hasClass('selected-main')) {
+                //        calculatedCell.addClass('selected-main-calculated');
+                //        setTimeout(function () {
+                //            calculatedCell.removeClass("selected-main-calculated");
+                //        }, 1000);
+                //    }
 
-                }
+                //}
 
-                var calculateMainRateAndShow = function (groupId) {
-                    var totalRate = 0;
-                    var ratedItemCount = 0;
-                    $('.smart-rate-table tbody tr[data-group-id=' + groupId + ']').each(function (i, row) {
-                        var currentValue = parseInt($(this).attr('data-selected-value'));
-                        if (!isNaN(currentValue)) {
-                            totalRate += currentValue;
-                            ratedItemCount++;
-                        }
-                    });
+                //var calculateMainRateAndShow = function(groupId) {
+                //    var totalRate = 0;
+                //    var ratedItemCount = 0;
+                //    $('.smart-rate-table tbody tr[data-group-id=' + groupId + ']').each(function (i, row) {
+                //        var currentValue = parseInt($(this).attr('data-selected-value'));
+                //        if (!isNaN(currentValue)) {
+                //            totalRate += currentValue;
+                //            ratedItemCount++;
+                //        }
+                //    });
 
-                    var avarageRate = Math.round(totalRate / ratedItemCount);
-                    $('.smart-rate-table tbody tr[data-is-parent="true"][data-group-id="' + groupId + '"] td').removeClass('selected-main-group');
-                    var calculatedRow = $('.smart-rate-table tbody tr[data-is-parent="true"][data-group-id=' + groupId + ']');
-                    var calculatedCell = calculatedRow.find('td[data-value=' + avarageRate + ']');
-                    calculatedRow.attr('data-rated-item-count', ratedItemCount);
-                    calculatedCell.addClass('selected-main-group');
-                    showRemainingItemCount();
-                }
+                //    var avarageRate = Math.round(totalRate / ratedItemCount);
+                //    $('.smart-rate-table tbody tr[data-is-parent="true"][data-group-id="' + groupId + '"] td').removeClass('selected-main-group');
+                //    var calculatedRow = $('.smart-rate-table tbody tr[data-is-parent="true"][data-group-id=' + groupId + ']');
+                //    var calculatedCell = calculatedRow.find('td[data-value=' + avarageRate + ']');
+                //    calculatedRow.attr('data-rated-item-count', ratedItemCount);
+                //    calculatedCell.addClass('selected-main-group');
+                //    showRemainingItemCount();
+                //}
 
-                var showRemainingItemCount = function () {
-                    var ratedItemCount = 0;
-                    $('.smart-rate-table tbody tr[data-is-parent="true"]').each(function () {
-                        if ($(this).attr('data-rated-item-count')) {
-                            ratedItemCount += parseInt($(this).attr('data-rated-item-count'));
-                        }
-                    });
-                    $('.smart-rating-wrapper').find('.title-status').text(ratedItemCount + ' / 7');
-                }
+                //var showRemainingItemCount = function() {
+                //    var ratedItemCount = 0;
+                //    $('.smart-rate-table tbody tr[data-is-parent="true"]').each(function () {
+                //        if ($(this).attr('data-rated-item-count')) {
+                //            ratedItemCount += parseInt($(this).attr('data-rated-item-count'));
+                //        }
+                //    });
+                //    $('.smart-rating-wrapper').find('.title-status').text(ratedItemCount + ' / 7');
+                //}
 
                 var attachEvents = function () {
                     base.$el.find('.smart-rate-table .nested-opener').on('click', function () {
@@ -1129,293 +972,13 @@
 
             $.fn.rateBox = function (options) {
                 return this.each(function () {
-                    (new $.rateBox(this, options));
+                    new $.rateBox(this, options);
 
-                    // HAVE YOUR PLUGIN DO STUFF HERE
-
-
-                    // END DOING STUFF
-
-                    //if (undefined == $(this).data('pluginName')) {
-                    //    var plugin = new $.rateBox(this, options);
-                    //    $(this).data('pluginName', plugin);
-                    //}
                 });
             };
 
         })(jQuery);
     </script>
-
 </body>
 </html>
 
-var rateData = {
-    "GetAssesmentItemResult": [
-        {
-        "CompetencyAssesmentItem": [{
-
-            "CompetencyAssesmentChildItem": [],
-            "CreationDate": "",
-            "CreationUser": 1,
-            "Description": "BASKILARLA BAŞA ÇIKMA",
-            "GroupId": 2,
-            "ID": 5,
-            "IsActive": true,
-            "ModificationDate": "",
-            "ModificationUser": 1,
-            "Name": "BASKILARLA BAŞA ÇIKMA",
-            "NoteValue": null
-        },
-
-            {
-                "CompetencyAssesmentChildItem": [{
-                    "CreationDate": null,
-                    "CreationUser": null,
-                    "Description": null,
-                    "ID": 16,
-                    "IsActive": true,
-                    "ModificationDate": null,
-                    "ModificationUser": null,
-                    "Name": "Sayısal ve sözel verileri irdeler, çıkarımlar yapar.",
-                    "NoteValue": null,
-                    "ParentItemID": 6
-                }, {
-                    "CreationDate": null,
-                    "CreationUser": null,
-                    "Description": null,
-                    "ID": 17,
-                    "IsActive": true,
-                    "ModificationDate": null,
-                    "ModificationUser": null,
-                    "Name": "Argümanlarını sözel ve sayısal verilerle destekler.",
-                    "NoteValue": null,
-                    "ParentItemID": 6
-                }, {
-                    "CreationDate": null,
-                    "CreationUser": null,
-                    "Description": null,
-                    "ID": 18,
-                    "IsActive": true,
-                    "ModificationDate": null,
-                    "ModificationUser": null,
-                    "Name": "Dağınık bilgileri sistematik bir şekilde düzenler.",
-                    "NoteValue": null,
-                    "ParentItemID": 6
-                }, {
-                    "CreationDate": null,
-                    "CreationUser": null,
-                    "Description": null,
-                    "ID": 19,
-                    "IsActive": true,
-                    "ModificationDate": null,
-                    "ModificationUser": null,
-                    "Name": "Topladığı bilgiler arasındaki mantıksal bağlantıları, sebep sonuç ilişkilerini sorgular.",
-                    "NoteValue": null,
-                    "ParentItemID": 6
-                }],
-                "CreationDate": "",
-                "CreationUser": 1,
-                "Description": "ANALİZ ETME",
-                "GroupId": 2,
-                "ID": 6,
-                "IsActive": true,
-                "ModificationDate": "",
-                "ModificationUser": 1,
-                "Name": "ANALİZ ETME",
-                "NoteValue": null
-            }, {
-                "CompetencyAssesmentChildItem": [],
-                "CreationDate": "",
-                "CreationUser": 1,
-                "Description": "KALİTE VE HAREKT ODAKLILIK",
-                "GroupId": 2,
-                "ID": 7,
-                "IsActive": true,
-                "ModificationDate": "",
-                "ModificationUser": 1,
-                "Name": "KALİTE VE HAREKT ODAKLILIK",
-                "NoteValue": null
-            }, {
-                "CompetencyAssesmentChildItem": [{
-                    "CreationDate": null,
-                    "CreationUser": null,
-                    "Description": null,
-                    "ID": 20,
-                    "IsActive": true,
-                    "ModificationDate": null,
-                    "ModificationUser": null,
-                    "Name": "İç ve dış  müşterilerin beklenti ve ihtiyaçlarını karşılamaya önem verir.",
-                    "NoteValue": null,
-                    "ParentItemID": 8
-                }, {
-                    "CreationDate": null,
-                    "CreationUser": null,
-                    "Description": null,
-                    "ID": 21,
-                    "IsActive": true,
-                    "ModificationDate": null,
-                    "ModificationUser": null,
-                    "Name": "Müşterilerin memnuniyetini önemser.",
-                    "NoteValue": null,
-                    "ParentItemID": 8
-                }, {
-                    "CreationDate": null,
-                    "CreationUser": null,
-                    "Description": null,
-                    "ID": 22,
-                    "IsActive": true,
-                    "ModificationDate": null,
-                    "ModificationUser": null,
-                    "Name": "Müşterilerin güvenini kazanmaya yönelik öneriler getirir.",
-                    "NoteValue": null,
-                    "ParentItemID": 8
-                }, {
-                    "CreationDate": null,
-                    "CreationUser": null,
-                    "Description": null,
-                    "ID": 23,
-                    "IsActive": true,
-                    "ModificationDate": null,
-                    "ModificationUser": null,
-                    "Name": "Müşteriye sunulan hizmetin doğru ve kaliteli olması için çalışır.",
-                    "NoteValue": null,
-                    "ParentItemID": 8
-                }],
-                "CreationDate": "",
-                "CreationUser": 1,
-                "Description": "MÜŞTERİ ODAKLILIK",
-                "GroupId": 2,
-                "ID": 8,
-                "IsActive": true,
-                "ModificationDate": "",
-                "ModificationUser": 1,
-                "Name": "MÜŞTERİ ODAKLILIK",
-                "NoteValue": null
-            }
-        ],
-        "CreationDate": "",
-        "CreationUser": 1,
-        "Description": "İş Yetkinlikleri",      
-        "ID": 2,
-        "IsActive": true,
-        "ModificationDate": "",
-        "ModificationUser": 1,
-        "Name": "İş Yetkinlikleri",
-        "NoteValue": null
-
-        },
-        {
-            "CompetencyAssesmentItem": [                
-                {
-                    "CompetencyAssesmentChildItem": [{
-                        "CreationDate": null,
-                        "CreationUser": null,
-                        "Description": null,
-                        "ID": 100,
-                        "IsActive": true,
-                        "ModificationDate": null,
-                        "ModificationUser": null,
-                        "Name": "Bir konu ile ilgili düşünce ve bilgilerini net, düzgün, anlaşılır ve yalın bir şekilde ifade eder.",
-                        "NoteValue": null,
-                        "ParentItemID": 9
-                    }, {
-                        "CreationDate": null,
-                        "CreationUser": null,
-                        "Description": null,
-                        "ID": 101,
-                        "IsActive": true,
-                        "ModificationDate": null,
-                        "ModificationUser": null,
-                        "Name": "Karşısındaki kişiyi sözünü kesmeden, saygıyla dinler.",
-                        "NoteValue": null,
-                        "ParentItemID": 9
-                    }, {
-                        "CreationDate": null,
-                        "CreationUser": null,
-                        "Description": null,
-                        "ID": 102,
-                        "IsActive": true,
-                        "ModificationDate": null,
-                        "ModificationUser": null,
-                        "Name": "Fikir ve görüşlerini sunarken kendine güvenini tavır ve davranışlarıyla karşı tarafa yansıtır.",
-                        "NoteValue": null,
-                        "ParentItemID": 9
-                    },
-                    {
-                        "CreationDate": null,
-                        "CreationUser": null,
-                        "Description": null,
-                        "ID": 103,
-                        "IsActive": true,
-                        "ModificationDate": null,
-                        "ModificationUser": null,
-                        "Name": "İletişimde aktarılan mesajların doğru anlaşıldığından emin olmaya çalışır.",
-                        "NoteValue": null,
-                        "ParentItemID": 9
-                    },
-                    {
-                        "CreationDate": null,
-                        "CreationUser": null,
-                        "Description": null,
-                        "ID": 104,
-                        "IsActive": true,
-                        "ModificationDate": null,
-                        "ModificationUser": null,
-                        "Name": "Görüşlerini aktarırken göz teması kurar ve uygun beden dili kullanır.",
-                        "NoteValue": null,
-                        "ParentItemID": 9
-                    }],
-                    "CreationDate": "",
-                    "CreationUser": 1,
-                    "Description": "İLETİŞİM",
-                    "GroupId": 1,
-                    "ID": 9,
-                    "IsActive": true,
-                    "ModificationDate": "",
-                    "ModificationUser": 1,
-                    "Name": "ANALİZ ETME",
-                    "NoteValue": null
-                }, {
-                    "CompetencyAssesmentChildItem": [],
-                    "CreationDate": "",
-                    "CreationUser": 1,
-                    "Description": "İKNA ETME",
-                    "GroupId": 1,
-                    "ID": 10,
-                    "IsActive": true,
-                    "ModificationDate": "",
-                    "ModificationUser": 1,
-                    "Name": "İKNA ETME",
-                    "NoteValue": null
-                },
-                {
-                    "CompetencyAssesmentChildItem": [],
-                    "CreationDate": "",
-                    "CreationUser": 1,
-                    "Description": "ÇATIŞMA YÖNETİMİ",
-                    "GroupId": 1,
-                    "ID": 11,
-                    "IsActive": true,
-                    "ModificationDate": "",
-                    "ModificationUser": 1,
-                    "Name": "ÇATIŞMA YÖNETİMİ",
-                    "NoteValue": null
-                }
-            ],
-            "CreationDate": "",
-            "CreationUser": 1,
-            "Description": "Kişisel Yetkinlikler",
-            "ID": 1,
-            "IsActive": true,
-            "ModificationDate": "",
-            "ModificationUser": 1,
-            "Name": "Kişisel Yetkinlikleri",
-            "NoteValue": null
-
-        }
-
-    ]
-
-
-
-}
