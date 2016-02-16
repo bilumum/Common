@@ -1,782 +1,549 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8" />
-    <title></title>
-    <link href="bootstrap.custom.css" rel="stylesheet" />    
-    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet" />
-    <link href="../fontawesome/css/font-awesome.css" rel="stylesheet" />
-    <link href="container.css" rel="stylesheet" />
-    <link href="site.main.css" rel="stylesheet" />    
+    <title></title>      
+    <link href="bootstra.custom.css" rel="stylesheet" />
+    <link href="../../Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../Content/css/font-awesome.min.css" rel="stylesheet" />    
+    <link href="container.css" rel="stylesheet" />    
+    <link href="site.main.css" rel="stylesheet" />            
    
-       
-    <script src="../jquery/jquery-1.11.3.min.js"></script>  
-    <script src="../bootstrap/js/bootstrap.js"></script>
-    <script src="matris/data.js"></script>
-   <style>
-       .smart-rating-wrapper {
-    position: absolute;
-    width: 100%;
-    top: 50px;
-    display: flex;
+    <script src="../../Content/js/jquery-2.1.1.min.js"></script>       
+    <script src="../../Content/js/bootstrap.js"></script>  
+    
+    <style>
+
+        .smart-rating-wrapper {        
+    width: 100%;   
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-
-    .smart-rating-wrapper .row {
-        text-align: center;
-        margin-left: 10px;
-        margin-right: 10px;
-        display: -webkit-flex;
-        /* margin-bottom: 10px; */
-        /* padding: 26px; */
-        margin-top: 12px;
+    .smart-rating-wrapper .panel-group {
+        margin-bottom: 0px;
     }
 
-.inner-container-box-shadow {
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-}
+    .smart-rating-wrapper .panel-group .panel .panel-heading a {
+        padding: 0px 20px;
+    }
+     
 
-.inner-container {
-    padding: 10px;
-    background: #fff;
-    position: relative;
-    width: 770px;
-}
-
-.rating-title {
-    line-height: 100px;
-    color: #2d3334;
-    font-family: Roboto, Trebuchet, sans-serif;
-    font-size: 14px;
-    /* margin-right: -27px; */
-    margin-left: -24px;
-}
-
-.competency-rate-detail {
-    margin-top: 15px;
-}
-
-
-.rate-box .rate-items-opener {
-    position: relative;
-    top: 20px;
-    background-color: #e5e9ed;
-    color: white;
-    padding: 10px;
-    padding-right: 12px;
-    padding-left: 12px;
-    color: #333;
-    display: none;
-}
-
-    .rate-box .rate-items-opener > i {
-        margin-right: 5px;
+    .smart-rating-wrapper .panel-group .panel .panel-heading .summary .fa {
+        margin: 0 0px;
+        color: #333;
     }
 
-
-
-.panel-group .panel .panel-heading a {
-    padding: 4px 20px;
-}
-
-.panel-group .panel .panel-heading .summary .fa {
-    margin: 0 0px;
-    color: #333;
-}
-
-.panel-group .panel .panel-heading .title {
-    white-space: nowrap;
-    flex-basis: auto;
-    position: absolute;
-}
-
-
-
-.smart-rating-wrapper .alert .label {
-    font-size: 74%;
-    font-weight: normal;
-    background-color: #e5e9ed;
-    color: #409998;
-    width: 98%;
-    display: block;
-    text-align: left;
-    padding-left: 3px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    padding: 0px;
-}
-
-    .smart-rating-wrapper .alert .label .fa {
-        margin-right: 4px;
-        margin-left: 4px;
-    }
-
-.smart-rating-wrapper .alert {
-    padding: 0px;
-    margin-bottom: 0px;
-    border: 1px solid transparent;
-    border-radius: 0px;
-    width: 100%;
-    cursor:pointer;
-}
-
-.smart-rating-wrapper .subtitle {
-    color: #409998;
-    padding: 3px;
-    font-size: 13px;
-    /*line-height: 40px;*/
-}
-
-.summary {
-    position: relative;
-    float: right;
-    padding: 10px;
-    cursor: pointer;
-}
-
-
-
-.rate-line-container {
-    /*width: 670px;*/
-    margin-bottom: 35px;
-}
-
-.rate-box {
-    width: 180px;
-    /* display: -webkit-flex; */
-    display: none;
-    top: -22px;
-    z-index: 1;
-    background-color: rgba(232, 232, 232, 1) !important;
-}
-
-    .rate-box.active {
-        display: block;
-    }
-
-    .rate-box.selected {
-        display: block;
-    }
-
-.rate-box-inner {
-    display: -webkit-flex;
-}
-
-
-.rate-box .rate-action-circle {
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    margin: 5px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    cursor: pointer;
-    background-color: rgba(249, 208, 69, 0.5);
-    color: white;
-    font-weight: normal;
-    vertical-align: middle;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-property: box-shadow;
-    transition-property: box-shadow;
-}
-
-
-    .rate-box .rate-action-circle > span {
-        font-weight: bold;
-    }
-
-
-.rate-line-circle {
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
-    border: 1px solid #E8E8E8;
-    cursor: pointer;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-property: box-shadow, transform;
-    transition-property: box-shadow, transform;
-    /*background-color: #E8E8E8;*/
-}
-
-    .rate-line-circle[data-final-selected="true"] {
-        -webkit-transform: scale(2);
-        transform: scale(2);
-        background-color: #409998 !important;
-        color: white;
-        border: none;
-    }
-
-        .rate-line-circle[data-final-selected="true"]:after {
-            -webkit-transform: scale(1);
-            transform: scale(1);
-            width: 68px !important;
-            height: 1px !important;
-            padding: 0px !important;
-        }
-
-
-    .rate-line-circle span {
-        position: absolute;
-        left: 6px;
-    }
-
-.rate-line-rectangle {
-    border-radius: 5px;
-    width: 120px;
-    height: 36px;
-    background-color: #e5e9ed;
-    /* background-color: #409998; */
-    margin-top: -5px;
-    padding: 4px;
-    /*display: -webkit-flex;
-    align-items: center;
-    justify-content: center;*/
-    line-height: 30px;
-}
-
-    .rate-line-rectangle span {
-        float: left;
-        color: #409998;
-        font-weight: bold;
-    }
-
-.rate-line-outer {
-    text-align: center;
-}
-
-    .rate-line-outer .rate-line {
-        display: -webkit-flex;
-        /*justify-content: center;*/
+    .smart-rating-wrapper .panel-group .panel .panel-heading .title {
+        white-space: nowrap;
+        flex-basis: auto;
+        display: flex;
         align-items: center;
     }
 
-    .rate-line-outer .sub-item-title {
-       color:gray;
+    .smart-rating-wrapper .panel-group .panel .panel-heading .title-status {
+        background-color: aliceblue;        
+        width: 75px;
+        font-size: 20px;        
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(64, 153, 152, 1);
+        color: white;
+        font-weight: bold;
+        margin-right: -20px;
     }
 
 
+.smart-rate-table {    
+    text-align: center;
+}
 
-.rate-line-exp > span {
-    font-size: 12px;
-    /*top: 12px;
-        position: relative;*/
+.smart-rate-table  > thead > tr > th {
+    font-weight: normal;
+}
+
+    .smart-rate-table > tbody > tr[data-is-parent="true"] {        
+    }
+
+        .smart-rate-table > tbody > tr[data-is-parent="true"] > td {
+            text-align: center;
+            color: white;            
+            border-left: none;
+            border-right: none;            
+        }
+
+            .smart-rate-table > tbody > tr[data-is-parent="true"] > td::after {
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 32px 0 0 32px;
+                border-color: transparent transparent transparent #da424c;
+                line-height: 0px;
+                _border-color: #000000 #000000 #000000 #da424c;
+            }
+
+            /*.smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="1"] {
+                opacity: 0.3;
+            }
+
+            .smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="2"] {
+                opacity: 0.3;
+            }
+
+            .smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="3"] {
+                opacity: 0.3;
+            }
+
+            .smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="4"] {
+                opacity: 0.6;
+            }
+
+            .smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="5"] {
+                opacity: 0.6;
+            }
+
+            .smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="6"] {
+                opacity: 0.6;
+            }
+
+            .smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="7"] {
+                opacity: 0.9;
+            }
+
+            .smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="8"] {
+                opacity: 0.9;
+            }
+
+            .smart-rate-table > tbody > tr[data-is-parent="true"] > td[data-value="9"] {
+                opacity: 0.9;
+            }*/
+
+    .smart-rate-table > thead > tr > th {
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .smart-rate-table > tbody > tr > th {
+        font-size: 12px;
+        font-weight: normal;
+        color: #409998;
+    }
+
+    .smart-rate-table > tbody > tr > td {
+        color: gray;
+        cursor: pointer;
+        transition: background-color 0.5s ease;
+        color: white;        
+    }
+
+     .smart-rate-table > tbody > tr > td.no-transition {       
+        transition: none;     
+    }
+
+    .smart-rate-table > tbody > .rate-main-tr td:hover {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-transition-duration: 0.2s;
+        transition-duration: 0.2s;
+        -webkit-transition-property: box-shadow;
+        transition-property: box-shadow;
+    }
+
+    .smart-rate-table > tbody > .rate-main-tr td:hover {
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+        background-color: rgba(64, 153, 152, 0.6);
+        color: white;
+    }
+
+    .smart-rate-table > tbody > tr > .nested-rate-row {
+        padding: 0px;
+    }
+
+    .smart-rate-table > tbody > tr > td.selected-main-calculated {
+        background-color: rgba(249, 208, 69, 0.2);
+        color: gray;
+    }
+
+    .smart-rate-table > tbody > tr > td.selected-main {
+        background-color: rgba(64, 153, 152, 1);
+        color: white;
+    }
+
+        /*.smart-rate-table > tbody > tr > td.selected-main[data-value="1"], .smart-rate-table > tbody > tr > td.selected-main[data-value="2"], .smart-rate-table > tbody > tr > td.selected-main[data-value="3"] {
+            opacity: 0.3;
+        }
+
+        .smart-rate-table > tbody > tr > td.selected-main[data-value="4"], .smart-rate-table > tbody > tr > td.selected-main[data-value="5"], .smart-rate-table > tbody > tr > td.selected-main[data-value="6"] {
+            opacity: 0.6;
+        }
+
+        .smart-rate-table > tbody > tr > td.selected-main[data-value="7"], .smart-rate-table > tbody > tr > td.selected-main[data-value="8"], .smart-rate-table > tbody > tr > td.selected-main[data-value="9"] {
+            opacity: 0.9;
+        }*/
+
+    .smart-rate-table > tbody > tr > td.selected-sub {
+        background-color: rgba(249, 208, 69, 0.4);
+    }
+
+    .smart-rate-table .subitem-title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        line-height: 16px;
+        max-height: 32px;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        text-align: left;
+        color: #2d3334;
+        /*margin-left: 23px;*/
+    }
+
+    .smart-rate-table .item-title {
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .smart-rate-table .nested-opener {
+        cursor: pointer;     
+    }
+
+     .smart-rate-table .nested-opener:hover .nested-opener-icon {
+        opacity: 1;
+    }
+
+    .smart-rate-table .nested-opener-icon {
+        float: right;
+        margin-top: 10px;
+        font-size: 10px;
+        float: right;
+        margin-top: 6px;
+        font-size: 14px;
+        opacity: 0.5;
+    }
+
+
+    
+
+.smart-rate-table-container {
+    padding: 20px;    
 }
 
 
-
-
-
-
-
-
-.competency-explanation {
-    padding: 15px;
-    font-size: 15px !important;
+.nested-rate-row .table {
+    border: none;
+    margin-bottom: 0px;
 }
 
-.row > .rate-line:not(:last-child) .rate-line-circle::after {
-    content: '';
-    display: block;
-    position: relative;
-    left: 16px;
-    top: 9px;
-    margin-left: 15%;
-    width: 115%;
-    height: 1px;
+
+.nested-rate-row table tr th {
+    border-left: none !important;
+    width: 28.9%;
+}
+
+.nested-rate-row table tr td {
+    width: 8%;
+}
+
+.nested-rate-row table tr:first-child th {
+    border-top: none !important;
+}
+
+.nested-rate-row table tr:first-child td {
+    border-top: none !important;
+}
+
+.smart-rate-table .nested-rate-tr {
+    height: 2px;
+}
+
+
+.smart-rate-table .main-item-value {
+ position: absolute;
+    color: #C6CACC;
+    font-weight: bold;
+    width: 25px;
+    height: 25px;
     background-color: #E8E8E8;
+    /* background-color: rgba(64, 153, 152, 1); */
+    border-radius: 12.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -3px;
+    margin-left: 6px;
+    /*-webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;*/
 }
 
-.row > .rate-line .rate-line-circle::before {
-    content: '';
-    display: block;
-    right: 10px;
-    top: 10px;
-    height: 1px;
-    background-color: #E8E8E8;
-    position: relative;
-    left: -19px;
+.smart-rate-table .main-item-value-star {
+    border-radius: 0px;
+    /*color:#F9D045;*/
+    color: #878988;
+    background-color: transparent;
+    font-size: 21px;
 }
 
-.form-group .knowdledgeBaseContainer > div {
-    margin: 10px;
+.smart-rate-table .main-item-value-star-selected {
+    border-radius: 0px;
+    color: #F9D045;
+    background-color: transparent;
+    font-size: 21px;
 }
 
-.rate-line-outer .row .col-md-4, .col-md-5, .col-md-2 {
-    padding-left: 0px;
-    padding-right: 0px;
-}
-
-.rate-line-circle[data-group="1"].hover {
-    background-color: rgba(64, 153, 152, 0.3);
-    border-color: rgba(64, 153, 152, 0.3);
-}
-
-.rate-line-circle[data-group="2"].hover {
-    background-color: rgba(64, 153, 152, 0.6);
-    border-color: rgba(64, 153, 152, 0.6);
-}
-
-.rate-line-circle[data-group="3"].hover {
-    background-color: rgba(64, 153, 152, 0.9);
-    border-color: rgba(64, 153, 152, 0.9);
-}
-
-
-.rate-line-circle[data-group="1"].active:after {
-    background-color: rgba(64, 153, 152, 1) !important;
-    border-color: rgba(64, 153, 152, 1) !important;
-}
-
-.rate-line-circle[data-group="1"].active:before {
-    background-color: rgba(64, 153, 152, 1) !important;
-    border-color: rgba(64, 153, 152, 1) !important;
-}
-
-.rate-line-circle[data-group="2"].active:after {
-    background-color: rgba(64, 153, 152, 1) !important;
-    border-color: rgba(64, 153, 152, 1) !important;
-}
-
-.rate-line-circle[data-group="2"].active:before {
-    background-color: rgba(64, 153, 152, 1) !important;
-    border-color: rgba(64, 153, 152, 1) !important;
-}
-
-.rate-line-circle[data-group="3"].active:after {
-    background-color: rgba(64, 153, 152, 1) !important;
-    border-color: rgba(64, 153, 152, 1) !important;
-}
-
-.rate-line-circle[data-group="3"].active:before {
-    background-color: rgba(64, 153, 152, 1) !important;
-    border-color: rgba(64, 153, 152, 1) !important;
-}
-
-.rate-line-circle[data-group="1"].active:after {
-    background-color: rgba(64, 153, 152, 1) !important;
-    border-color: rgba(64, 153, 152, 1) !important;
+.smart-rate-table .selected-main-group span {
+    /*-webkit-transform: scale(1.7);
+    transform: scale(1.7);*/
+    background-color: rgba(64, 153, 152, 1);
+    color: white;
 }
 
 
-.rate-line-circle[data-group="1"][data-any="true"] {
-    background-color: rgba(64, 153, 152, 0.3) !important;
-    border-color: rgba(64, 153, 152, 0.3) !important;
+.smart-rate-table-nested > tbody > .nested-rate-selectable {
+    height: 37px;
 }
 
-    .rate-line-circle[data-group="1"][data-any="true"]:after {
-        background-color: rgba(64, 153, 152, 1) !important;
-        border-color: rgba(64, 153, 152, 1) !important;
+    .smart-rate-table-nested > tbody > .nested-rate-selectable th {
+        text-align: center;
     }
 
-    .rate-line-circle[data-group="1"][data-any="true"]:before {
-        background-color: rgba(64, 153, 152, 1) !important;
-        border-color: rgba(64, 153, 152, 1) !important;
-    }
-
-.rate-line-circle[data-group="2"][data-any="true"] {
-    background-color: rgba(64, 153, 152, 0.6) !important;
-    border-color: rgba(64, 153, 152, 0.6) !important;
+.smart-rate-table-nested > tbody > tr > td {
+    vertical-align: middle;
 }
 
-    .rate-line-circle[data-group="2"][data-any="true"]:after {
-        background-color: rgba(64, 153, 152, 1) !important;
-        border-color: rgba(64, 153, 152, 1) !important;
+    .smart-rate-table-nested > tbody > tr > td:hover {
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+        background-color: rgba(249, 208, 69, 0.4);
+        color: white;
     }
 
-    .rate-line-circle[data-group="2"][data-any="true"]:before {
-        background-color: rgba(64, 153, 152, 1) !important;
-        border-color: rgba(64, 153, 152, 1) !important;
+    .smart-rate-table-nested > tbody > tr > td:hover {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-transition-duration: 0.2s;
+        transition-duration: 0.2s;
+        -webkit-transition-property: box-shadow;
+        transition-property: box-shadow;
+        content: '1';
     }
 
-.rate-line-circle[data-group="3"][data-any="true"] {
-    background-color: rgba(64, 153, 152, 0.9) !important;
-    border-color: rgba(64, 153, 152, 0.9) !important;
-}
-
-    .rate-line-circle[data-group="3"][data-any="true"]:after {
-        background-color: rgba(64, 153, 152, 1) !important;
-        border-color: rgba(64, 153, 152, 1) !important;
-    }
-
-    .rate-line-circle[data-group="3"][data-any="true"]:before {
-        background-color: rgba(64, 153, 152, 1) !important;
-        border-color: rgba(64, 153, 152, 1) !important;
+    .smart-rate-table-nested > tbody > tr > td > span {
+        color: gray !important;
+        font-weight: normal;
+        display: none;
     }
 
 
-.rate-line-rectangle .rate-show {
-    width: 24px;
-    height: 24px;
-    float: right;
-    margin-top: 2px;
+
+.smart-rate-table .table-no-border > tbody > tr > th,
+.smart-rate-table .table-no-border > tbody > tr > td,
+.smart-rate-table .table-no-border > tbody {    
+    border-bottom: none !important;    
+    border-right: none !important;    
 }
 
-
-/*.rate-line-rectangle .clear {
-    background:;
-}*/
-
-.rate-line-rectangle .no-rate-selected {
-    background-image: url(images/no_rate-24.png);
-}
+    .smart-rate-table .table-no-border > tbody > tr:last-child > th,
+    .smart-rate-table .table-no-border > tbody > tr:last-child > td {        
+        border-right: none !important;
+        border-bottom: 1px solid rgba(64, 153, 152, 0.7) !important;        
+    }
 
 
-.rate-line-rectangle .low-rate, .rate-line-rectangle .low-rate-selected {
-    background-image: url(images/low-24.png);
-}
-
-.rate-line-rectangle .medium-rate, .rate-line-rectangle .medium-rate-selected {
-    background-image: url(images/medium-24.png);
-}
-
-.rate-line-rectangle .high-rate, .rate-line-rectangle .high-rate-selected {
-    background-image: url(images/high-24.png);
-}
-
-
-.rate-line-rectangle .no-rate {
-    background-image: url(images/no_rate-24.png);
-}
-
-
-.rate-line-rectangle .low-rate, .rate-line-rectangle .low-rate.active {
-    background-image: url(images/low-24.png);
-}
-
-.rate-line-rectangle .medium-rate, .rate-line-rectangle .medium-rate.active {
-    background-image: url(images/medium-24.png);
-}
-
-.rate-line-rectangle .high-rate, .rate-line-rectangle .high-rate.active {
-    background-image: url(images/high-24.png);
-}
-
-   </style>   
+    </style>
+ 
 </head>
 <body>
 
-    <div id="divRateBox"></div>
+    
 
     <script>
-        $(function () {
-          
-            var rateBox = $("#divRateBox").rateBox({ showStar: true });
-
-            jQuery.fn.toggleAttr = function (attr, value) {
-                return this.each(function () {
-                    var $this = $(this);
-                    $this.attr(attr) ? $this.removeAttr(attr) : $this.attr(attr, value);
-                });
-            };
-
-            function attachEvents() {
-
-                $('.smart-rating-wrapper .nested-opener').on('click', function () {
-                   
-                    var currentContainer = $(this).parents('.rate-line-outer');
-                    var collapse = currentContainer.find('.collapse');
-                  
-                    collapse.collapse('toggle');
-                    $(this).find('span i').toggleClass('fa-folder-open-o');
-
-                });
-
-                $('.smart-rating-wrapper').find('.rate-line-circle').each(function (t, item) {
-
-                    $(item).on('click', function () {
-                        var selectedValue = $(this).attr('data-rate-type');
-                        var row = $(this).parents('.row');
-
-                        row.find('.rate-line-circle').each(function (i, item) {
-                            $(item).removeAttr('data-any');
-                        });
-
-                        for (var i = 1; i <= selectedValue; i++) {
-                            var el = row.find('.rate-line-circle[data-rate-type=' + i + ']');
-                            el.attr('data-any', true);
-                        }
-
-                        addSelectedClassToRateResult(row, selectedValue, true);
-
-                    });
-
-
-                    $(item).hover(function () {
-                        var selectedValue = $(this).attr('data-rate-type');
-                        var row = $(this).parents('.row');
-                        for (var i = 1; i <= selectedValue; i++) {
-                            var el = row.find('.rate-line-circle[data-rate-type=' + i + ']');
-                            el.addClass('hover active');
-                            row.find('.rate-line-circle[data-rate-type=' + (i - 1) + ']').addClass('active');
-                        }
-
-                        addSelectedClassToRateResult(row, selectedValue);
-
-
-                    }, function () {
-                        var selectedValue = $(this).attr('data-rate-type');
-                        var row = $(this).parents('.row');
-                        for (var i = 1; i <= selectedValue; i++) {
-                            var el = row.find('.rate-line-circle[data-rate-type=' + i + ']');
-                            el.removeClass('hover active');
-                        }
-
-                        var rectResultDiv = row.find('.rate-line-rectangle');
-                        var resultIcon = rectResultDiv.find('.rate-show');
-                        var resultSpan = rectResultDiv.find('span');
-                        var isSelected = resultIcon.attr('data-selected');
-                        resultIcon.removeClass('low-rate medium-rate high-rate');
-
-                        var selectedLevel = resultIcon.attr('data-selected-level');
-                        if (selectedLevel) {
-                            resultSpan.text(selectedLevel);
-                        }
-                        else {
-                            resultSpan.text('--');
-                        }
-                       
-                    });
-
-                });
-
-                function addSelectedClassToRateResult(row, selectedValue, addSelectedAttr) {
-                    var rectResultDiv = row.find('.rate-line-rectangle');
-                    var resultIcon = rectResultDiv.find('.rate-show');
-                    var resultSpan = rectResultDiv.find('span');
-                    var cssClassSufix = '';
-                    if (addSelectedAttr) {
-                        resultIcon.attr('data-selected', true);
-                        resultIcon.attr('data-selected-level', 'L' + Math.ceil(selectedValue / 3));
-                        resultIcon.attr('data-selected-value', selectedValue);
-                        cssClassSufix = '-selected';
-                        resultIcon.removeClass('no-rate no-rate-selected low-rate-selected medium-rate-selected high-rate-selected');
-                    }
-                    resultSpan.text('');
-                    resultIcon.removeClass('low-rate medium-rate high-rate');
-                   
-
-                    if (selectedValue <= 3) {
-                        resultIcon.addClass('low-rate' + cssClassSufix);
-                        resultSpan.text('L1');
-                    }
-                    else if (selectedValue > 3 && selectedValue <= 6) {
-                        resultIcon.addClass('medium-rate' + cssClassSufix);
-                        resultSpan.text('L2');
-                    }
-                    else {
-                        resultIcon.addClass('high-rate' + cssClassSufix);
-                        resultSpan.text('L3');
-                    }
-                }
-
-            }
-
-            attachEvents();
+        $(function () {          
         });
 
-        (function ($) {
-            $.rateBox = function (el, options) {
+        ; (function ($) {
+            "use strict";
+
+            if (!$.hys) {
+                $.hys = {};
+            };
+
+            if (!$.fn.hys) {
+                $.fn.hys = {};
+            };
+
+            $.hys.rateBox = function (el, options) {
                 var base = this;
 
-                // Access to jQuery and DOM versions of element
                 base.$el = $(el);
                 base.el = el;
                 base.$el.data("rateBox", base);
 
+                //public
+
                 base.init = function () {
+                    base.options = $.extend({}, $.hys.rateBox.defaultOptions, options);
 
-                    base.options = $.extend({}, $.rateBox.defaultOptions, options);
-
-                    // Put your initialization code here
-                    createRateBox();
-
+                    getAssessmentItemsAndCreateMatrix();
                 };
 
-                base.functionName = function (paramaters) {
-
+                base.getRateData = function () {
+                    return prepareDataForSave();
                 };
 
-                var toTitleCase = function (str) {
-                    return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
+                //private
+
+                var getAssessmentItemsAndCreateMatrix = function () {
+                    var userId = base.options.userId;
+                    makeAjaxRequestToWebServices
+                    (
+                        $.hys.urls.serviceRepository.competency.getAllAssessmentItem + userId
+                        , {}
+                        , OnAssessmentItemsReceived
+                        , OnAssessmentItemsReceiveError
+                    );
+
+                    function OnAssessmentItemsReceived(data) {
+                        base.options.rateBoxData = data;
+                        createRateBox();
+                        fireRatedItemCountChanged();
+
+                        if (base.options.onRateBoxLoaded) {
+                            base.options.onRateBoxLoaded();
+                            $('[data-toggle="tooltip"]').tooltip();
+                        }
+                    }
+
+                    function OnAssessmentItemsReceiveError(a, b, c, d) {
+                        console.log(a);
+                        console.log(b);
+                        console.log(c);
+                        console.log(d);
+                    }
+
+                }
+
+                var makeAjaxRequestToWebServices = function (URL, Data, OnSuccess, OnError, OnComplete) {
+                    $.ajax({
+                        type: "GET",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        cache: false,
+                        url: URL,
+                        data: Data,
+                        success: function (result) {
+                            if (OnSuccess)
+                                OnSuccess(result);
+                        },
+                        error: function (a, b, c, d) {
+                            if (OnError)
+                                OnError(a, b, c, d);
+                        },
+                        complete: function () {
+                            if (OnComplete)
+                                OnComplete();
+                        }
+                    });
+                }
+
+                var prepareDataForSave = function () {
+                    $.each(base.options.rateBoxData.GetAllAssessmentItemsResult, function (i, competencyAssessmentItem) {
+                        competencyAssessmentItem.NoteValue = base.$el.find('.smart-rate-table tr[data-is-parent="true"][data-group-id="' + competencyAssessmentItem.ID + '"] td.selected-main-group')
+                                                                .attr('data-value');
+                        $.each(competencyAssessmentItem.CompetencyAssessmentItem, function (j, subItem) {
+                            subItem.NoteValue = base.$el.find('.smart-rate-table tr[data-id="' + subItem.ID + '"][data-group-id="' + subItem.GroupID + '"]')
+                                                                .attr('data-selected-value');
+                            $.each(subItem.CompetencyAssessmentChildItem, function (k, nestedItem) {
+                                nestedItem.NoteValue = base.$el.find('.smart-rate-table-nested[data-parent-id="' + nestedItem.ParentItemID + '"] tr[data-id="' + nestedItem.ID + '"]')
+                                                                .attr('data-selected-value');
+                            });
+
+                        });
+                    });
+
+                    return options.rateBoxData;
                 }
 
                 var createRateBox = function () {
-                    var rateBxData = getRateBoxData();
-                    var panelGroup = addWrapperElements();
+                    var panel = addWrapperElements();
+                    var rateBoxTableContiner = addPanelItems(panel);
 
-                    createRateBoxItems(rateBxData, panelGroup);
+                    createRateMatrix(base.options.rateBoxData, rateBoxTableContiner)
 
                     attachEvents();
                 }
 
                 var getRateBoxData = function () {
                     //TODO: Get Data From Server
+                    base.options.rateBoxData = rateData;
                     return rateData;
                 }
 
                 var addWrapperElements = function () {
                     var wrapper = $('<div></div>').addClass('smart-rating-wrapper');
-                    var innerContainer = $('<div></div>').addClass('inner-container inner-container-default inner-container-box-shadow noPadding').appendTo(wrapper);
+                    var innerContainer = $('<div></div>').addClass('').appendTo(wrapper);
                     var panelGroup = $('<div></div>').addClass('panel-group').appendTo(innerContainer);
+                    var panel = $('<div></div>').addClass('').appendTo(panelGroup);
 
                     base.$el.html(wrapper);
 
-                    return panelGroup;
+                    return panel;
                 }
 
-                var createRateBoxItems = function (rateBoxData, panelGroup) {
-                    $.each(rateBoxData.GetAssesmentItemResult, function (i, competencyAssesmentItem) {
-                        var panel = $('<div></div>').addClass('panel panel-default');
-                        var formGroup = $('<div></div>').addClass('form-group').appendTo(panel);
+                var addPanelItems = function (panel) {
+                    //TODO: Text and data must be dynamic
+                    //var panelHeading = $('<div></div>').addClass('panel-heading');
+                    //var panelTitle = $('<span></span>').addClass('title').html("<b>Ümit</b>'in yetkinliğini aşağıdaki 7 kritere göre değerlendirin");
+                    //var panelStatus = $('<span></span>').addClass('title-status').html("0 / 7");
+                    //var panelItem = $('<a></a>').append(panelTitle)
+                    //.append(panelStatus)
+                    //.appendTo(panelHeading);
 
-                        formGroup.append('<label class="competency-explanation"><b>Muhammet</b>' + "'" + 'in ' + competencyAssesmentItem.Name + "ni " + competencyAssesmentItem.CompetencyAssesmentItem.length + ' açıdan değerlendirin.'
-                                          + '<i class="btnKnowledgeBase fa fa-info-circle collapsed" data-toggle="collapse" data-target="#collapse' + competencyAssesmentItem.ID + '" aria-expanded="false"></i>'
-                                          + '</label>');
+                    var rateBoxContainer = $('<div></div>').addClass('smart-rate-table-container');
 
-                        formGroup.append(' <div class="knowdledgeBaseContainer collapse" id="collapse' + competencyAssesmentItem.ID + '" >'
-                                           + ' <div>'
-                                           + '     Talebinizin içeriğini yansıtacak ve diğer taleplerinizden ayrıştıracak talebe özel isim olmalıdır. Bu isim tercihen çok uzun olmamalı ve hatırlanabilir olmalıdır. Proje ismine referans olacak şekilde isimlendirilebilir.'
-                                           + ' </div>'
-                                        + '</div>');
+                    //panel.append(panelHeading);
+                    panel.append(rateBoxContainer);
 
-                        formGroup.append(getRateGroupTemplate());
-
-                        $.each(competencyAssesmentItem.CompetencyAssesmentItem, function (j, subItem) {
-                            var container = $('<div></div>').addClass('rate-line-container').appendTo(formGroup);
-                            var rateLineOuter = $('<div></div>').addClass('rate-line-outer').appendTo(container);
-
-                            var mainRow = $('<div></div>').addClass('row');
-                            mainRow.append('<div class="col-md-5 rate-line">'
-                                          + '      <div class="alert nested-opener">'
-                                          + '              <span class="label"><i class="fa fa-folder"></i>' + subItem.Name + '</span>'
-                                          + '        </div>'
-                                          + '  </div>');
-
-                            for (var i = 1; i <= 9; i++) {
-                                var group = Math.ceil(i / 3);
-                                mainRow.append('<div class="col-md-1 rate-line">'
-                                              + ' <div class="rate-line-circle" data-rate-type="' + i + '" data-group="' + group + '">'
-                                              + '      <span></span>'
-                                              + '  </div>'
-                                            + '</div>');
-                            }
-
-                            mainRow.append('<div class="col-md-2 rate-line ">'
-                                           + '       <div class="rate-line-rectangle">'
-                                           + '       <span>--</span>'
-                                           + '         <div class="rate-show no-rate"></div>'
-                                           + '     </div>'
-                                           + ' </div>'
-                                        + '</div>');
-
-                            rateLineOuter.append(mainRow);
-
-                            //if (!subItem.CompetencyAssesmentChildItem || subItem.CompetencyAssesmentChildItem.length < 1)
-                            //{
-                            //    mainRow.find('i').removeClass('fa fa-folder-open');
-                            //}
-
-                            $.each(subItem.CompetencyAssesmentChildItem, function (k, nestedItem) {
-                                var accordion = $('<div></div>').addClass('accordian-body collapse').appendTo(rateLineOuter);
-                                var subContainer = $('<div></div>').addClass('rate-line-container').appendTo(accordion);
-                                var subRateLineOuter = $('<div></div>').addClass('rate-line-outer').appendTo(subContainer);
-
-                                subRateLineOuter.append('<div class="row"><div class="label sub-item-title">' + nestedItem.Name + '</div></div>');
-                                var nestedRow = $('<div></div>').addClass('row').appendTo(subRateLineOuter);
-                                nestedRow.append(' <div class="col-md-5 rate-line">'
-                                                              + '<div class="alert">'
-                                                              + '</div>'
-                                                        + '</div>');
-
-                                for (var i = 1; i <= 9; i++) {
-                                    var group = Math.ceil(i / 3);
-                                    nestedRow.append('<div class="col-md-1 rate-line">'
-                                                  + ' <div class="rate-line-circle" data-rate-type="' + i + '" data-group="' + group + '">'
-                                                  + '      <span></span>'
-                                                  + '  </div>'
-                                                + '</div>');
-                                }
-
-                                nestedRow.append('<div class="col-md-2 rate-line ">'
-                                          + '       <div class="rate-line-rectangle">'
-                                           + '       <span>--</span>'
-                                          + '         <div class="rate-show no-rate"></div>'
-                                          + '     </div>'
-                                          + ' </div>'
-                                       + '</div>');
-
-                            });
-
-                        });
-
-                        panelGroup.append(formGroup);
-                    });
+                    return rateBoxContainer;
                 }
 
-                var getRateGroupTemplate = function () {
-                    return '<div class="rate-line-container">'
-                                    + '<div class="rate-line-outer">'
-                                    + '        <div class="row">'
-                                    + '            <div class="col-md-3 rate-line">'
-                                    + '           </div>'
-                                    + '           <div class="col-md-3 rate-line-exp">'
-                                    + '            <span>Gelişime İhtiyacı Var (L1)</span>  '
-                                    + '        </div>'
-                                    + '            <div class="col-md-3 rate-line-exp">'
-                                    + '                <span>Tatmin Edici Seviyede (L2)</span>'
-                                    + '           </div>'
-                                    + '           <div class="col-md-3 rate-line-exp">'
-                                    + '              <span>Üstün/Örnek Olabilecek (L3)</span>'
-                                    + '           </div>'
-                                    + '             <div class="col-md-2 rate-line-exp">'
-                                    + '           </div>'
-                                    + '    </div>'
-                                    + '</div>'
-                                 + '</div>';
-                }
-
-                var createRateMatrix = function (rateBoxData) {
-                    var table = $('<table></table>').addClass('table table-bordered smart-rate-table');
+                var createRateMatrix = function (rateBoxData, container) {
+                    var table = $('<table></table>').addClass('table table-bordered smart-rate-table').appendTo(container);
 
                     //add table heading
 
                     table.append('  <thead>' +
-                                    '<tr>' +
-                                        '<th style="width: 28%;"></th>' +
-                                        '<th colspan="3" style="width: 24%;">Gelişime İhtiyacı Var</th>' +
-                                        '<th colspan="3" style="width: 24%;">Tatmin Edici Seviyede</th>' +
-                                        '<th colspan="3" style="width: 24%;">Üstün/Başkalarına Örnek </th>' +
-                                    '</tr>' +
-                                '</thead>');
+                                       '<tr>' +
+                                           '<th style="width: 29%;"></th>' +
+                                           '<th colspan="3" style="width: 24%;">Gelişime İhtiyacı Var</th>' +
+                                           '<th colspan="3" style="width: 24%;">Tatmin Edici Seviyede</th>' +
+                                           '<th colspan="3" style="width: 24%;">Üstün/Başkalarına Örnek </th>' +
+                                       '</tr>' +
+                                   '</thead>');
 
                     //add table body
 
                     var tableBody = $('<tbody></tbody>').appendTo(table);
 
-                    $.each(rateBoxData.GetAssesmentItemResult, function (i, competencyAssesmentItem) {
+                    $.each(rateBoxData.GetAllAssessmentItemsResult, function (i, competencyAssessmentItem) {
+
+                        var initialGroup = getEqualGroupItemFromInitialData(competencyAssessmentItem.ID);
+
 
                         var tr = $('<tr></tr>').attr('data-is-parent', true)
-                                            .attr('data-group-id', competencyAssesmentItem.ID);
+                                               .attr('data-group-id', competencyAssessmentItem.ID);
 
-                        tr.append('<th scope="row"><span class="item-title">' + competencyAssesmentItem.Name + '</span></th>');
+                        tr.append('<th scope="row"><span class="item-title">' + competencyAssessmentItem.Name + '</span></th>');
 
                         for (var i = 1; i <= 9; i++) {
                             if (options.showStar) {
@@ -790,123 +557,186 @@
                         tableBody.append(tr);
                         tableBody.append('<tr class="nested-rate-tr"></tr>');
 
-                        $.each(competencyAssesmentItem.CompetencyAssesmentItem, function (j, subItem) {
-                            var tr = $('<tr></tr>').addClass('rate-main-tr')
-                                                .attr('data-id', subItem.ID)
-                                                .attr('data-group-id', subItem.GroupId);
-                            tr.append(' <th scope="row" class="accordion-toggle nested-opener">' +
-                                            '<span class="fa fa-plus-square nested-opener-icon" ></span>&nbsp&nbsp' +
-                                            '<span >' + subItem.Name + '</span>' +
-                                        '</th>');
+                        $.each(competencyAssessmentItem.CompetencyAssessmentItem, function (j, subItem) {
+
+                            var initialSubItem = getEqualSubItemFromInitialData(subItem.ID, initialGroup);
+
+
+                            base.options.totalItemCount++;
+
+                            var selectedValue = subItem.NoteValue;
+
+                            if (initialSubItem != null && initialSubItem.NoteValue > 0) {
+                                selectedValue = initialSubItem.NoteValue;
+                            }
+
+                            var subTr = $('<tr></tr>').addClass('rate-main-tr')
+                                                   .attr('data-id', subItem.ID)
+                                                   .attr('data-group-id', subItem.GroupID)
+                                                   .attr('data-selected-value', selectedValue);
+
+
+                            subTr.append(' <th scope="row" class="accordion-toggle nested-opener">' +
+                                               '<span class="fa fa-info-circle nested-opener-icon" ></span>&nbsp&nbsp' +
+                                               '<span >' + subItem.Name + '</span>' +
+                                           '</th>');
 
                             for (var i = 1; i <= 9; i++) {
-                                tr.append('<td data-value="' + i + '">' + i + '</td>');
+                                var subTd = $('<td></td>').attr('data-value', i).text(i);
+                                if (i == selectedValue) {
+                                    subTd.addClass('selected-main');
+                                }
+                                if (!base.options.animateOnHover) {
+                                    subTd.addClass('no-transition');
+                                }
+                                subTr.append(subTd);
                             }
-                            tableBody.append(tr);
+                            tableBody.append(subTr);
 
                             var nestedTr = $('<tr></tr>').addClass('nested-rate-tr').attr('data-parent-id', subItem.ID).appendTo(tableBody);
-                            if (subItem.CompetencyAssesmentChildItem && subItem.CompetencyAssesmentChildItem.length > 0) {
+                            if (subItem.CompetencyAssessmentChildItem && subItem.CompetencyAssessmentChildItem.length > 0) {
 
                                 var nestedTd = $('<td></td>').addClass('nested-rate-row').attr('colspan', 10).appendTo(nestedTr);
                                 var nestedContainer = $('<div></div>').addClass('accordian-body collapse').appendTo(nestedTd);
                                 var nestedTable = $('<table></table>').addClass('table table-bordered table-no-border smart-rate-table smart-rate-table-nested')
-                                                                    .attr('data-parent-id', subItem.ID)
-                                                                    .appendTo(nestedContainer);
+                                                                      .attr('data-parent-id', subItem.ID)
+                                                                      .appendTo(nestedContainer);
 
                                 var nestedBody = $('<tbody></tbody>').appendTo(nestedTable);
 
-                                $.each(subItem.CompetencyAssesmentChildItem, function (k, nestedItem) {
+                                $.each(subItem.CompetencyAssessmentChildItem, function (k, nestedItem) {
 
-                                    nestedBody.append(' <tr data-parent-id="' + nestedItem.ParentItemID + '">' +
-                                                            '<th colspan="10" scope="row">' +
-                                                                '<span class="subitem-title">' + nestedItem.Name + '</span>' +
-                                                            '</th>' +
-                                                        '</tr>');
+                                    //nestedBody.append(' <tr data-parent-id="' + nestedItem.ParentItemID + '">' +
+                                    //                          //'<th colspan="10" scope="row">' +
+                                    //                          //     '<span class="subitem-title"></span>' +
+                                    //                          //'</th>' +
+                                    //                      '</tr>');
 
-                                    var nestedItem = $('<tr></tr>').addClass('nested-rate-selectable').attr('data-parent-id', nestedItem.ParentItemID);
-                                    nestedItem.append('<th scope="row"></th>');
-                                    for (var i = 1; i <= 9; i++) {
-                                        nestedItem.append('<td data-value="' + i + '"><span></span></td>');
+                                    var selectedValue = subItem.NoteValue;
+                                    var initialNestedSubItem = getEqualNestedSubItemFromInitialData(nestedItem.ID, initialSubItem);
+
+                                    if (initialNestedSubItem != null && initialNestedSubItem.NoteValue > 0) {
+                                        selectedValue = initialNestedSubItem.NoteValue;
                                     }
 
-                                    nestedBody.append(nestedItem);
+                                    var nestedSubItem = $('<tr></tr>').addClass('nested-rate-selectable')
+                                        .attr('data-id', nestedItem.ID)
+                                        .attr('data-parent-id', nestedItem.ParentItemID)
+                                        .attr('data-selected-value', selectedValue);
+
+                                    nestedSubItem.append('<th scope="row"><span class="subitem-title" data-toggle="tooltip" data-original-title="' + nestedItem.Name + '">' + nestedItem.Name + '</span></th>');
+                                    for (var i = 1; i <= 9; i++) {
+                                        var nestedItemTd = $('<td><span></span></td>').attr('data-value', i);
+                                        if (selectedValue == i) {
+                                            nestedItemTd.addClass('selected-sub');
+                                        }
+                                        if (!base.options.animateOnHover) {
+                                            nestedItemTd.addClass('no-transition');
+                                        }
+                                        nestedSubItem.append(nestedItemTd);
+                                    }
+
+                                    nestedBody.append(nestedSubItem);
 
                                 });
+
                             }
                             else {
-                                tr.find('span').removeClass('fa fa-plus-square nested-opener-icon');
+                                subTr.find('span').removeClass('fa fa-info-circle nested-opener-icon');
                             }
 
                         });
 
+                        calculateMainRateAndShow(competencyAssessmentItem.ID);
                     });
 
                     return table;
                 }
 
-                //var calculateAndSelectItem = function(itemId) {
-                //    var totalRate = 0;
-                //    var ratedItemCount = 0;
-                //    $('.smart-rate-table tbody tr[data-parent-id=' + itemId + ']').each(function (i, row) {
-                //        var currentValue = parseInt($(this).attr('data-selected-value'));
-                //        if (!isNaN(currentValue)) {
-                //            totalRate += currentValue;
-                //            ratedItemCount++;
-                //        }
-                //    });
+                var calculateAndSelectItem = function (itemId) {
+                    var totalRate = 0;
+                    var ratedItemCount = 0;
+                    base.$el.find('.smart-rate-table tbody tr[data-parent-id=' + itemId + ']').each(function (i, row) {
+                        var currentValue = parseInt($(this).attr('data-selected-value'));
+                        if (!isNaN(currentValue)) {
+                            totalRate += currentValue;
+                            ratedItemCount++;
+                        }
+                    });
 
-                //    var avarageRate = Math.round(totalRate / ratedItemCount);
+                    var avarageRate = Math.round(totalRate / ratedItemCount);
 
-                //    $('.smart-rate-table tbody tr[data-id=' + itemId + '] td').each(function (i, cell) {
-                //        $(cell).removeClass('selected-main-calculated');
-                //    });
+                    base.$el.find('.smart-rate-table tbody tr[data-id=' + itemId + '] td').each(function (i, cell) {
+                        $(cell).removeClass('selected-main-calculated');
+                    });
 
-                //    var calculatedCell = $('.smart-rate-table tbody tr[data-id=' + itemId + '] td[data-value=' + avarageRate + ']');
-                //    if (!calculatedCell.hasClass('selected-main')) {
-                //        calculatedCell.addClass('selected-main-calculated');
-                //        setTimeout(function () {
-                //            calculatedCell.removeClass("selected-main-calculated");
-                //        }, 1000);
-                //    }
+                    var calculatedCell = base.$el.find('.smart-rate-table tbody tr[data-id=' + itemId + '] td[data-value=' + avarageRate + ']');
+                    if (!calculatedCell.hasClass('selected-main')) {
+                        calculatedCell.addClass('selected-main-calculated');
+                        setTimeout(function () {
+                            calculatedCell.removeClass("selected-main-calculated");
+                        }, 1000);
+                    }
 
-                //}
+                }
 
-                //var calculateMainRateAndShow = function(groupId) {
-                //    var totalRate = 0;
-                //    var ratedItemCount = 0;
-                //    $('.smart-rate-table tbody tr[data-group-id=' + groupId + ']').each(function (i, row) {
-                //        var currentValue = parseInt($(this).attr('data-selected-value'));
-                //        if (!isNaN(currentValue)) {
-                //            totalRate += currentValue;
-                //            ratedItemCount++;
-                //        }
-                //    });
+                var calculateMainRateAndShow = function (groupId) {
+                    var totalRate = 0;
+                    var ratedItemCount = 0;
+                    base.$el.find('.smart-rate-table tbody tr[data-group-id=' + groupId + ']').each(function (i, row) {
+                        var currentValue = parseInt($(this).attr('data-selected-value'));
+                        if (!isNaN(currentValue)) {
+                            totalRate += currentValue;
+                            ratedItemCount++;
+                        }
+                    });
 
-                //    var avarageRate = Math.round(totalRate / ratedItemCount);
-                //    $('.smart-rate-table tbody tr[data-is-parent="true"][data-group-id="' + groupId + '"] td').removeClass('selected-main-group');
-                //    var calculatedRow = $('.smart-rate-table tbody tr[data-is-parent="true"][data-group-id=' + groupId + ']');
-                //    var calculatedCell = calculatedRow.find('td[data-value=' + avarageRate + ']');
-                //    calculatedRow.attr('data-rated-item-count', ratedItemCount);
-                //    calculatedCell.addClass('selected-main-group');
-                //    showRemainingItemCount();
-                //}
+                    var avarageRate = Math.round(totalRate / ratedItemCount);
+                    base.$el.find('.smart-rate-table tbody tr[data-is-parent="true"][data-group-id="' + groupId + '"] td').removeClass('selected-main-group');
 
-                //var showRemainingItemCount = function() {
-                //    var ratedItemCount = 0;
-                //    $('.smart-rate-table tbody tr[data-is-parent="true"]').each(function () {
-                //        if ($(this).attr('data-rated-item-count')) {
-                //            ratedItemCount += parseInt($(this).attr('data-rated-item-count'));
-                //        }
-                //    });
-                //    $('.smart-rating-wrapper').find('.title-status').text(ratedItemCount + ' / 7');
-                //}
+                    if (options.showStar === true) {
+                        base.$el.find('.smart-rate-table tbody tr[data-is-parent="true"][data-group-id="' + groupId + '"] td span').removeClass('main-item-value-star-selected');
+                        for (var i = 1; i <= avarageRate; i++) {
+                            base.$el.find('.smart-rate-table tbody tr[data-is-parent="true"][data-group-id="' + groupId + '"] td[data-value="' + i + '"] span').addClass('main-item-value-star-selected');
+                        }
+                    }
+
+                    var calculatedRow = base.$el.find('.smart-rate-table tbody tr[data-is-parent="true"][data-group-id=' + groupId + ']');
+                    var calculatedCell = calculatedRow.find('td[data-value=' + avarageRate + ']');
+                    calculatedRow.attr('data-rated-item-count', ratedItemCount);
+                    calculatedCell.addClass('selected-main-group');
+                }
+
+                var fireRatedItemCountChanged = function () {
+                    var ratedItemCount = 0;
+                    base.$el.find('.smart-rate-table tbody tr[data-is-parent="true"]').each(function () {
+                        if ($(this).attr('data-rated-item-count')) {
+                            ratedItemCount += parseInt($(this).attr('data-rated-item-count'));
+                        }
+                    });
+
+                    if (base.options.onMainItemSelect) {
+                        base.options.onMainItemSelect(ratedItemCount + ' / ' + base.options.totalItemCount);
+                    }
+                    //base.$el.find('.smart-rating-wrapper').find('.title-status').text(ratedItemCount + ' / 7');
+                }
+
+                var showRemainingItemCount = function () {
+                    var ratedItemCount = 0;
+                    //base.$el.find('.smart-rate-table tbody tr[data-is-parent="true"]').each(function () {
+                    //	if ($(this).attr('data-rated-item-count')) {
+                    //		ratedItemCount += parseInt($(this).attr('data-rated-item-count'));
+                    //	}
+                    //});
+                    //base.$el.find('.smart-rating-wrapper').find('.title-status').text(ratedItemCount + ' / 7');
+                }
 
                 var attachEvents = function () {
                     base.$el.find('.smart-rate-table .nested-opener').on('click', function () {
                         var currentTr = $(this).parent('tr').next();
                         var collapse = currentTr.find('.collapse');
                         collapse.collapse('toggle');
-                        $(this).find('.nested-opener-icon').toggleClass('fa-minus-square');
+                        //$(this).find('.nested-opener-icon').toggleClass('fa-minus-square');
                     });
 
                     base.$el.find('.smart-rate-table tbody tr:not(.nested-rate-tr) td').on('click', function (i, row) {
@@ -936,7 +766,9 @@
                         var parentId = $(this).parent('tr').attr('data-parent-id');
                         if (parentId) { //it is subitem    
                             var value = !alreadySelected ? $(this).attr('data-value') : '';
-                            $(this).parent('tr').find('th').text(value);
+                            if (options.showSubItemValueOnLeft) {
+                                $(this).parent('tr').find('th').text(value);
+                            }
                             selectedCss = 'selected-sub';
                             calculateAndSelectItem(parentId);
                         }
@@ -944,11 +776,14 @@
                             var groupId = $(this).parent('tr').attr('data-group-id');
                             selectedCss = 'selected-main';
                             calculateMainRateAndShow(groupId);
+                            fireRatedItemCountChanged();
                         }
 
                         if (!alreadySelected) {
                             $(this).addClass(selectedCss);
                         }
+
+                        generateHiddenItems();
 
                     });
 
@@ -961,24 +796,141 @@
                     );
                 }
 
+                var generateHiddenItems = function () {
+
+                    var hiddenContainer = $('.' + base.options.hiddenContainerClass);
+                    if (!hiddenContainer) {
+                        console.log("Hidden container not found...");
+                        return;
+                    }
+
+                    hiddenContainer.empty();
+
+                    $.each(base.options.rateBoxData.GetAllAssessmentItemsResult, function (i, competencyAssessmentItem) {
+
+                        competencyAssessmentItem.NoteValue = base.$el.find('.smart-rate-table tr[data-is-parent="true"][data-group-id="' + competencyAssessmentItem.ID + '"] td.selected-main-group')
+                                                                .attr('data-value');
+
+                        $('<input></input>').addClass('CompetencyAssessmentNoteItem')
+                                            .attr('type', 'hidden')
+                                            .attr('name', 'AssessmentItems[' + i + '].NoteValue')
+                                            .attr('value', competencyAssessmentItem.NoteValue)
+                                                .appendTo(hiddenContainer);
+
+                        $('<input></input>').addClass('CompetencyAssessmentNoteItem')
+                                            .attr('type', 'hidden')
+                                          .attr('name', 'AssessmentItems[' + i + '].Id')
+                                          .attr('value', competencyAssessmentItem.ID)
+                                              .appendTo(hiddenContainer);
+
+                        $.each(competencyAssessmentItem.CompetencyAssessmentItem, function (j, subItem) {
+                            subItem.NoteValue = base.$el.find('.smart-rate-table tr[data-id="' + subItem.ID + '"][data-group-id="' + subItem.GroupID + '"]')
+                                                                .attr('data-selected-value');
+
+                            $('<input></input>').addClass('CompetencyAssessmentNoteItem')
+                                            .attr('type', 'hidden')
+                                          .attr('name', 'AssessmentItems[' + i + '].CompetencyAssessmentItem[' + j + '].NoteValue')
+                                          .attr('value', subItem.NoteValue)
+                                              .appendTo(hiddenContainer);
+
+                            $('<input></input>').addClass('CompetencyAssessmentNoteItem')
+                                        .attr('type', 'hidden')
+                                       .attr('name', 'AssessmentItems[' + i + '].CompetencyAssessmentItem[' + j + '].Id')
+                                       .attr('value', subItem.ID)
+                                           .appendTo(hiddenContainer);
+
+
+                            $.each(subItem.CompetencyAssessmentChildItem, function (k, nestedItem) {
+                                nestedItem.NoteValue = base.$el.find('.smart-rate-table-nested[data-parent-id="' + nestedItem.ParentItemID + '"] tr[data-id="' + nestedItem.ID + '"]')
+                                                                .attr('data-selected-value');
+
+                                $('<input></input>').addClass('CompetencyAssessmentNoteItem')
+                                        .attr('type', 'hidden')
+                                       .attr('name', 'AssessmentItems[' + i + '].CompetencyAssessmentItem[' + j + '].CompetencyAssessmentChildItem[' + k + '].NoteValue')
+                                       .attr('value', nestedItem.NoteValue)
+                                           .appendTo(hiddenContainer);
+
+
+                                $('<input></input>').addClass('CompetencyAssessmentNoteItem')
+                                    .attr('type', 'hidden')
+                                       .attr('name', 'AssessmentItems[' + i + '].CompetencyAssessmentItem[' + j + '].CompetencyAssessmentChildItem[' + k + '].Id')
+                                       .attr('value', nestedItem.ID)
+                                           .appendTo(hiddenContainer);
+                            });
+
+                        });
+                    });
+                }
+
+                var getEqualGroupItemFromInitialData = function (groupId) {
+                    var foundedItem = null;
+                    $.each(base.options.initialData, function (i, item) {
+                        if (item.Id == groupId) {
+                            foundedItem = item;
+                            return true;
+                        }
+                    });
+
+                    return foundedItem;
+                }
+
+                var getEqualSubItemFromInitialData = function (subItemId, initialGroup) {
+
+                    if (initialGroup == null) {
+                        return null;
+                    }
+                    var foundedItem = null;
+                    $.each(initialGroup.CompetencyAssessmentItem, function (i, item) {
+                        if (item.Id == subItemId) {
+                            foundedItem = item;
+                        }
+                    });
+
+                    return foundedItem;
+                }
+
+                var getEqualNestedSubItemFromInitialData = function (nestedItemId, initialsubItem) {
+
+                    if (initialsubItem == null) {
+                        return null;
+                    }
+                    var foundedItem = null;
+                    $.each(initialsubItem.CompetencyAssessmentChildItem, function (i, item) {
+                        if (item.Id == nestedItemId) {
+                            foundedItem = item;
+                        }
+                    });
+
+                    return foundedItem;
+                }
+
                 // Run initializer
                 base.init();
             };
 
-            $.rateBox.defaultOptions = {
-                rateData: rateData,
-                showStar: false
+            $.hys.rateBox.defaultOptions = {
+                hiddenContainerClass: 'form-group-assesment-note-select',
+                initialData: [],
+                showStar: false,
+                showSubItemValueOnLeft: false,
+                totalItemCount: 0,
+                animateOnHover: true,
+                onMainItemSelect: function (rateResult) {
+
+                },
+                onRateBoxLoaded: function () {
+
+                }
             };
 
-            $.fn.rateBox = function (options) {
+            $.fn.hys_rateBox = function (options) {
                 return this.each(function () {
-                    new $.rateBox(this, options);
-
+                    new $.hys.rateBox(this, options);
                 });
             };
 
         })(jQuery);
     </script>
+
 </body>
 </html>
-
